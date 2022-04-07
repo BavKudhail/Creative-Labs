@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
 });
 
 // Get Single Project
-router.get("/project/:id", withAuth, async (req, res) => {
+router.get("/project/:id", async (req, res) => {
   try {
     // get a single project
     const projectData = await Project.findOne({
