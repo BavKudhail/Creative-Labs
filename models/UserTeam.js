@@ -23,7 +23,7 @@ UserTeam.init(
     team_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Teams",
+        model: "teams",
         key: "id",
         unique: false,
       },
