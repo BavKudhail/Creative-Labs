@@ -3,41 +3,8 @@ const { Project, Team, User } = require("../models");
 const withAuth = require("../utils/auth.js");
 
 // home routes ( / )
-
-// Get All Projects
-router.get("/", async (req, res) => {
-  try {
-    // ==== @TODO - An error occurs when I { include: [User] } =====
-
-    // get all projects
-    const projectData = await Project.findAll();
-    // serialize the data
-    const projects = projectData.map((project) => project.get({ plain: true }));
-    // render data to front-end
-    res.json(projects);
-    // catch errors
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-
-// Get Single Project
-router.get("/project/:id", async (req, res) => {
-  try {
-    // get a single project
-    const projectData = await Project.findOne({
-      where: {
-        id: req.params.id,
-      },
-    });
-    // serialize the data
-    const project = projectData.get({ plain: true });
-    // render data to front end
-    res.json(project);
-    // catch errors
-  } catch (error) {
-    res.status(500).json(error);
-  }
+router.get("/", (req, res) => {
+  res.render("homepage");
 });
 
 // Login route
@@ -47,7 +14,7 @@ router.get("/login", (req, res) => {
     res.redirect("/dashboard");
     return;
   } else {
-    res.send("please login");
+    res.render("login");
   }
 });
 
@@ -58,8 +25,26 @@ router.get("/signup", (req, res) => {
     res.redirect("/dashboard");
     return;
   } else {
-    res.send("please signup");
+    res.render("signup");
   }
 });
+
+
+
+
+// @Function 
+// router.get("/", async (req, res) => {
+//   try {
+//     // get all users
+//     const userData = await User.findAll();
+//     // serialize the data
+//     const users = userData.map((user) => user.get({ plain: true }));
+//     // render the data
+//     res.json(users);
+//     // catch errors
+//   } catch (error) {
+//     res.status(500).send(error);
+//   }
+// });
 
 module.exports = router;

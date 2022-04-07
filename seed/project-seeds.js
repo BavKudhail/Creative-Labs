@@ -1,7 +1,7 @@
 const { Project } = require("../models");
 
 const projectData = [
-    // example project data
+  // example project data
   {
     title: "NFT Art Project",
     description:
@@ -28,6 +28,14 @@ const projectData = [
   },
   {
     title: "Build robot to solve all coding algorithms",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    data_created: "",
+    leader_name: "",
+    project_picture: "",
+  },
+  {
+    title: "Neuralink",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     data_created: "",

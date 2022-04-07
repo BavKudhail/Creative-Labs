@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-// api/user
+// api/user/
 
 // Get all users (This request is for debugging purposes)
 router.get("/", async (req, res) => {
