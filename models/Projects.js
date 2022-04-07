@@ -30,6 +30,7 @@ Project.init(
         key: "id",
       },
     },
+    // Where does this come from?
     leader_name: {
       type: DataTypes.STRING,
     },

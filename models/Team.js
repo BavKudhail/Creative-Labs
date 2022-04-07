@@ -29,7 +29,7 @@ Teams.init(
         key: "id",
       },
     },
-    project_picture: {
+    team_picture: {
       type: DataTypes.STRING,
     },
   },
@@ -38,7 +38,7 @@ Teams.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "project",
+    modelName: "teams",
   }
 );
 
