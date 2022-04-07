@@ -29,7 +29,7 @@ Teams.init(
         key: "id",
       },
     },
-    project_picture: {
+    team_picture: {
       type: DataTypes.STRING,
     },
   },
