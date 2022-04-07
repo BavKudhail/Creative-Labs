@@ -1,0 +1,135 @@
+/* background color for all the page */
+body{
+    background-color: #211134;
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+/* left div margin */
+.custom-left-div{
+    margin-top: 7%;
+}
+h2{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;    
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+h1{
+    margin-top:10%;
+    margin-bottom: 50px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 61px;
+    color: #FFFFFF;
+}
+.custom-right-div{
+    width: 80%;
+    height: 700px;
+    margin-top: 7%;
+    background: linear-gradient(180deg, #8245D6 0%, #6B90F3 100%);
+    border-radius: 30px;
+}
+.custom-title{
+    padding-top:10%;
+    font-variant: small-caps;
+}
+.custom-right-div img{
+    width:200%;
+    margin-top:30%;
+}
+button{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: #FFFFFF;
+    width: 221px;
+    height: 64px;
+    margin-bottom: 20px;
+    background: linear-gradient(97.19deg, #B973EA -9.32%, #672FBD 82.07%);
+    border-radius: 10px;
+    border-color:transparent;
+}
+.nav-wrapper{
+    background-color:#211134; ;
+}
+.nav-wrapper li{
+    margin-left:100px;
+}
+.brand-logo{
+    margin-left:10px;
+    color: #FFFFFF;
+    text-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
+}
+.custom-brand-logo{
+    color:#8245D6;
+}
+.custom-button{
+        font-size: 15px;
+        color: #FFFFFF;
+        width: 100px;
+        height: 35px;
+        background: linear-gradient(97.19deg, #B973EA 15%, #672FBD 82.07%);   
+        border-radius: 10px;
+        border-color: transparent;
+        margin-right:20px;
+}
+.custom-inputs{
+    width:40%;
+    color:white;
+    background-color: #371A59;
+    margin-top:10%;
+    border-radius:10px;
+    padding:20px;
+}
+.custom-option{
+    color:white;
+}
+.custom-upload+ label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+  #custom-role{
+      color:white;
+  }
+@media screen and (max-width: 1200px) {
+    h1,h2{
+        font-size:40px;
+     }
+     .custom-right-div{
+        height: 800px;
+     }
+}
+
+@media screen and (max-width: 650px) {
+    .custom-right-div{
+        height: 400px;
+        background: linear-gradient(180deg, #8245D6 0%, #6B90F3 50%);
+    }
+}
+
+@media screen and (max-width: 1400px) {
+.custom-right-div{
+    height: 1000px;
+ }
+}
+
