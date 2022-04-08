@@ -29,4 +29,13 @@ router.get("/signup", (req, res) => {
   }
 });
 
+// Create a new Project
+router.get("/create-project", async (req, res) => {
+  try {
+    res.render("create-project", { loggedIn: req.session.loggedIn });
+  } catch (error) {
+    // how to code this?
+  }
+});
+
 module.exports = router;

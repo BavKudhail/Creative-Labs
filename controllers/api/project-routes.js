@@ -21,7 +21,19 @@ router.get("/", async (req, res) => {
 });
 
 // Create a project
-// This is for future development
+router.post("/", async (req, res) => {
+  try {
+    console.log("post request sent");
+    // create a new project
+    const newProject = await Project.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+    res.json(newProject);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 // Update a project
 // This is for future development
