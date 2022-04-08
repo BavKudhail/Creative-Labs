@@ -23,14 +23,14 @@
         <form class="col s12">
             <div class="row">
                 <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
+                  <input id="username-input" type="text" class="validate">
                   <label for="email">Username</label>
                 </div>
               </div>
 
           <div class="row">
             <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
+              <input id="password-input" type="password" class="validate">
               <label for="password">Password</label>
             </div>
           </div>
@@ -39,7 +39,7 @@
 
     <div class="row container custom-signup-div">
       <div class="col s12">
-          <button> LOG IN </button>
+          <button id="login-button" class="btn waves-effect waves-light" type="submit" name="action"> LOG IN </button>
           <p>Don't have an account? <a href="/signup" class="custom-signup-link">SIGN UP</a></p>
 
       </div>
@@ -49,7 +49,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
-    <script src="./js/index.js"></script>
+    <script src="../javascript/login.js"></script>
     <script> 
      $(document).ready(function(){
           $('.sidenav').sidenav();
