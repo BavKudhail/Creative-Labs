@@ -29,22 +29,4 @@ router.get("/signup", (req, res) => {
   }
 });
 
-
-
-
-// @Function 
-// router.get("/", async (req, res) => {
-//   try {
-//     // get all users
-//     const userData = await User.findAll();
-//     // serialize the data
-//     const users = userData.map((user) => user.get({ plain: true }));
-//     // render the data
-//     res.json(users);
-//     // catch errors
-//   } catch (error) {
-//     res.status(500).send(error);
-//   }
-// });
-
 module.exports = router;

@@ -1,14 +1,7 @@
-{{!-- <h1>THIS IS THE DASHBOARD</h1>
-
-<div>
-  {{#each projects as |project|}}
-    <div>
-      {{project.title}}
-    </div>
-  {{/each}}
-</div> --}}
 
 
+
+{{!-- navbar --}}
  <nav>
         <div class="nav-wrapper">
           <a href="" class="brand-logo">CREATOR<span class="custom-brand-logo">LABS</span></a>
@@ -17,7 +10,13 @@
             <li><a href="">Home</a></li>
             <li><a href="">Dashboard</a></li>
             <li><a href="">Chat</a></li>
-            <li><button class="custom-button">LOGOUT</button></li>
+            {{#if loggedIn}}
+            <li><button id="logout-btn" class="btn custom-button">LOGOUT</button></li>
+            {{else}}
+            <li>
+              <a href="/login" class="btn custom-button">LOGIN</a>
+            </li>
+            {{/if}}
           </ul>
         </div>
         <ul class="sidenav" id="mobile-demo">
@@ -26,8 +25,11 @@
             <li><a href="">Chat</a></li>
             <li  class="purple lighten-4"><a href="">LOGOUT</a></li>
           </ul>
-     
       </nav>
+
+
+
+
 
 
       <div class="row container ">
@@ -161,6 +163,7 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="/javascript/logout.js"></script>
       <script src="/javascript/dashboard.js"></script>
       </body>
       </html>

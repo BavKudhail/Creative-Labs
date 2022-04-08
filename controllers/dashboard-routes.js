@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     // render data to front-end
     // res.json(projects);
     console.log(projects);
-    res.render("dashboard", { projects });
+    res.render("dashboard", { projects, loggedIn: req.session.loggedIn });
     // catch errors
   } catch (error) {
     res.status(500).json(error);
