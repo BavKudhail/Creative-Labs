@@ -1,4 +1,5 @@
- <nav>
+
+    <nav>
         <div class="nav-wrapper">
           <a href="" class="brand-logo">CREATOR<span class="custom-brand-logo">LABS</span></a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -34,9 +35,9 @@
               <label for="password">Password</label>
             </div>
           </div>
-          <div class="row custom-option">
+          <div class="row">
           <div class="input-field col s12">
-            <select id="custom-role">
+            <select>
               <option value="" >Choose your role </option>
               <option value="1">3D artist</option>
               <option value="2">Designer</option>
@@ -45,17 +46,20 @@
           </div>
         </div>
      <div class="upload-btn-wrapper">     
-        <button>Upload a file</button> 
+        <button>Upload a photo</button> 
          <input id="upload" type="file" onChange="handleImageUpload()" class="custom-upload"/>
         <img id="display-image" src="" />
     </div>
-  
-            
         </form>
-
     </div>
   
 
+    <div class="row container custom-signup-div">
+        <div class="col s12">
+            <button>SIGNUP</button>
+            <p>Already have an account? <a href="/login" class="custom-signup-link">LOG IN</a></p>
+        </div>
+    </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -85,4 +89,3 @@
     reader.readAsDataURL(image);
         } 
       </script>
-    
