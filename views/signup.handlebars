@@ -1,91 +1,81 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo">CREATOR<span
+        class="custom-brand-logo"
+      >LABS</span></a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
+        class="material-icons"
+      >menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="">Home</a></li>
+      <li><a href="">Dashboard</a></li>
+      <li><a href="">Chat</a></li>
+      <li><button class="custom-button">LOGIN</button></li>
+    </ul>
+  </div>
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="">Home</a></li>
+    <li><a href="">Dashboard</a></li>
+    <li><a href="">Chat</a></li>
+    <li class="purple lighten-4"><a href="">LOGOUT</a></li>
+  </ul>
 
-    <nav>
-        <div class="nav-wrapper">
-          <a href="" class="brand-logo">CREATOR<span class="custom-brand-logo">LABS</span></a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="">Home</a></li>
-            <li><a href="">Dashboard</a></li>
-            <li><a href="">Chat</a></li>
-            <li><button class="custom-button">LOGIN</button></li>
-          </ul>
-        </div>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="">Home</a></li>
-            <li><a href="">Dashboard</a></li>
-            <li><a href="">Chat</a></li>
-            <li  class="purple lighten-4"><a href="">LOGOUT</a></li>
-          </ul>
-     
-      </nav>
+</nav>
 
-
-      <div class="row container custom-inputs">
-        <form class="col s12">
-            <div class="row">
-                <div class="input-field col s12">
-                  <input id="username" type="text" class="validate">
-                  <label for="email">Username</label>
-                </div>
-              </div>
-
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
-            </div>
-          </div>
-          <div class="row">
-          <div class="input-field col s12" id="role">
-            <select>
-              <option value="" >Choose your role </option>
-              <option value="1">3D artist</option>
-              <option value="2">Designer</option>
-              <option value="3">Developer</option>
-            </select>
-          </div>
-        </div>
-     <div class="upload-btn-wrapper">     
-        <button>Upload a photo</button> 
-         <input id="upload picture_url" type="file" onChange="handleImageUpload()" class="custom-upload"/>
-        <img id="display-image" src="" />
-    </div>
-        </form>
-    </div>
-  
-
-    <div class="row container custom-signup-div">
-        <div class="col s12">
-            <button id="signup-form">SIGNUP</button>
-            <p>Already have an account? <a href="/login" class="custom-signup-link">LOG IN</a></p>
-        </div>
+<div class="row container custom-inputs">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="username" type="text" class="validate" />
+        <label for="email">Username</label>
+      </div>
     </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-    <script src="../js/signup.js"></script>
-    <script> 
-     $(document).ready(function(){
-          $('.sidenav').sidenav();
-        });
-        
-    $(document).ready(function(){
-         $('.slider').slider({height:350,indicators:false})
-    });
-    $(document).ready(function(){
-    $('select').formSelect();
-    });
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="password" type="password" class="validate" />
+        <label for="password">Password</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <select id="role">
+          <option value="">Choose your role </option>
+          <option value="3D Artist">3D artist</option>
+          <option value="Designer">Designer</option>
+          <option value="Developer">Developer</option>
+        </select>
+      </div>
+    </div>
+    {{!-- <div class="upload-btn-wrapper">
+      <button>Upload a photo</button>
+      <input
+        id="upload"
+        type="file"
+        onChange="handleImageUpload()"
+        class="custom-upload"
+      />
+      <img id="display-image" src="" />
+    </div> --}}
+  </form>
+</div>
 
+<div class="row container custom-signup-div">
+  <div class="col s12">
+    <button
+      id="sign-up-btn"
+      class="btn waves-effect waves-light"
+    >SIGNUP</button>
+    <p>Already have an account?
+      <a href="/login" class="custom-signup-link">LOG IN</a></p>
+  </div>
+</div>
 
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+></script>
 
-
-    function handleImageUpload()  {
-    var image = document.getElementById("upload").files[0];
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById("display-image").src = e.target.result;
-    }
-    reader.readAsDataURL(image);
-        } 
-      </script>
+<script src="/javascript/signup.js"></script>

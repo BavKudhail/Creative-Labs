@@ -41,6 +41,8 @@ User.init(
     picture_url: {
       type: DataTypes.STRING,
       allowNull: true,
+      // the default value is null
+      defaultValue: null,
     },
   },
   {
