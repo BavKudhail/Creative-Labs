@@ -132,7 +132,16 @@ input{
 .custom-link-profile{
     color:#B973EA;
 }
-
+.custom-card-div{
+  margin-top:3%;
+}
+.custom-card-image{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.custom-card-box{
+    border-radius: 15px;
+}
 @media screen and (max-width: 1200px) {
     h1,h2{
         font-size:40px;
