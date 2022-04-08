@@ -1,4 +1,4 @@
-    <nav>
+ <nav>
         <div class="nav-wrapper">
           <a href="" class="brand-logo">CREATOR<span class="custom-brand-logo">LABS</span></a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -34,14 +34,16 @@
               <label for="password">Password</label>
             </div>
           </div>
-         <button>LOGIN</button>
-    </div>
-  
-            
         </form>
-
     </div>
-  
+
+    <div class="row container custom-signup-div">
+      <div class="col s12">
+          <button> LOG IN </button>
+          <p>Don't have an account? <a href="/signup" class="custom-signup-link">SIGN UP</a></p>
+
+      </div>
+  </div>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -59,16 +61,4 @@
     $(document).ready(function(){
     $('select').formSelect();
     });
-
-
-
-
-    function handleImageUpload()  {
-    var image = document.getElementById("upload").files[0];
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById("display-image").src = e.target.result;
-    }
-    reader.readAsDataURL(image);
-        } 
-      </script>
+</script>
