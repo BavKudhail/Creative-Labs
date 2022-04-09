@@ -31,14 +31,6 @@ Project.init(
         key: "id",
       },
     },
-    // the creator of that project
-    creator_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
     // @TODO - HOW CAN WE REFERENCE THE CREATOR OF THE POST?
     // leader_name: {
     //   type: DataTypes.STRING,
