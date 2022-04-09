@@ -8,7 +8,7 @@
     <div class="card-content">
       {{! project title }}
       <span class="card-title activator grey-text text-darken-4">{{title}}<i
-          class="material-icons right"
+          class="material-icons right"".join-team-btn"
         >more_vert</i><i class="material-icons right">chat</i></span>
       {{! code this! }}
       <ul>
@@ -28,7 +28,9 @@
       <p>{{description}}</p>
     </div>
     <div>
-      <button id="join-team-btn" class="btn join-team-btn">JOIN TEAM</button>
+      <a href="/dashboard/{{id}}">
+        <button class="join-btn btn">VIEW MORE</button>
+      </a>
     </div>
   </div>
 </div>

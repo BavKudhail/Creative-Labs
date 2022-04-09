@@ -33,11 +33,26 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
+      include: [User],
     });
     // serialize the data
     const project = projectData.get({ plain: true });
+    // Find the current user
+    const currentUserData = await User.findOne({
+      where: {
+        username: req.session.username,
+      },
+    });
+    // serialize the data
+    const currentUser = currentUserData.get({ plain: true });
+    //
     // render data to front end
-    res.render("view-single-project");
+    res.render("view-project", {
+      project,
+      loggedIn: req.session.loggedIn,
+      username: req.session.username,
+      currentUser,
+    });
     // catch errors
   } catch (error) {
     res.status(500).json(error);
