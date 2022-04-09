@@ -31,10 +31,12 @@ Project.init(
         key: "id",
       },
     },
+
     // @TODO - HOW CAN WE REFERENCE THE CREATOR OF THE POST?
     // leader_name: {
     //   type: DataTypes.STRING,
     // },
+
     project_picture: {
       type: DataTypes.STRING,
     },

@@ -25,7 +25,7 @@ Teams.init(
     project_id: {
       type: DataTypes.INTEGER,
       references: {
-        mode: "project",
+        model: "project",
         key: "id",
       },
     },

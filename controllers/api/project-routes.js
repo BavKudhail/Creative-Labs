@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Project } = require("../../models");
+const { Project, User } = require("../../models");
 
 // api/projects
 
@@ -9,7 +9,9 @@ router.get("/", async (req, res) => {
     // ==== @TODO - An error occurs when I { include: [User] } =====
 
     // get all projects
-    const projectData = await Project.findAll();
+    const projectData = await Project.findAll({
+      include: [User],
+    });
     // serialize the data
     const projects = projectData.map((project) => project.get({ plain: true }));
     // render data to front-end

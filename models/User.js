@@ -44,6 +44,16 @@ User.init(
       // the default value is null
       defaultValue: null,
     },
+    // @TODO - TEST THIS OUT
+    // leader_id
+    //   leader_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: "user",
+    //       key: "id",
+    //     },
+    //     allowNull: true,
+    //   },
   },
   {
     hooks: {
