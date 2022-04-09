@@ -40,12 +40,19 @@ router.post("/", async (req, res) => {
 // Update a project
 router.put("/:id", async (req, res) => {
   try {
-    await Project.update(req.body, {
-      where: {
-        id: req.params.id,
+    const updateProject = await Project.update(
+      {
+        designers_needed: req.body.designers_needed,
+        developers_needed: req.body.developers_needed,
+        artist_needed: req.body.artist_needed,
       },
-    });
-    res.status(200).end();
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(updateProject);
   } catch (error) {
     res.status(500).json(error);
   }

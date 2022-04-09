@@ -1,7 +1,7 @@
 // DOM variable
 const joinTeamBtn = document.getElementById("join-team-btn");
 
-const joinTeam = (event) => {
+const joinTeam = async (event) => {
   event.preventDefault();
 
   //  get the current values of all of the roles
@@ -21,23 +21,75 @@ const joinTeam = (event) => {
 
   // if I am a designer and I join the chat, minus designer from the numbers
   if (myRole === "Designer") {
-    designers_needed = designers_needed - 1;
+    if (designers_needed === 0) {
+      console.log("We already have enough designers!");
+      return;
+    } else {
+      designers_needed = designers_needed - 1;
+      const updatedDesigners = await fetch("/api/project/:id", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // integer so not sure if needs stringifying?
+        body: JSON.stringify(designers_needed),
+      });
+      if (updatedDesigners.ok) {
+        window.location.reload();
+      }
+    }
   }
   // if I am a developer and I join the chat, minus developer from the numbers
   if (myRole === "Developer") {
-    developers_needed = developers_needed - 1;
+    if (developers_needed === 0) {
+      console.log("We already have enough developers!");
+      return;
+    } else {
+      developers_needed = developers_needed - 1;
+      const updatedDevelopers = await fetch("/api/project/:id", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // integer so not sure if needs stringifying?
+        body: JSON.stringify(developers_needed),
+      });
+      if (updatedDevelopers.ok) {
+        window.location.reload();
+      }
+    }
   }
   // if I am an artist and I join the chat, minus the artist from the numbers
   if (myRole === "3D Artist") {
-    artist_needed = artist_needed - 1;
+    if (artist_needed === 0) {
+      console.log("We already have enough artists!");
+      return;
+    } else {
+      artist_needed = artist_needed - 1;
+      const updatedArtists = await fetch("/api/project/:id", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(artist_needed),
+      });
+      if (updatedArtists.ok) {
+        window.location.reload();
+      }
+    }
   }
+
+  //if ((artist_needed === 0) && (developers_needed === 0) && (designers_needed === 0)) {
+  //close team
+  //render new card to say this team is closed?
+  //}
 
   // send an PUT request to update the database
 
-  console.log(designers_needed);
-  console.log(developers_needed);
-  console.log(artist_needed);
-  console.log(myRole);
+  // console.log(designers_needed);
+  // console.log(developers_needed);
+  // console.log(artist_needed);
+  // console.log(myRole);
 };
 
 joinTeamBtn.addEventListener("click", joinTeam);
