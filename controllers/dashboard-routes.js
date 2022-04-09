@@ -9,9 +9,9 @@ router.get("/", async (req, res) => {
   try {
     // get all projects
     const projectData = await Project.findAll({
-      // include: {
-      //   model: User,
-      // },
+      include: {
+        model: User,
+      },
     });
     // serialize the data
     const projects = projectData.map((project) => project.get({ plain: true }));

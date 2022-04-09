@@ -53,7 +53,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       // if response success redirect the user to their profile
       console.log("response is successful");
-      document.location.replace("/profile");
+      document.location.replace("/login");
     } else {
       alert(response.statusText);
     }
