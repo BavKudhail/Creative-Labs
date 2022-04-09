@@ -1,7 +1,6 @@
 const User = require("./User");
 const Project = require("./Projects");
 const Team = require("./Team");
-// const UserProject = require("./UserProject");
 const UserTeam = require("./UserTeam");
 
 // A user can have many projects

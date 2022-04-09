@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Project, User } = require("../../models");
 
-// api/projects
+// api/project
 
 // Get all projects (This is for debugging purposes)
 router.get("/", async (req, res) => {
@@ -38,9 +38,31 @@ router.post("/", async (req, res) => {
 });
 
 // Update a project
-// This is for future development
+router.put("/:id", async (req, res) => {
+  try {
+    await Project.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).end();
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 // Delete a project
-// This is for future development
+router.delete("/:id", async (req, res) => {
+  try {
+    await Project.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).end();
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 module.exports = router;

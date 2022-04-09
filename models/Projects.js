@@ -31,14 +31,22 @@ Project.init(
         key: "id",
       },
     },
-
-    // @TODO - HOW CAN WE REFERENCE THE CREATOR OF THE POST?
-    // leader_name: {
-    //   type: DataTypes.STRING,
-    // },
-
+    // roles required
+    developers_needed: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    designers_needed: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    artist_needed: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
     project_picture: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {

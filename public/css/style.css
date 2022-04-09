@@ -112,6 +112,7 @@ button {
   background-color: black;
   display: inline-block;
 }
+
 .upload-btn-wrapper {
   position: relative;
   overflow: hidden;

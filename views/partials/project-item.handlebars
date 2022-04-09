@@ -12,9 +12,9 @@
         >more_vert</i><i class="material-icons right">chat</i></span>
       {{! code this! }}
       <ul>
-        <li>1 designer required</li>
-        <li>2 programmers required</li>
-        <li>3 3D artists required</li>
+        <li>{{designers_needed}} designers required</li>
+        <li>{{developers_needed}} programmers required</li>
+        <li>{{artist_needed}} artists required</li>
       </ul>
       {{! link to user profile }}
       <p><a href="#" class="custom-link-profile">Posted by &nbsp
@@ -26,6 +26,9 @@
         >close</i></span>
       {{! project description }}
       <p>{{description}}</p>
+    </div>
+    <div>
+      <button id="join-team-btn" class="btn join-team-btn">JOIN TEAM</button>
     </div>
   </div>
 </div>

@@ -2,9 +2,18 @@
 const projectForm = document.querySelector("#project-form");
 const submitBtn = document.querySelector(".submit-btn");
 
-// comment form handler
+// project form handler
 const projectFormHandler = async (event) => {
   event.preventDefault();
+
+  // place roles into variables
+  const developers_needed = document.getElementById("developers_needed").value;
+  const designers_needed = document.getElementById("designers_needed").value;
+  const artist_needed = document.getElementById("artist_needed").value;
+
+  console.log(designers_needed);
+  console.log(artist_needed);
+  console.log(developers_needed);
 
   // Place new post title and content into variables
   const title = document.querySelector("#new-project-title").value;
@@ -19,6 +28,9 @@ const projectFormHandler = async (event) => {
       body: JSON.stringify({
         title,
         description,
+        developers_needed,
+        designers_needed,
+        artist_needed,
       }),
       headers: {
         "Content-Type": "application/json",
