@@ -19,7 +19,8 @@ const joinTeam = async (event) => {
   // get the current role of the user
   const myRole = document.getElementById("my-role").innerText;
 
-  // if I am a designer and I join the chat, minus designer from the numbers
+  // if I am a designer and I join the team, minus designer from the numbers
+  // only do so if current number of designers is more than 0
   if (myRole === "Designer") {
     if (designers_needed === 0) {
       console.log("We already have enough designers!");
@@ -39,7 +40,7 @@ const joinTeam = async (event) => {
       }
     }
   }
-  // if I am a developer and I join the chat, minus developer from the numbers
+  // if I am a developer and I join the team, minus developer from the numbers
   if (myRole === "Developer") {
     if (developers_needed === 0) {
       console.log("We already have enough developers!");
@@ -59,7 +60,7 @@ const joinTeam = async (event) => {
       }
     }
   }
-  // if I am an artist and I join the chat, minus the artist from the numbers
+  // if I am an artist and I join the team, minus the artist from the numbers
   if (myRole === "3D Artist") {
     if (artist_needed === 0) {
       console.log("We already have enough artists!");

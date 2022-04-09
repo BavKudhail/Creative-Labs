@@ -6,8 +6,6 @@ const { Project, User } = require("../../models");
 // Get all projects (This is for debugging purposes)
 router.get("/", async (req, res) => {
   try {
-    // ==== @TODO - An error occurs when I { include: [User] } =====
-
     // get all projects
     const projectData = await Project.findAll({
       include: [User],
@@ -42,17 +40,20 @@ router.put("/:id", async (req, res) => {
   try {
     const updateProject = await Project.update(
       {
+        //specify parameters that can be updated
         designers_needed: req.body.designers_needed,
         developers_needed: req.body.developers_needed,
         artist_needed: req.body.artist_needed,
       },
       {
+        //update project according to ID
         where: {
           id: req.params.id,
         },
       }
     );
     res.status(200).json(updateProject);
+    //res.render("chat") <--- can PUT request update the team numbers still needed and then render the next page?
   } catch (error) {
     res.status(500).json(error);
   }
