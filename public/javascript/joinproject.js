@@ -10,7 +10,7 @@ const joinTheProject = async (event) => {
   console.log("clicked");
 };
 
-joinBtn.addEventListener("click", joinTheProject);
+// joinBtn.addEventListener("click", joinTheProject);
 
 // When a user clicks join the chat
 // Get the values of that project that was clicked on -

@@ -9,7 +9,7 @@ const seedAll = async () => {
     // seed user, team and project data
   await sequelize.sync({ force: true });
   await seedUsers();
-  await seedTeams();
+  // await seedTeams();
   await seedProjects();
   process.exit(0);
 };
