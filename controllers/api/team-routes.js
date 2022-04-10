@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Team } = require("../../models");
+const { Team, User, Project } = require("../../models");
 
 // api/team
 
@@ -7,7 +7,7 @@ const { Team } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     // get all users
-    const teamData = await Team.findAll();
+    const teamData = await Team.findAll({});
     // serialize the data
     const teams = teamData.map((team) => team.get({ plain: true }));
     // render the data
@@ -17,8 +17,5 @@ router.get("/", async (req, res) => {
     res.status(500).send(error);
   }
 });
-
-// Create a new team
-// This is for future development
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Project } = require("../../models");
 
 // api/user/
 
@@ -7,7 +7,9 @@ const { User } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     // get all users
-    const userData = await User.findAll();
+    const userData = await User.findAll({
+      include: [Project],
+    });
     // serialize the data
     const users = userData.map((user) => user.get({ plain: true }));
     // render the data

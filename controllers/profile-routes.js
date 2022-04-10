@@ -5,12 +5,17 @@ const withAuth = require("../utils/auth.js");
 // /profile
 router.get("/", async (req, res) => {
   try {
-    const userProfile = await User.findOne({
+    // find the current logged in user
+    const userData = await User.findOne({
       where: {
-        id: req.session.id,
+        username: req.session.username,
       },
+      include: [Project],
     });
-    res.render("my-user-profile");
+    // serialize the data
+    const user = userData.get({ plain: true });
+    // render the data to the front-end
+    res.render("my-user-profile", { user });
   } catch (error) {
     res.status(500).json(error);
   }
