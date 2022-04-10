@@ -60,7 +60,6 @@ router.put("/:id", async (req, res) => {
       }
     );
     res.status(200).json(updateProject);
-    //res.render("chat") <--- can PUT request update the team numbers still needed and then render the next page?
   } catch (error) {
     res.status(500).json(error);
   }
