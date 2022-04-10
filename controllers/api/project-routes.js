@@ -1,15 +1,14 @@
 const router = require("express").Router();
-const { Project, User, Team } = require("../../models");
+const { Project, User } = require("../../models");
 
 // api/project
 
-// Get all projects (This is for debugging purposes)
+// Get all projects
 router.get("/", async (req, res) => {
   try {
     // get all projects
     const projectData = await Project.findAll({
       include: [User],
-      include: [Team],
     });
     // serialize the data
     const projects = projectData.map((project) => project.get({ plain: true }));
@@ -27,10 +26,17 @@ router.post("/", async (req, res) => {
     console.log("post request sent");
     // create a new project
     const newProject = await Project.create({
-      ...req.body,
+      title: req.body.title,
+      description: req.body.description,
+      developers_needed: req.body.developers_needed,
+      designers_needed: req.body.designers_needed,
+      artist_needed: req.body.artist_needed,
+      // user_id = current logged in users session
       user_id: req.session.user_id,
     });
+    //
     res.json(newProject);
+    // then create a new team for that project
   } catch (error) {
     res.status(500).json(error);
   }

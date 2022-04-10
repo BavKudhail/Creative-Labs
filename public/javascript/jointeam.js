@@ -79,18 +79,6 @@ const joinTeam = async (event) => {
       }
     }
   }
-
-  //if ((artist_needed === 0) && (developers_needed === 0) && (designers_needed === 0)) {
-  //close team
-  //render new card to say this team is closed?
-  //}
-
-  // send an PUT request to update the database
-
-  // console.log(designers_needed);
-  // console.log(developers_needed);
-  // console.log(artist_needed);
-  // console.log(myRole);
 };
 
 joinTeamBtn.addEventListener("click", joinTeam);

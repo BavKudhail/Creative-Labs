@@ -1,1 +1,34 @@
 <h1>VIEW USER PROFILE</h1>
+
+<h1>projects I have built</h1>
+  {{! insert projects I have built here }}
+  <div class="row container">
+    {{#each user.projects}}
+      <div>
+        <h4>{{title}}</h4>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+<div>
+  <h5>My Picture</h5>
+  <div>
+    <img src="https://via.placeholder.com/150" alt="" />
+  </div>
+  <h5>Username</h5>
+  <div>{{user.username}}</div>
+  <h5>My Role</h5>
+  <div>{{user.role}}</div>
+  <h5>My Projects</h5>
+
+  {{! loop through projects }}
+  <div class="row container">
+    {{#each user.projects}}
+      <div>
+        {{title}}
+      </div>
+    {{/each}}
+  </div>
+</div>
+

@@ -5,19 +5,24 @@ class Project extends Model {}
 
 Project.init(
   {
+    // id
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
+    // title
     title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // description
     description: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
+    // data_created
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -31,7 +36,7 @@ Project.init(
         key: "id",
       },
     },
-    // roles required
+    // all of the roles required
     developers_needed: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -44,6 +49,7 @@ Project.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
+    // project picture (this is optional)
     project_picture: {
       type: DataTypes.STRING,
       allowNull: true,

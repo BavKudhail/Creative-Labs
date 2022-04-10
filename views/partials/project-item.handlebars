@@ -9,7 +9,7 @@
       {{! project title }}
       <span class="card-title activator grey-text text-darken-4">{{title}}<i
           class="material-icons right"".join-team-btn"
-        >more_vert</i><i class="material-icons right">chat</i></span>
+        >more_vert</i></span>
       {{! code this! }}
       <ul>
         <li>{{designers_needed}} designers required</li>
@@ -17,8 +17,12 @@
         <li>{{artist_needed}} artists required</li>
       </ul>
       {{! link to user profile }}
-      <p><a href="#" class="custom-link-profile">Posted by &nbsp
-          {{user.username}}</a></p>
+      <p>
+        {{!-- when you click this link you get sent to that users profile --}}
+          <a href="/profile/{{user_id}}" class="custom-link-profile">Posted by &nbsp
+          {{user.username}}
+          </a>
+        </p>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">Description<i
@@ -26,11 +30,15 @@
         >close</i></span>
       {{! project description }}
       <p>{{description}}</p>
+      {{!-- join team --}}
+      <div>
+        {{!-- when the user clicks button they are tken to the chat --}}
+        <a href="dashboard/chat/{{id}}">
+          <button id="join-team-btn" class="btn">JOIN THE PROJECT <span>{{team.name}}</span> <i class="material-icons right">chat</i></button>
+        </a>
+      </div>
     </div>
     <div>
-      <a href="/dashboard/{{id}}">
-        <button class="join-btn btn">VIEW MORE</button>
-      </a>
     </div>
   </div>
 </div>

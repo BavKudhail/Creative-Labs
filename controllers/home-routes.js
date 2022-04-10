@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Project, Team, User } = require("../models");
+const { Project,  User } = require("../models");
 const withAuth = require("../utils/auth.js");
 
 // home routes ( / )

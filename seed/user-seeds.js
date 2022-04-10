@@ -5,32 +5,17 @@ const userData = [
   {
     username: "Bav",
     password: "password",
-    role: "3D Artist",
-    picture_url: "",
+    role: "Designer",
   },
   {
     username: "Nadine",
     password: "password",
     role: "Developer",
-    picture_url: "",
   },
   {
     username: "Emily",
     password: "password",
-    role: "Developer",
-    picture_url: "",
-  },
-  {
-    username: "Dan",
-    password: "password",
-    role: "Designer",
-    picture_url: "",
-  },
-  {
-    username: "Sam",
-    password: "password",
-    role: "Designer",
-    picture_url: "",
+    role: "3D Artist",
   },
 ];
 

@@ -10,7 +10,9 @@ const projectFormHandler = async (event) => {
   const developers_needed = document.getElementById("developers_needed").value;
   const designers_needed = document.getElementById("designers_needed").value;
   const artist_needed = document.getElementById("artist_needed").value;
+  const team_name = document.getElementById("team_name").value;
 
+  console.log(team_name);
   console.log(designers_needed);
   console.log(artist_needed);
   console.log(developers_needed);
@@ -37,7 +39,18 @@ const projectFormHandler = async (event) => {
       },
     });
     if (response.ok) {
-      // redirect user to dashboard
+      // if the response is successful - create a team for that project
+
+      const response = await fetch("/api/team", {
+        method: "POST",
+        body: JSON.stringify({
+          team_name,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
       document.location.replace("/dashboard");
     } else {
       // else alert
