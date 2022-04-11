@@ -1,6 +1,11 @@
 // socket.io script tag in chat.handlebars gives us access to this function
 const socket = io();
 
+// Get message from server side and display to front-end
+socket.on("message", (message) => {
+  console.log(message);
+});
+
 // get project ID
 const project_id = document.getElementById("project-id").innerText;
 

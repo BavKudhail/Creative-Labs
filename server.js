@@ -28,6 +28,20 @@ const io = socketio(server);
 // When a user connects to the chat page run execute function
 io.on("connection", (socket) => {
   console.log("user has connected to the chat");
+
+  // Welcome current user to the chat
+  socket.emit("message", "Welcome! Say Hello!");
+
+  // Send a message to the user upon connection
+  // broadcast.emit or socket.emit???
+  // To all connected clients except the sender <<<< from socket.io docs
+  socket.broadcast.emit("message", "USERNAME has joined the chat!");
+
+  // Runs when the client disconnects
+  socket.on("disconnect", () => {
+    // send a message to all of the users that the user has left the chat
+    io.emit("message", "USERNAME has left the chat!");
+  });
 });
 
 // Set up Handlebars.js engine with custom helpers
