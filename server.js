@@ -14,12 +14,21 @@ const helpers = require("./utils/helpers");
 const sequelize = require("./config/connection");
 // sequelize store
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-// socket I.O 
-
-
+// http
+const http = require("http");
+// socket.io
+const socketio = require("socket.io");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+// create our http server - pass into express app
+const server = http.createServer(app);
+const io = socketio(server);
+
+// When a user connects to the chat page run execute function
+io.on("connection", (socket) => {
+  console.log("user has connected to the chat");
+});
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
@@ -46,6 +55,14 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
+// sequelize.sync({ force: false }).then(() => {
+//   app.listen(PORT, () => console.log("Now listening on http://localhost:3001"));
+// });
+
+// In order to use socket.IO replace app.listen with server.listen.
+
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log("Now listening on http://localhost:3001"));
+  server.listen(PORT, () =>
+    console.log("Now listening on http://localhost:3001")
+  );
 });
