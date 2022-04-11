@@ -11,9 +11,9 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_NAME,
     // "creatives_db",
     process.env.DB_USER,
-    //"root",
+    // "root",
     process.env.DB_PW,
-    //"",
+    // "",
     {
       host: "localhost",
       dialect: "mysql",

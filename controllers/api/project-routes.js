@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Project, User } = require("../../models");
+const { Project, User, Team, UserTeam } = require("../../models");
 
 // api/project
 
@@ -34,7 +34,15 @@ router.post("/", async (req, res) => {
       // user_id = current logged in users session
       user_id: req.session.user_id,
     });
-    //
+    // Then, Create a team for that project
+    const newTeam = await Team.create({
+      ...req.body,
+      // set the user Id and team name
+      team_name: "Team " + newProject.title,
+      user_id: req.session.user_id,
+      project_id: newProject.id,
+      //   how to add a user to this team?
+    });
     res.json(newProject);
     // then create a new team for that project
   } catch (error) {

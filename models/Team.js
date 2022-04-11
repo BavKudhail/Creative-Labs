@@ -12,12 +12,10 @@ Team.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // team_name
     team_name: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
-    // user_id - references userId
+    // user ID
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -25,7 +23,7 @@ Team.init(
         key: "id",
       },
     },
-    // project_id - references projectId
+    // project ID
     project_id: {
       type: DataTypes.INTEGER,
       references: {

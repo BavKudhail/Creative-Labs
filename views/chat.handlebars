@@ -1,15 +1,23 @@
 <h1>THIS IS THE CHAT PAGE</h1>
 
 
-<h5>{{project.title}}</h5>
+<h5>{{title}}</h5>
   <H5>DESCRIPTION HERE</H5>
-  <div>{{project.description}}</div>
-
+  <div>{{description}}</div>
   {{! TEAM LEADER }}
   <H5>TEAM LEADER HERE</H5>
-  <div>{{project.user.username}}</div>
+  <div>{{user.username}}</div>
   <H5>TEAM LEADER ROLE</H5>
-  <div>{{project.user.role}}</div>
+  <div>{{user.role}}</div>
+  <H5>PROJECT NAME</H5>
+  <div>{{title}}</div>
+  <H1>PROJECT ID</H1>
+  <h1 id="project-id">{{id}}</h1>
+  
+  
 </div>
 
 
+<button class="btn" id="join-btn">Join Team</button>
+
+<script src="/javascript/chat.js"></script>

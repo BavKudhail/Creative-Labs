@@ -41,15 +41,15 @@ const projectFormHandler = async (event) => {
     if (response.ok) {
       // if the response is successful - create a team for that project
 
-      const response = await fetch("/api/team", {
-        method: "POST",
-        body: JSON.stringify({
-          team_name,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      // const response = await fetch("/api/team", {
+      //   method: "POST",
+      //   body: JSON.stringify({
+      //     team_name,
+      //   }),
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // });
 
       document.location.replace("/dashboard");
     } else {

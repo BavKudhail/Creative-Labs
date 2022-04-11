@@ -1,15 +1,12 @@
 // Requiring all of our Models
 const User = require("./User");
 const Project = require("./Projects");
-// const Team = require("./Team");
-// const UserTeam = require("./UserTeam");
-
-// Establishing our Associations
+const Team = require("./Team");
+const UserTeam = require("./UserTeam");
 
 // A user can have many projects
 User.hasMany(Project, {
   foreignKey: "user_id",
-  // When you delete User, delete all projects associated with that User
   onDelete: "CASCADE",
 });
 
@@ -19,45 +16,25 @@ Project.belongsTo(User, {
   onDelete: "CASCADE",
 });
 
-// A project has one team
+// When the user clicks join this project,
+// We display a message on the users screen that they have joined that project
 
-// Project.hasOne(Team, {
-//   foreignKey: "project_id",
-//   onDelete: "CASCADE",
-// });
+// Team X Project
+Team.belongsTo(Project, {
+  foreignKey: "project_id",
+  onDelete: "CASCADE",
+});
 
-// A team belongs to that project
+Team.belongsToMany(User, {
+  through: UserTeam,
+  unique: false,
+});
 
-// Team.belongsTo(Project, {
-//   foreignKey: "project_id",
-//   onDelete: "CASCADE",
-// });
+User.belongsToMany(Team, {
+  through: UserTeam,
+  unique: false,
+});
 
-// Below are many-to-many relationships
+// Each team has many users?
 
-// A team can have many users
-// Team.belongsToMany(User, {
-//   through: {
-//     // this creates the junction table
-//     model: UserTeam,
-//     unique: false,
-//     foreignKey: "team_id",
-//     onDelete: "CASCADE",
-//   },
-//   as: "team_users",
-// });
-
-// A user can have many teams
-// User.belongsToMany(Team, {
-//   through: {
-//     model: UserTeam,
-//     unique: false,
-//     foreignKey: "user_id",
-//     onDelete: "CASCADE",
-//   },
-//   as: "user_teams",
-// });
-
-// junction table "FOLLOW"
-
-module.exports = { User, Project };
+module.exports = { User, Project, Team, UserTeam };

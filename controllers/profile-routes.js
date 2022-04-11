@@ -41,13 +41,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+
+
 module.exports = router;
-
-// when the user clicks on join a project
-// then
-// that projects appears on that users profile page 
-
-// how will this work?
-// we will have to send a POST request 
-// create a post request and add it to the users profile page
-// simply change the user ID of that of our user
