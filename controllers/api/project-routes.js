@@ -52,6 +52,7 @@ router.post("/", async (req, res) => {
 });
 
 // Update a project
+//THIS ROUTE WORKS IN INSOMNIA
 router.put("/:id", async (req, res) => {
   try {
     const updateProject = await Project.update(
