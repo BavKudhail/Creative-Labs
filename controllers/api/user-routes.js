@@ -1,13 +1,35 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Project, Team } = require("../../models");
 
-// api/user
+// api/user/
 
 // Get all users (This request is for debugging purposes)
 router.get("/", async (req, res) => {
   try {
     // get all users
-    const userData = await User.findAll();
+    const userData = await User.findAll({
+      include: [Project, Team],
+    });
+
+    // serialize the data
+    const users = userData.map((user) => user.get({ plain: true }));
+
+    // render the data
+    res.json(users);
+
+    // catch errors
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+/// Get all users with teams (This request is for debugging purposes)
+router.get("/team", async (req, res) => {
+  try {
+    // get all users
+    const userData = await User.findAll({
+      include: [Team],
+    });
     // serialize the data
     const users = userData.map((user) => user.get({ plain: true }));
     // render the data
@@ -26,7 +48,7 @@ router.post("/", async (req, res) => {
       username: req.body.username,
       password: req.body.password,
       role: req.body.role,
-      picture_url: req.body.picture_url,
+      // picture_url: req.body.picture_url,
     });
     // save user session
     req.session.save(() => {

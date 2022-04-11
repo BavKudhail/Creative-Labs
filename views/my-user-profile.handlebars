@@ -1,0 +1,36 @@
+<a href="/dashboard"><button class="btn">View Others Projects!</button></a>
+{{! build your own project route }}
+<a href="/create-project"><button class="btn">Create My Own!</button></a>
+
+<div>
+  <h1>My Projects</h1>
+</div>
+
+<div>
+  <h4 class="white-text">My Teams</h4>
+  {{!-- insert my teams below here --}}
+  
+</div>
+
+  {{! insert projects I have built here }}
+  <div class="row container profile-projects">
+    {{#each user.projects}}
+      <div>
+        <h4>{{title}}</h4>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+<div class="profile-projects">
+  <h5>My Picture</h5>
+  <div>
+    <img src="https://via.placeholder.com/150" alt="" />
+  </div>
+  <h5>Username</h5>
+  <div>{{user.username}}</div>
+  <h5>My Role</h5>
+  <div>{{user.role}}</div>
+</div>
+
+<script src="/javascript/joinproject.js"></script>

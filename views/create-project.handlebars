@@ -1,0 +1,56 @@
+{{! header }}
+<header>
+  <div class="m-10">
+    <div class="flex justify-center items-center text-center">
+      <div>
+        <h1 class="hero-section">Create a new post</h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+{{! creating a new post }}
+<div class="form-container justify-center items-center lg:mx-44">
+  <form id="project-form" class="" action="">
+    <input type="hidden" value="{{post.id}}" />
+    <div class="p-10">
+      <div class="flex justify-center input-box">
+        <input
+          id="new-project-title"
+          class="input-field"
+          placeholder="Title: "
+          type="text"
+        />
+      </div>
+      <div class="flex justify-center">
+        <textarea
+          name=""
+          placeholder="Type content here: "
+          id="new-project-description"
+          cols="30"
+          rows="10"
+          class="input-field"
+        ></textarea>
+      </div>
+      {{! roles required }}
+      <div>
+        <h2>Developers Needed?</h2>
+        <input id="developers_needed" type="number" />
+      </div>
+      <div>
+        <h2>Designers Needed?</h2>
+        <input id="designers_needed" type="number" />
+      </div>
+      <div>
+        <h2>Artist Needed?</h2>
+        <input id="artist_needed" type="number" />
+      </div>
+      {{!  }}
+      <div class="flex justify-center mt-5">
+        <button class="btn">Create Post</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="/javascript/newproject.js"></script>

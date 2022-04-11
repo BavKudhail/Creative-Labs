@@ -1,0 +1,48 @@
+{{!-- navbar --}}
+ <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo">CREATOR<span class="custom-brand-logo">LABS</span></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="">Home</a></li>
+            <li><a href="">Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
+            {{#if loggedIn}}
+            <li><button id="logout-btn" class="btn custom-button">LOGOUT</button></li>
+            {{else}}
+            <li>
+              <a href="/login" class="btn custom-button">LOGIN</a>
+            </li>
+            {{/if}}
+          </ul>
+        </div>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="">Home</a></li>
+            <li><a href="">Dashboard</a></li>
+            <li><a href="">Chat</a></li>
+            <li  class="purple lighten-4"><a href="">LOGOUT</a></li>
+          </ul>
+      </nav>
+{{!-- main body --}}
+<div>
+  <h2 class="center-align">Check out what others are building!</h2>
+  <h4 class="center-align white-text ">Join in on the conversation!</h4>
+</div>
+{{!--  --}}
+<main>
+  <div class="row container">
+    {{#each projects as |project|}}
+<div >
+  {{> project-item project}}
+</div>
+{{/each}}
+  </div>
+</main>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="/javascript/logout.js"></script>
+      <script src="/javascript/dashboard.js"></script>
+      {{!--  --}}
+      <script src="/javascript/joinproject.js"></script>
+      </body>
+      </html>

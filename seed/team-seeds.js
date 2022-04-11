@@ -1,29 +1,18 @@
 const { Team } = require("../models");
 
 const teamData = [
-    // example team data
+  // example project data
   {
-    team_name: "Blockchain Beasts",
-    team_picture: "",
+    team_name: "team_one",
   },
   {
-    team_name: "NFT Ninjas",
-    team_picture: "",
+    team_name: "team_two",
   },
   {
-    team_name: "Database Duo",
-    team_picture: "",
-  },
-  {
-    team_name: "Backend Badboys",
-    team_picture: "",
-  },
-  {
-    team_name: "Apple Architects",
-    team_picture: "",
+    team_name: "team_three",
   },
 ];
 
-const seedTeams = () => Team.bulkCreate(teamData);
+const seedTeam = () => Team.bulkCreate(teamData);
 
-module.exports = seedTeams;
+module.exports = seedTeam;

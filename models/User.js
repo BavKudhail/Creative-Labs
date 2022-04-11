@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
+// bcrypt for ecrypting passwords
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
@@ -13,12 +14,12 @@ class User extends Model {
 User.init(
   // Define model attributes
   {
-    //   user ID
+    //   user id
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
     // user username
     username: {
@@ -34,16 +35,21 @@ User.init(
         len: [8],
       },
     },
+    // user role
     role: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // picture URL
     picture_url: {
       type: DataTypes.STRING,
       allowNull: true,
+      // the default value is null
+      defaultValue: null,
     },
   },
   {
+    // hooks
     hooks: {
       // before
       beforeCreate: async (newUserData) => {
@@ -61,7 +67,7 @@ User.init(
       },
     },
     // Further model options
-    sequelize: sequelize,
+    sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,

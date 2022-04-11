@@ -1,0 +1,52 @@
+<div class="col s12 m6 l4 custom-card-div">
+  <div class="card custom-card-box">
+    <div
+      class="card-image waves-effect waves-block waves-light custom-card-image"
+    >
+      <img class="activator" src="./images/example.png" />
+    </div>
+    <div class="card-content">
+      {{! project title }}
+      <span class="card-title activator grey-text text-darken-4">{{title}}<i
+          class="material-icons right"".join-team-btn"
+        >more_vert</i></span>
+      {{! code this! }}
+      <ul>
+        <li>{{designers_needed}} designers required</li>
+        <li>{{developers_needed}} programmers required</li>
+        <li>{{artist_needed}} artists required</li>
+      </ul>
+      {{! link to user profile }}
+      <p>
+        {{!-- when you click this link you get sent to that users profile --}}
+          <a href="/profile/{{user_id}}" class="custom-link-profile">Posted by &nbsp
+          {{user.username}}
+          </a>
+        </p>
+        
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Description<i
+          class="material-icons right"
+        >close</i></span>
+      {{! project description }}
+      <p>{{description}}</p>
+      {{!-- added members required and current role for testing --}}
+      <ul>
+        <li><span id="designers_needed">{{designers_needed}}</span> designers required</li>
+        <li><span id="developers_needed">{{developers_needed}}</span> programmers required</li>
+        <li><span id="artist_needed">{{artist_needed}}</span> artists required</li>
+      </ul>
+      {{!-- hard coded role for now in order to test --}}
+      <div>
+        {{!-- when the user clicks button they are tken to the chat --}}
+        {{!-- commented out for testing- need to render a page via js --}}
+        <a href="dashboard/chat/{{id}}">
+          <button id="join-team-btn" class="btn">JOIN THE PROJECT <span>{{team.name}}</span> <i class="material-icons right">chat</i></button>
+        </a>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+</div>

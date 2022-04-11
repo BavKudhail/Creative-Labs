@@ -1,59 +1,40 @@
+// Requiring all of our Models
 const User = require("./User");
 const Project = require("./Projects");
 const Team = require("./Team");
-const UserProject = require("./UserProject");
 const UserTeam = require("./UserTeam");
 
-// user/project = many to many?
-// one user can work on many projects/each project has many users
-User.belongsToMany(Project, {
-  through: {
-    model: UserProject,
-    unique: false,
-    foreignKey: "user_id",
-    onDelete: "CASCADE",
-  },
-  as: "user_projects",
+// A user can have many projects
+User.hasMany(Project, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
 });
 
-Project.belongsToMany(User, {
-  through: {
-    model: UserProject,
-    unique: false,
-    foreignKey: "project_id",
-  },
-  as: "project_users",
+// A project always belong to a specific user that created it
+Project.belongsTo(User, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
 });
 
-// user/team = many to many
-// each user can belong to many teams, and each team has many users
-User.belongsToMany(Team, {
-  through: {
-    model: UserTeam,
-    unique: false,
-    foreignKey: "user_id",
-    onDelete: "CASCADE",
-  },
-  as: "user_teams",
+// When the user clicks join this project,
+// We display a message on the users screen that they have joined that project
+
+// Team X Project
+Team.belongsTo(Project, {
+  foreignKey: "project_id",
+  onDelete: "CASCADE",
 });
 
 Team.belongsToMany(User, {
-  through: {
-    model: UserTeam,
-    unique: false,
-    foreignKey: "team_id",
-    onDelete: "CASCADE",
-  },
-  as: "team_users",
+  through: UserTeam,
+  unique: false,
 });
 
-// project/team = one to one
-Project.hasOne(Team, {
-  foreignKey: "project_id",
+User.belongsToMany(Team, {
+  through: UserTeam,
+  unique: false,
 });
 
-Team.belongsTo(Project, {
-  foreignKey: "project_id",
-});
+// Each team has many users?
 
-module.exports = { User, Project, Team, UserProject, UserTeam };
+module.exports = { User, Project, Team, UserTeam };
