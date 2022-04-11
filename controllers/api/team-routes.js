@@ -22,7 +22,4 @@ router.get("/", async (req, res) => {
 
 // ADD USERS TO A TEAM
 
-
-
-
 module.exports = router;

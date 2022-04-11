@@ -1,15 +1,19 @@
-<h1>THIS IS THE USER PROFILE</h1>
-
-<a href="/dashboard"><button class="btn">view projects</button></a>
+<a href="/dashboard"><button class="btn">View Others Projects!</button></a>
 {{! build your own project route }}
-<a href="/create-project"><button class="btn">build your own</button></a>
+<a href="/create-project"><button class="btn">Create My Own!</button></a>
 
 <div>
   <h1>My Projects</h1>
-  {{! insert projects in progress here }}
 </div>
+
+<div>
+  <h4 class="white-text">My Teams</h4>
+  {{!-- insert my teams below here --}}
+  
+</div>
+
   {{! insert projects I have built here }}
-  <div class="row container">
+  <div class="row container profile-projects">
     {{#each user.projects}}
       <div>
         <h4>{{title}}</h4>
@@ -18,7 +22,7 @@
   </div>
 </div>
 
-<div>
+<div class="profile-projects">
   <h5>My Picture</h5>
   <div>
     <img src="https://via.placeholder.com/150" alt="" />
@@ -27,16 +31,6 @@
   <div>{{user.username}}</div>
   <h5>My Role</h5>
   <div>{{user.role}}</div>
-  <h5>My Projects</h5>
-
-  {{! loop through projects }}
-  <div class="row container">
-    {{#each user.projects}}
-      <div>
-        {{title}}
-      </div>
-    {{/each}}
-  </div>
 </div>
 
 <script src="/javascript/joinproject.js"></script>

@@ -43,6 +43,7 @@ router.post("/", async (req, res) => {
       project_id: newProject.id,
       //   how to add a user to this team?
     });
+    //
     res.json(newProject);
     // then create a new team for that project
   } catch (error) {

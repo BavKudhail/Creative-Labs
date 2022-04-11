@@ -4,6 +4,10 @@ body {
   font-family: "DM Sans", sans-serif;
 }
 
+.profile-projects {
+  color: white;
+}
+
 a {
   color: white;
 }

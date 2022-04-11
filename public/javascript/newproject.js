@@ -10,9 +10,7 @@ const projectFormHandler = async (event) => {
   const developers_needed = document.getElementById("developers_needed").value;
   const designers_needed = document.getElementById("designers_needed").value;
   const artist_needed = document.getElementById("artist_needed").value;
-  const team_name = document.getElementById("team_name").value;
 
-  console.log(team_name);
   console.log(designers_needed);
   console.log(artist_needed);
   console.log(developers_needed);

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Project, User } = require("../models");
+const { Project, User, Team } = require("../models");
 const withAuth = require("../utils/auth.js");
 
 // /profile
@@ -12,6 +12,8 @@ router.get("/", async (req, res) => {
       },
       include: [Project],
     });
+    // get all teams
+
     // serialize the data
     const user = userData.get({ plain: true });
     // render the data to the front-end
@@ -40,7 +42,5 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(error);
   }
 });
-
-
 
 module.exports = router;
