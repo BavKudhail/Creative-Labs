@@ -1,3 +1,10 @@
+// get project ID
+const project_id = document.getElementById("project-id").innerText;
+console.log(project_id);
+// get username of currently logged in user
+const username = document.getElementById("username").innerText;
+console.log(username);
+
 // socket.io script tag in chat.handlebars gives us access to this function
 const socket = io();
 const messages = document.querySelector(".messages");
@@ -39,9 +46,9 @@ chatForm.addEventListener("submit", (event) => {
 function sendMessage(message) {
   // message text
   const messageText = $(`<div class="message">
-  <p class="meta">Bav <span>5:00pm</span></p>
+  <p class="meta">${message.username} &nbsp <span>${message.time}</span></p>
 						<p class="text">
-							${message}
+							${message.message}
 						</p>
 </div>`);
   // append message text to .messages parent div
@@ -49,9 +56,6 @@ function sendMessage(message) {
 }
 
 // =========== below is old logic to revisit ==================
-
-// get project ID
-const project_id = document.getElementById("project-id").innerText;
 
 // join button
 const joinBtn = document.getElementById("join-btn");
@@ -71,7 +75,3 @@ const joinTheTeam = async () => {
 };
 
 joinBtn.addEventListener("click", joinTheTeam);
-
-console.log(project_id);
-
-console.log(joinBtn);

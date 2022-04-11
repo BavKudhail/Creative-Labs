@@ -18,35 +18,46 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const http = require("http");
 // socket.io
 const socketio = require("socket.io");
-
+// import chat functions
+const formatMessage = require("./utils/formatMessage");
+// initialise express
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 // create our http server - pass into express app
 const server = http.createServer(app);
 const io = socketio(server);
 
 // When a user connects to the chat page run execute function
 io.on("connection", (socket) => {
+  const autoResponse = "Admin: ";
+
   console.log("user has connected to the chat");
 
   // Welcome current user to the chat
-  socket.emit("message", "Welcome! Say Hello!");
+  socket.emit("message", formatMessage(autoResponse, "Welcome! Say Hello!"));
 
   // Send a message to the user upon connection
   // broadcast.emit or socket.emit???
   // To all connected clients except the sender <<<< from socket.io docs
-  socket.broadcast.emit("message", "USERNAME has joined the chat!");
+  socket.broadcast.emit(
+    "message",
+    formatMessage(autoResponse, "USERNAME has joined the chat!")
+  );
 
   // Runs when the client disconnects
   socket.on("disconnect", () => {
     // send a message to all of the users that the user has left the chat
-    io.emit("message", "USERNAME has left the chat!");
+    io.emit(
+      "message",
+      formatMessage(autoResponse, "USERNAME has left the chat!")
+    );
   });
 
   // Listen for the userMessage
   socket.on("userMessage", (message) => {
     // i.o emit sends the message to all?
-    io.emit("message", message);
+    io.emit("message", formatMessage("currentUser", message));
   });
 });
 
