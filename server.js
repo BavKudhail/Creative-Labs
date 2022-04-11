@@ -12,7 +12,11 @@ const routes = require("./controllers");
 const helpers = require("./utils/helpers");
 //sequelize
 const sequelize = require("./config/connection");
+// sequelize store
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+// socket I.O 
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;

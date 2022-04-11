@@ -1,29 +1,37 @@
+<div class="row custom-row center-align">
 
-      <div class="row custom-row">
-      
-            <h3 class="custom-welcome">Welcome to the team!</h3>
-         
-        </div>
-      </div>
-
-
-<h5>{{title}}</h5>
-  <H5>DESCRIPTION HERE</H5>
-  <div>{{description}}</div>
-  {{! TEAM LEADER }}
-  <H5>TEAM LEADER HERE</H5>
-  <div>{{user.username}}</div>
-  <H5>TEAM LEADER ROLE</H5>
-  <div>{{user.role}}</div>
-  <H5>PROJECT NAME</H5>
-  <div>{{title}}</div>
-  <H1>PROJECT ID</H1>
-  <h1 id="project-id">{{id}}</h1>
-  
-  
+  <h2 id="project-id" class="custom-welcome">Welcome to Team {{id}} 🔥</h2>
+  <h4><span>{{user.username}} </span>is the team leader! Check out more of his
+    projects
+  </h4>
+  <button class="btn center-align" id="join-btn">JOIN THIS TEAM!</button>
 </div>
+<body>
+  <div class="custom-bg">
+    <div class="container">
+    {{! main section }}
+    <main>
+      <div>
+        <h3>Say Hi!</h3>
+        <h2 id="team"></h2>
+        <h3>Live Users: </h3>
+        <ul id="user-list"></ul>
+      </div>
+      <div class="messages"></div>
+    </main>
+    {{! form container }}
+    <div class="form-container">
+      <form id="chat-form">
+        <input id="message" type="text" placeholder="Enter your message" />
+        <button class="btn">Send</button>
+      </form>
+    </div>
+  </div>
+  </div>
+  {{!-- leave chat button --}}
+  <div class="center-align">
+    <button class="btn" id="leave-btn">Leave Chat</button>
+  </div>
 
-
-<button class="btn" id="join-btn">Join Team</button>
-
+{{!-- script logic --}}
 <script src="/javascript/chat.js"></script>
