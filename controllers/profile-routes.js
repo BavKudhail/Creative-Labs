@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
     // serialize the data
     const user = userData.get({ plain: true });
     // render the data to the front-end
-    res.render("my-user-profile", { user });
+    res.render("my-user-profile", { user, loggedIn: req.session.loggedIn });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -37,7 +37,7 @@ router.get("/:id", async (req, res) => {
     const user = userData.get({ plain: true });
 
     // render the data to the front-end
-    res.render("view-user-profile", { user });
+    res.render("view-user-profile", { user , loggedIn: req.session.loggedIn });
   } catch (error) {
     res.status(500).json(error);
   }
