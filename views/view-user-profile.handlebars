@@ -1,34 +1,89 @@
-<h1>VIEW USER PROFILE</h1>
+ <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo">CREATOR<span class="custom-brand-logo">LABS</span></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
+            {{#if loggedIn}}
+            <li><button id="logout-btn" class="btn custom-button">LOGOUT</button></li>
+            {{else}}
+            <li>
+              <a href="/login" class="btn custom-button">LOGIN</a>
+            </li>
+            {{/if}}
+          </ul>
+        </div>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><button id="logout-btn" class="btn custom-button purple lighten-4">LOGOUT</button></li>
+          </ul>
+  </nav>
 
-<h1>projects I have built</h1>
-  {{! insert projects I have built here }}
-  <div class="row container">
-    {{#each user.projects}}
-      <div>
-        <h4>{{title}}</h4>
+
+      <div class="row custom-row">
+      
+        <div class="col s12 m12 l2 custom-profile-box">
+            <img class="circle custom-profile-picture" src="/images/profile.jpg">
+
+            <ul class="custom-profile-details">
+                <li><a href="#!" class="custom-name">{{user.username}}</a></li>
+                <li><a href="#!" class="grey-text ">{{user.role}}</a></li>
+                <li><div class="divider"></div></li>
+                <li><a href=""><img src="/images/linkedin.png"></a>
+                  <a href=""><img src="/images/email.png"></a>
+                </li>
+              </ul>
+
+        </div>
+
+        
+        <div class="col s12 m12 l10">
+
+            <div class="custom-profile-projects">
+              <ul class="collapsible">
+                {{#each user.projects}}
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">whatshot</i>{{title}}</div>
+                  <div class="collapsible-body"><span>Project Details</span></div>
+                </li>
+                 {{/each}}
+                {{!-- <li>
+                  <div class="collapsible-header"><i class="material-icons">whatshot</i>E-commerce project</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">whatshot</i>React app</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Backend Database</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li> --}}
+              </ul>
+            </div>
+          
+        </div>
       </div>
-    {{/each}}
-  </div>
-</div>
 
-<div>
-  <h5>My Picture</h5>
-  <div>
-    <img src="https://via.placeholder.com/150" alt="" />
-  </div>
-  <h5>Username</h5>
-  <div>{{user.username}}</div>
-  <h5>My Role</h5>
-  <div>{{user.role}}</div>
-  <h5>My Projects</h5>
 
-  {{! loop through projects }}
-  <div class="row container">
-    {{#each user.projects}}
-      <div>
-        {{title}}
-      </div>
-    {{/each}}
-  </div>
-</div>
 
+<script src="/javascript/joinproject.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script> 
+       $(document).ready(function(){
+            $('.sidenav').sidenav();
+         
+          });
+
+      $(document).ready(function(){
+      $('select').formSelect();
+      });
+
+
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+      </script>

@@ -1,56 +1,78 @@
-{{! header }}
-<header>
-  <div class="m-10">
-    <div class="flex justify-center items-center text-center">
-      <div>
-        <h1 class="hero-section">Create a new post</h1>
-      </div>
-    </div>
-  </div>
-</header>
+ <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo">CREATOR<span class="custom-brand-logo">LABS</span></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
+            {{#if loggedIn}}
+            <li><button id="logout-btn" class="btn custom-button">LOGOUT</button></li>
+            {{else}}
+            <li>
+              <a href="/login" class="btn custom-button">LOGIN</a>
+            </li>
+            {{/if}}
+          </ul>
+        </div>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><button id="logout-btn" class="btn custom-button purple lighten-4">LOGOUT</button></li>
+          </ul>
+  </nav>
 
+
+ <h3 class="custom-create">CREATE A NEW PROJECT</h3>
 {{! creating a new post }}
-<div class="form-container justify-center items-center lg:mx-44">
+
   <form id="project-form" class="" action="">
-    <input type="hidden" value="{{post.id}}" />
-    <div class="p-10">
-      <div class="flex justify-center input-box">
-        <input
-          id="new-project-title"
-          class="input-field"
-          placeholder="Title: "
-          type="text"
-        />
+
+      <h4>Project Title</h4>
+      <div class="row container custom-inputs-2">
+        <div class="col s12 custom-label">
+             <textarea id="new-project-title" class="materialize-textarea"></textarea>
+        </div>
       </div>
-      <div class="flex justify-center">
-        <textarea
-          name=""
-          placeholder="Type content here: "
-          id="new-project-description"
-          cols="30"
-          rows="10"
-          class="input-field"
-        ></textarea>
+     
+    <h4>Project Description</h4>
+    <div class="row container custom-inputs-2">
+      <div class="col s12 custom-label">
+          <textarea  class="materialize-textarea" id="new-project-description"></textarea>
       </div>
-      {{! roles required }}
-      <div>
-        <h2>Developers Needed?</h2>
-        <input id="developers_needed" type="number" />
+  </div>
+
+
+  <h4>What creatives do you need?</h4>
+  <div class="row container custom-inputs-2">
+    <div action="/action_page.php">
+        <label for="quantity">3D Artist</label>
+        <input type="number" id="developers_needed"  name="quantity" min="0">
+        <label for="quantity">Developer</label>
+        <input type="number" id="designers_needed" name="quantity" min="0">
+        <label for="quantity">Designer</label>
+        <input type="number" id="artist_needed" name="quantity" min="0">
       </div>
-      <div>
-        <h2>Designers Needed?</h2>
-        <input id="designers_needed" type="number" />
-      </div>
-      <div>
-        <h2>Artist Needed?</h2>
-        <input id="artist_needed" type="number" />
-      </div>
-      {{!  }}
-      <div class="flex justify-center mt-5">
-        <button class="btn">Create Post</button>
-      </div>
-    </div>
+  </div>
+
+
+  <div  class="row container custom-inputs-button">
+    <button>Create Project</button>
+  </div>
+
   </form>
-</div>
+
 
 <script src="/javascript/newproject.js"></script>
+    <script> 
+     $(document).ready(function(){
+          $('.sidenav').sidenav();
+        });
+        
+    $(document).ready(function(){
+         $('.slider').slider({height:350,indicators:false})
+    });
+    $(document).ready(function(){
+    $('select').formSelect();
+    });
+
+      </script>
