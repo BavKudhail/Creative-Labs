@@ -42,6 +42,12 @@ io.on("connection", (socket) => {
     // send a message to all of the users that the user has left the chat
     io.emit("message", "USERNAME has left the chat!");
   });
+
+  // Listen for the userMessage
+  socket.on("userMessage", (message) => {
+    // i.o emit sends the message to all?
+    io.emit("message", message);
+  });
 });
 
 // Set up Handlebars.js engine with custom helpers
@@ -74,6 +80,7 @@ app.use(routes);
 // });
 
 // In order to use socket.IO replace app.listen with server.listen.
+//***The second form (creating an HTTP server yourself, instead of having Express create one for you) is useful if you want to reuse the HTTP server, for example to run socket.io within the same HTTP server instance***
 
 sequelize.sync({ force: false }).then(() => {
   server.listen(PORT, () =>
