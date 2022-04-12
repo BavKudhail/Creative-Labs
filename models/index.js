@@ -16,8 +16,8 @@ Project.belongsTo(User, {
   onDelete: "CASCADE",
 });
 
-// When the user clicks join this project,
-// We display a message on the users screen that they have joined that project
+
+
 
 // Team X Project
 Team.belongsTo(Project, {
