@@ -71,8 +71,30 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Update a project - @NOTE - THIS IS NOT CURRENTLY BEING USED
+// When you click on join the project
+
+// Check to see if the current user is a member of this team
+
+// If the user is a member this team, then send, you are already a member
+
+// Else run the function
+
+// Update a project
 router.put("/:id", async (req, res) => {
+  // finding the team that matches the project id
+  const findTeam = await Team.findOne({
+    where: {
+      project_id: req.body.project_id,
+    },
+  });
+  // /finding the current user
+  const userData = await User.findOne({
+    where: {
+      username: req.session.username,
+    },
+  });
+  // add that user to that team
+
   try {
     const updateProject = await Project.update(
       {
@@ -84,7 +106,7 @@ router.put("/:id", async (req, res) => {
       {
         //update project according to ID
         where: {
-          id: req.params.id,
+          id: req.body.id,
         },
       }
     );
