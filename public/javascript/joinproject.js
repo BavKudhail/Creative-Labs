@@ -10,13 +10,17 @@
 
 // // When you click on join the project
 
-const joinBtn = document.getElementById("join-team-btn");
+const joinBtn = document.getElementById("join-btn");
+
+console.log("join project connected");
 
 // project form handler
 const joinTheProject = async (event) => {
   event.preventDefault();
   console.log("clicked");
   //  get the current values of all of the roles
+
+  const id = document.getElementById("project-id").innerText;
 
   // no of designers needed
   let designers_needed = document.getElementById("designers_needed").innerText;
@@ -46,6 +50,7 @@ const joinTheProject = async (event) => {
         const response = await fetch("/api/project/:id", {
           method: "PUT",
           body: JSON.stringify({
+            id,
             designers_needed,
           }),
           headers: {
@@ -62,47 +67,48 @@ const joinTheProject = async (event) => {
     }
   }
   // if I am a developer and I join the team, minus developer from the numbers
-  if (myRole === "Developer") {
-    /* information regarding creatives required is taken from input fields as a string -- needs to be changed to integer in 
-    order to subtract and also for it to be changed in the database */
-    let developerInteger = parseInt(developers_needed);
-    if (developerInteger <= 0) {
-      window.alert("We already have enough developers!");
-      return;
-    } else {
-      developers_needed = developerInteger - 1;
-      const response = await fetch("/api/project/:id", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(developers_needed),
-      });
-      if (response.ok) {
-        window.location.reload();
-      }
-    }
-  }
+  // if (myRole === "Developer") {
+  //   /* information regarding creatives required is taken from input fields as a string -- needs to be changed to integer in
+  //   order to subtract and also for it to be changed in the database */
+  //   let developerInteger = parseInt(developers_needed);
+  //   if (developerInteger <= 0) {
+  //     window.alert("We already have enough developers!");
+  //     return;
+  //   } else {
+  //     developers_needed = developerInteger - 1;
+  //     const response = await fetch("/api/project/:id", {
+  //       method: "PUT",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(developers_needed),
+  //     });
+  //     if (response.ok) {
+  //       window.location.reload();
+  //     }
+  //   }
+  // }
   // if I am an artist and I join the team, minus the artist from the numbers
-  if (myRole === "3D Artist") {
-    let artistInteger = parseInt(artist_needed);
-    if (artistInteger <= 0) {
-      window.alert("We already have enough artists!");
-      return;
-    } else {
-      artist_needed = artistInteger - 1;
-      const response = await fetch("/api/project/:id", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(artist_needed),
-      });
-      if (response.ok) {
-        window.location.reload();
-      }
-    }
-  }
+  // if (myRole === "3D Artist") {
+  //   let artistInteger = parseInt(artist_needed);
+  //   if (artistInteger <= 0) {
+  //     window.alert("We already have enough artists!");
+  //     return;
+  //   } else {
+  //     artist_needed = artistInteger - 1;
+
+  //     const response = await fetch("/api/project/:id", {
+  //       method: "PUT",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(artist_needed),
+  //     });
+  //     if (response.ok) {
+  //       window.location.reload();
+  //     }
+  //   }
+  // }
 };
 
 joinBtn.addEventListener("click", joinTheProject);
@@ -111,3 +117,10 @@ joinBtn.addEventListener("click", joinTheProject);
 // // Get the values of that project that was clicked on -
 // // Send a POST request to create a new project with the title and description values of
 // // the current object clicks
+
+// If user has already clicked on join the project, then, do not execute the function
+// If user ID is already in the team, then do not excute the function
+// Else - excute the function
+
+// Disable join team function - if, user is already pat of eam
+// Or if it 0

@@ -65,7 +65,7 @@ router.put("/:id", async (req, res) => {
       {
         //update project according to ID
         where: {
-          id: req.params.id,
+          id: req.body.id,
         },
       }
     );
