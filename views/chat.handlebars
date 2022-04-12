@@ -1,6 +1,31 @@
+{{!-- Navbar --}}
+<nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo">CREATOR<span class="custom-brand-logo">LABS</span></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
+            {{#if loggedIn}}
+            <li><button id="logout-btn" class="btn custom-button">LOGOUT</button></li>
+            {{else}}
+            <li>
+              <a href="/login" class="btn custom-button">LOGIN</a>
+            </li>
+            {{/if}}
+          </ul>
+        </div>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><button id="logout-btn" class="btn custom-button purple lighten-4">LOGOUT</button></li>
+          </ul>
+  </nav>
+{{!--  --}}
+
 <div class="row custom-row center-align">
 
-  <h2 class="custom-welcome"> Hey <span id="username">{{user.username}}</span>! Welcome to Team <span id="project-id">{{project.id}} </span>🔥</h2>
+  <h2 class="custom-welcome"> Hey <span id="username">{{user.username}}</span>! This is project <span id="project-id">{{project.id}} </span>🔥</h2>
   <h4><span>{{project.user.username}} </span>is the team leader! Would you like to join their team?
   </h4>
   {{!-- insert user profile picture here --}}

@@ -25,31 +25,19 @@ router.get("/", async (req, res) => {
 // Get the ID of the team that you want to join
 router.post("/", async (req, res) => {
   try {
-    // Get current user
-
-    // find the current logged in user
+    // Then, Create a team for that project
+    const findTeam = await Team.findOne({
+      where: {
+        project_id: req.body.project_id,
+      },
+    });
+    // Then add the current user to that team
     const userData = await User.findOne({
       where: {
         username: req.session.username,
       },
     });
-    // serialize the data
-    const user = userData.get({ plain: true });
-    console.log(user);
-    // Create a team
-    const newTeam = await Team.create({
-      ...req.body,
-      // set the user Id and team name
-      team_name: "Team ",
-      user_id: user.Id,
-      // project_id,
-    });
-    // Add a user to that newly created team
-    const team = newTeam.get({ plain: true });
-
-    newTeam.addUser(userData);
-
-    res.json(newTeam);
+    findTeam.addUser(userData);
     // then create a new team for that project
   } catch (error) {
     res.status(500).json(error);

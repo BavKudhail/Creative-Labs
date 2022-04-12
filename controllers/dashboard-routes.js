@@ -81,7 +81,7 @@ router.get("/chat/:id", async (req, res) => {
     // seriaize the data
     const project = projectData.get({ plain: true });
     // render the data to front-end
-    res.render("chat", { project, user });
+    res.render("chat", { project, user, loggedIn: req.session.loggedIn });
   } catch (error) {
     res.status(500).json(error);
   }

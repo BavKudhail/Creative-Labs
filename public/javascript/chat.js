@@ -79,6 +79,12 @@ const joinBtn = document.getElementById("join-btn");
 // logic when user clicks
 const joinTheTeam = async () => {
   console.log("clicked button");
+  // get project ID
+  // get project ID
+  const project_id = parseInt(document.getElementById("project-id").innerText);
+  // const project_id = "14";
+
+  console.log(project_id);
 
   const response = await fetch("/api/team", {
     method: "POST",
@@ -89,6 +95,12 @@ const joinTheTeam = async () => {
       "Content-Type": "application/json",
     },
   });
+  if (response.ok) {
+    console.log("response ok!");
+  } else {
+    // else alert
+    alert(response.statusText);
+  }
 };
 
 joinBtn.addEventListener("click", joinTheTeam);
