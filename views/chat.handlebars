@@ -79,6 +79,15 @@
     </a>
   </div>
 
+<h1>TEST - TEAM MEMBERS</h1>
+<h1>{{project.team.team_name}}</h1>
+
+{{#each project.team.users}}
+  <div>
+    {{users.username}}
+  </div>
+{{/each}}
+
 
 {{!-- socket.io script --}}
 <script src="/socket.io/socket.io.js"></script>

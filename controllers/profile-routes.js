@@ -10,9 +10,9 @@ router.get("/", async (req, res) => {
       where: {
         username: req.session.username,
       },
-      include: [Project],
+      include: [Project, Team],
     });
-    // get all teams
+    // get all teams of the currently logged in user
 
     // serialize the data
     const user = userData.get({ plain: true });
@@ -37,7 +37,7 @@ router.get("/:id", async (req, res) => {
     const user = userData.get({ plain: true });
 
     // render the data to the front-end
-    res.render("view-user-profile", { user , loggedIn: req.session.loggedIn });
+    res.render("view-user-profile", { user, loggedIn: req.session.loggedIn });
   } catch (error) {
     res.status(500).json(error);
   }

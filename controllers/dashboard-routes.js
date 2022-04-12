@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Project, User } = require("../models");
+const { Project, User, Team } = require("../models");
 const withAuth = require("../utils/auth");
 
 // /dashboard
@@ -66,7 +66,7 @@ router.get("/chat/:id", async (req, res) => {
       where: {
         username: req.session.username,
       },
-      include: [Project],
+      // include: [Project],
     });
     // serialize the data
     const user = userData.get({ plain: true });
@@ -76,7 +76,7 @@ router.get("/chat/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-      include: [User],
+      include: [User, Team],
     });
     // seriaize the data
     const project = projectData.get({ plain: true });
