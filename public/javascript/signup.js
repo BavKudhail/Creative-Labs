@@ -25,6 +25,8 @@ const signupFormHandler = async (event) => {
   // Collect values from the sign up form
   const username = document.querySelector("#username").value.trim();
   const password = document.querySelector("#password").value.trim();
+  const linkedin = document.querySelector("#linkedin").value.trim();
+  const email = document.querySelector("#email").value.trim();
   // Getting value of the role
   const select = document.getElementById("role");
   const role = select.options[select.selectedIndex].value;
@@ -45,6 +47,8 @@ const signupFormHandler = async (event) => {
         username,
         password,
         role,
+        email,
+        linkedin
         // picture_url,
       }),
       headers: { "Content-Type": "application/json" },
