@@ -79,6 +79,16 @@ const joinBtn = document.getElementById("join-btn");
 // logic when user clicks
 const joinTheTeam = async () => {
   console.log("clicked button");
+
+  const response = await fetch("/api/team", {
+    method: "POST",
+    body: JSON.stringify({
+      project_id,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 };
 
 joinBtn.addEventListener("click", joinTheTeam);

@@ -16,20 +16,25 @@ Project.belongsTo(User, {
   onDelete: "CASCADE",
 });
 
+// A project has one team
+Project.hasOne(Team, {
+  foreignKey: "project_id",
+  onDelete: "CASCADE",
+});
 
-
-
-// Team X Project
+// A team belongs to a specific project
 Team.belongsTo(Project, {
   foreignKey: "project_id",
   onDelete: "CASCADE",
 });
 
+// A team belongs to many users
 Team.belongsToMany(User, {
   through: UserTeam,
   unique: false,
 });
 
+// A user belongs to many teams
 User.belongsToMany(Team, {
   through: UserTeam,
   unique: false,

@@ -6,7 +6,7 @@ const { User, Project, Team } = require("../../models");
 // Get all users (This request is for debugging purposes)
 router.get("/", async (req, res) => {
   try {
-    // get all users
+    // get all users include project and team info associated with the user
     const userData = await User.findAll({
       include: [Project, Team],
     });

@@ -8,12 +8,16 @@ router.get("/", async (req, res) => {
   try {
     // get all projects
     const projectData = await Project.findAll({
-      include: [User],
+      // project belongs to a specific user that created it
+      include: [User, Team],
     });
+
     // serialize the data
     const projects = projectData.map((project) => project.get({ plain: true }));
+
     // render data to front-end
     res.json(projects);
+
     // catch errors
   } catch (error) {
     res.status(500).json(error);
@@ -24,6 +28,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     console.log("post request sent");
+
     // create a new project
     const newProject = await Project.create({
       title: req.body.title,
@@ -31,7 +36,7 @@ router.post("/", async (req, res) => {
       developers_needed: req.body.developers_needed,
       designers_needed: req.body.designers_needed,
       artist_needed: req.body.artist_needed,
-      // user_id = current logged in users session
+      // set the user id to the currently logged in use
       user_id: req.session.user_id,
     });
     // Then, Create a team for that project
@@ -41,9 +46,15 @@ router.post("/", async (req, res) => {
       team_name: "Team " + newProject.title,
       user_id: req.session.user_id,
       project_id: newProject.id,
-      //   how to add a user to this team?
     });
-    //
+    // Then add the current user to that team
+    const userData = await User.findOne({
+      where: {
+        username: req.session.username,
+      },
+    });
+    newTeam.addUser(userData);
+
     res.json(newProject);
     // then create a new team for that project
   } catch (error) {
@@ -51,7 +62,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Update a project
+// Update a project - @NOTE - THIS IS NOT CURRENTLY BEING USED
 router.put("/:id", async (req, res) => {
   try {
     const updateProject = await Project.update(
@@ -74,7 +85,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// Delete a project
+// Delete a project  - @NOTE - THIS IS NOT CURRENTLY BEING USED
 router.delete("/:id", async (req, res) => {
   try {
     await Project.destroy({
