@@ -31,6 +31,7 @@ const joinTheProject = async (event) => {
   // get the current role of the user
   const myRole = document.getElementById("my-role").innerText;
 
+  //need this first if statement on dashboard page
   if (
     designers_needed === 0 &&
     developers_needed === 0 &&
