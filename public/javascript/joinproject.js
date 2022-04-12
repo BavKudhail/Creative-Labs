@@ -42,13 +42,17 @@ const joinTheProject = async (event) => {
         //reassign value to designers_needed in order to match up with info in PUT request/database
         designers_needed = designers_needed - 1;
         console.log(designers_needed);
+
         const response = await fetch("/api/project/:id", {
           method: "PUT",
+          body: JSON.stringify({
+            designers_needed,
+          }),
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(designers_needed),
         });
+
         if (response.ok) {
           document.location.replace("/chat");
         }
