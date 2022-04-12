@@ -301,4 +301,28 @@ h4 {
   background-image: linear-gradient(0deg, #8e51e8 0%, #6430bf 100%);
   border-radius: 30px;
   margin: 5rem;
+  background: rgba(52, 0, 81, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(104, 7, 121, 0.371);
+}
+
+.message {
+  background: rgba(144, 19, 254, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 20px;
+}
+
+.chat-image {
+  max-width: 3000px;
+  position: absolute;
+  z-index: -1;
 }

@@ -7,20 +7,36 @@
   <div>
 
   </div>
-  <button class="btn center-align" id="join-btn">JOIN THIS TEAM!</button>
+  <div class="flex">
+    <div>
+    <button class="btn center-align" id="join-btn">JOIN THIS TEAM!</button>
+  </div>
+  <div>
+    <img src="/images/polygon.png" alt="">
+  </div>
 </div>
+  </div>
 <body>
-  <div class="custom-bg">
+  <div>
+    <img class="chat-image" src="/images/Marni 4.png" alt="">
+  </div>
+  <div>
+    <img class="chat-image" src="/images/Badrun 4.png" alt="">
+  </div>
+  <div class="chat-container custom-bg">
     <div class="container">
     {{! main section }}
     <main>
       <div>
         <h3>Say Hi!</h3>
-        <h2 id="team"></h2>
+        <h3 id="team-name">Building {{project.title}}</h3>
         <h3>Live Users: </h3>
-        <ul id="user-list"></ul>
+        <div>
+          <ul id="user-list" class="white-text">
+        </ul>
+        </div>
       </div>
-      <div class="messages"></div>
+      <div class="messages white-text"></div>
     </main>
     {{! form container }}
     <div class="form-container">
