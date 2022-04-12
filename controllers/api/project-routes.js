@@ -9,7 +9,16 @@ router.get("/", async (req, res) => {
     // get all projects
     const projectData = await Project.findAll({
       // project belongs to a specific user that created it
-      include: [User, Team],
+      include: [
+        {
+          model: User,
+          attributes: ["username", "role"],
+        },
+        {
+          model: Team,
+          attributes: ["team_name"],
+        },
+      ],
     });
 
     // serialize the data
