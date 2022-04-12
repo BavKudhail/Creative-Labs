@@ -21,7 +21,14 @@
             <li><button id="logout-btn" class="btn custom-button purple lighten-4">LOGOUT</button></li>
           </ul>
   </nav>
-{{!--  --}}
+{{!--  TEST   --}}
+<div>
+  <h2>User Role: <span id="my-role">{{user.role}}</span></h2>
+  <h1>Designers: <span id="designers_needed">{{project.designers_needed}}</span></h1>
+  <h1>Developers: <span id="developers_needed">{{project.developers_needed}}</span></h1>
+  <h1>Artist: <span id="artist_needed">{{project.artist_needed}}</span></h1>
+</div>
+{{!--  TEST   --}}
 
 <div class="row custom-row center-align">
 
@@ -93,3 +100,7 @@
 <script src="/socket.io/socket.io.js"></script>
 {{!-- chat logic --}}
 <script src="/javascript/chat.js"></script>
+{{!-- join project logic --}}
+<script src="/javascript/joinproject.js"></script>
+{{!-- logout --}}
+<script src="/javascript/logout.js"></script>
