@@ -43,6 +43,12 @@ io.on("connection", (socket) => {
   console.log("A user has connected");
   const autoResponse = "Admin: ";
 
+  // When the user joins the private message
+  socket.on("privateChat", (message) => {
+    // "privateChat is the key identifier - this differentiates the privateChat from the joinProjectChat"
+    io.emit("privateChat", message);
+  });
+
   // When the user joins the project chat...
   socket.on("joinProjectChat", ({ username, project_id }) => {
     // username and project ID values come from our get request and stored in chat.js file

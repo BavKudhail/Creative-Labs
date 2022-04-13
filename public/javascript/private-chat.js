@@ -12,8 +12,22 @@ chatForm.addEventListener("submit", function (event) {
   //   if there is a value in the input - emit value when you press send
   if (input.value) {
     //   this private message is the key - different from the chat message
-    socket.emit("private message", input.value);
+    socket.emit("privateChat", input.value);
     // after emit - clear the input field
     input.value = "";
   }
+});
+
+socket.on("privateChat", function (message) {
+  console.log(message);
+  // message text
+  const messageText = $(`<div class="message">
+  <p class="meta"> username &nbsp <span> time </span></p>
+						<p class="text">
+							${message}
+						</p>
+</div>`);
+
+  // append message text to .messages parent div
+  $(".messages").append(messageText);
 });
