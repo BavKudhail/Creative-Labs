@@ -11,7 +11,7 @@ a {
 }
 h2 {
   font-weight: 700;
-  font-size: 50px;
+  font-size: 40px;
   line-height: 61px;
   color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -21,7 +21,7 @@ h1 {
   margin-bottom: 50px;
   font-style: normal;
   font-weight: 700;
-  font-size: 70px;
+  font-size: 50px;
   line-height: 61px;
   color: #ffffff;
 }
@@ -40,9 +40,9 @@ h1 {
   font-size: 45px;
 }
 .custom-right-div img {
-  height: 100vh;
+  /* height: 100vh; */
   margin-top: 50px;
-  width: 85%;
+  width: 90%;
 }
 .custom-image-container {
   height: 50px;
@@ -99,7 +99,7 @@ button {
 .custom-inputs {
   width: 40%;
   background-color: #371a59;
-  margin-top: 2%;
+  margin-top: 5%;
   border-radius: 10px;
   padding: 20px;
 }
@@ -144,6 +144,9 @@ input {
 }
 .custom-card-div {
   margin-top: 3%;
+}
+.card-content{
+  height:130px;
 }
 .custom-card-image {
   border-top-left-radius: 15px;
@@ -265,6 +268,12 @@ h4 {
 font-size: 15px;
 text-align: left;
 } 
+.custom-chat-info{
+  color:white;
+}
+.custom-numbers li{
+  color:#8245d6;
+}
 @media screen and (max-width: 1200px) {
   h1,
   h2 {
@@ -349,7 +358,7 @@ text-align: left;
 }
 
 .message {
-  background: rgba(144, 19, 254, 0.25);
+  background: #8e51e8;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
@@ -365,3 +374,5 @@ text-align: left;
   position: absolute;
   z-index: -1;
 }
+
+
