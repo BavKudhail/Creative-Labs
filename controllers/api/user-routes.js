@@ -57,7 +57,9 @@ router.post("/", async (req, res) => {
       username: req.body.username,
       password: req.body.password,
       role: req.body.role,
-      // picture_url: req.body.picture_url,
+      linkedin: req.body.linkedin,
+      email: req.body.email,
+      picture_url: req.body.picture_url,
     });
     // save user session
     req.session.save(() => {

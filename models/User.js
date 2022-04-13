@@ -27,6 +27,11 @@ User.init(
       allowNull: false,
       unique: true,
     },
+    // user email 
+    email: {
+      type: DataTypes.STRING,
+      allowNull:true,
+    },
     // user password
     password: {
       type: DataTypes.STRING,
@@ -34,6 +39,11 @@ User.init(
       validate: {
         len: [8],
       },
+    },
+    //user linkedin profile
+    linkedin:{
+      type: DataTypes.STRING,
+      allowNull:true,
     },
     // user role
     role: {
