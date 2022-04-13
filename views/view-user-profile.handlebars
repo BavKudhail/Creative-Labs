@@ -80,18 +80,19 @@
 
   </div>
 </div>
-{{! CHAT HTML TESTING }}
 
+{{! CHAT HTML TESTING }}
 <div>
   <ul id="messages"></ul>
-  <form id="form" action="">
+  <form id="chat-form" action="">
     <input id="input" autocomplete="off" /><button class="btn">Send</button>
   </form>
 </div>
-
 {{! CHAT HTML TESTING }}
 
-<script src="/javascript/joinproject.js"></script>
+{{! socket.io script }}
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascript/private-chat.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 ></script>

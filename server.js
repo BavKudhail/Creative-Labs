@@ -37,7 +37,7 @@ const io = socketio(server);
 
 // =========== SOCKET.IO LOGIC FOR OUR CHAT APPLICATION ==================
 
-// When a user connects to the chat page run execute function
+// When a user connects to the chat run execute function
 io.on("connection", (socket) => {
   // Run when a user has connected to the chat
   console.log("A user has connected");
@@ -98,7 +98,6 @@ io.on("connection", (socket) => {
     });
   });
 });
-
 // ========================================================================
 
 // Set up Handlebars.js engine with custom helpers
