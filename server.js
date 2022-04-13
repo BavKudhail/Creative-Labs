@@ -54,6 +54,9 @@ io.on("connection", (socket) => {
 
     // Listen for private message
     socket.on("privateMessage", (message) => {
+      //  find the current user based on their socket it
+      const user = userJoinsPrivateChat(socket.id, username, user_id);
+
       console.log(message);
       io.to(user.user_id).emit("message", message);
     });

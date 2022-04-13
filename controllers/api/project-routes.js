@@ -80,20 +80,6 @@ router.post("/", async (req, res) => {
 
 // Update a project
 router.put("/:id", async (req, res) => {
-  // finding the team that matches the project id
-  const findTeam = await Team.findOne({
-    where: {
-      project_id: req.body.project_id,
-    },
-  });
-  // /finding the current user
-  const userData = await User.findOne({
-    where: {
-      username: req.session.username,
-    },
-  });
-  // add that user to that team
-
   try {
     const updateProject = await Project.update(
       {

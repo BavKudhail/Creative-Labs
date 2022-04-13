@@ -8,8 +8,6 @@
 
 // Else run the function
 
-
-
 const joinBtn = document.getElementById("join-btn");
 
 console.log("join project connected");
@@ -19,12 +17,9 @@ const joinTheProject = async (event) => {
   event.preventDefault();
   console.log("clicked");
 
-
   //  get the current values of all of the roles
 
-
   const id = document.getElementById("project-id").innerText;
-
 
   // no of designers needed
   let designers_needed = document.getElementById("designers_needed").innerText;
@@ -35,7 +30,6 @@ const joinTheProject = async (event) => {
   let artist_needed = document.getElementById("artist_needed").innerText;
   // get the current role of the user
   const myRole = document.getElementById("my-role").innerText;
-
 
   // if I am a designer and I join the team, minus designer from the numbers
   if (myRole === "Designer") {
@@ -68,11 +62,8 @@ const joinTheProject = async (event) => {
       }
     }
   }
-
-
   // if I am a developer and I join the team, minus developer from the numbers
   if (myRole === "Developer") {
-    //let designerInteger = parseInt(designers_needed);
     if (developers_needed <= 0) {
       window.alert("We already have enough developers!");
       return;
@@ -102,8 +93,6 @@ const joinTheProject = async (event) => {
     }
   }
 
-
-  // }
   // if I am an artist and I join the team, minus the artist from the numbers
   if (myRole === "3D Artist") {
     //let designerInteger = parseInt(designers_needed);
@@ -135,7 +124,60 @@ const joinTheProject = async (event) => {
       }
     }
   }
+  if (myRole) {
+    // Get the project_id from the DOM
+    const project_id = parseInt(
+      document.getElementById("project-id").innerText
+    );
+    // Then, I am added to that team
+    const response = await fetch("/api/team", {
+      method: "POST",
+      body: JSON.stringify({
+        project_id,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      console.log("response ok!");
+    } else {
+      // else alert
+      alert(response.statusText);
+    }
+  }
 };
 
 joinBtn.addEventListener("click", joinTheProject);
 
+// =========== below is old logic to revisit ==================]
+
+// USE THIS LOGIC WHEN THE JOIN PROJECT IS LOGIC WORKING
+
+// join button
+// const joinBtn = document.getElementById("join-btn");
+
+// // logic when user clicks
+// const joinTheTeam = async () => {
+//   console.log("clicked button");
+//   // get project ID
+//
+
+//   const response = await fetch("/api/team", {
+//     method: "POST",
+//     body: JSON.stringify({
+//       project_id,
+//     }),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   if (response.ok) {
+//     console.log("response ok!");
+//   } else {
+//     // else alert
+//     alert(response.statusText);
+//   }
+// };
+
+// joinBtn.addEventListener("click", joinTheTeam);
