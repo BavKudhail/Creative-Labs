@@ -70,13 +70,40 @@ router.post("/", async (req, res) => {
   }
 });
 
-// When you click on join the project
+// Find the current team based on the project id
+// Loop through the array of users within the team.users array
+// If current_username = user.username
+// The user already belongs to tha team
+// Do not run the put route
 
-// Check to see if the current user is a member of this team
+// const isUserInTeam = async () => {
+//   try {
+//     // finding the team based on project-id
+//     const findTeam = await Team.findOne({
+//       where: {
+//         project_id: req.body.project_id,
+//       },
+//     });
+//     // /finding the current user based on user-id
+//     const userData = await User.findOne({
+//       where: {
+//         username: req.session.username,
+//       },
+//     });
+//     // serialize data
+//     const team = findTeam.get({ plain: true });
+//     const user = userData.get({ plain: true });
+//     // find team users
+//     const teamMembers = team.users;
+//     // loop through the team members return true if username is in team or false if not
+//     for(let i = 0; i < teamMembers.length; i++){
 
-// If the user is a member this team, then send, you are already a member
+//     }
+//     console.log(team);
+//   } catch (error) {}
+// };
 
-// Else run the function
+// isUserInTeam();
 
 // Update a project
 router.put("/:id", async (req, res) => {

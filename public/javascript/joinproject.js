@@ -149,35 +149,3 @@ const joinTheProject = async (event) => {
 };
 
 joinBtn.addEventListener("click", joinTheProject);
-
-// =========== below is old logic to revisit ==================]
-
-// USE THIS LOGIC WHEN THE JOIN PROJECT IS LOGIC WORKING
-
-// join button
-// const joinBtn = document.getElementById("join-btn");
-
-// // logic when user clicks
-// const joinTheTeam = async () => {
-//   console.log("clicked button");
-//   // get project ID
-//
-
-//   const response = await fetch("/api/team", {
-//     method: "POST",
-//     body: JSON.stringify({
-//       project_id,
-//     }),
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   if (response.ok) {
-//     console.log("response ok!");
-//   } else {
-//     // else alert
-//     alert(response.statusText);
-//   }
-// };
-
-// joinBtn.addEventListener("click", joinTheTeam);

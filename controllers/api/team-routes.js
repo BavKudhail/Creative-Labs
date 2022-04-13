@@ -46,9 +46,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Add the user to that team
-
-// Because a user can belong to many teams
 
 router.get("/userteam", async (req, res) => {
   try {
