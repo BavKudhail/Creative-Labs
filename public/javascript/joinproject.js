@@ -109,7 +109,7 @@ const joinTheProject = async (event) => {
     if (myRole === "3D Artist") {
       //let designerInteger = parseInt(designers_needed);
       if (artist_needed <= 0) {
-        window.alert("We already have enough developers!");
+        window.alert("We already have enough artists!");
         return;
       } else {
         try {
