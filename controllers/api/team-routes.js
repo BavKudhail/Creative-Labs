@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { compareSync } = require("bcrypt");
 const { Team, User, Project, UserTeam } = require("../../models");
 
 // api/team
@@ -56,6 +57,30 @@ router.get("/userteam", async (req, res) => {
       userteam.get({ plain: true })
     );
     res.json(userteam);
+  } catch (error) {}
+});
+
+// Find all users that belong to a specific team
+router.get("/team-members", async (req, res) => {
+  try {
+    // get all users
+    const userData = await User.findAll();
+    const user = userData.map((user) => {
+      user.get({ plain: true });
+    });
+    //   find all teams
+    const teamData = await Team.findAll({
+      where: {
+        id: 5,
+      },
+      // include the user associated with the team and project info
+      include: [User, Project],
+    });
+    // serialize the data
+    const teams = teamData.map((team) => team.get({ plain: true }));
+    // display comments
+    console.log("=========================================================");
+    res.json(teams.findAll(user));
   } catch (error) {}
 });
 

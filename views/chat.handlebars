@@ -86,14 +86,32 @@
     </a>
   </div>
 
-<h1>TEST - TEAM MEMBERS</h1>
-<h1>{{project.team.team_name}}</h1>
+  {{!-- TEST --}}
 
-{{#each project.team.users}}
-  <div>
-    {{users.username}}
+<div class="center-align">
+  <h1>TEAM MEMBERS</h1>
+
+
+  <div class="row">
+    {{!-- For each team members --}}
+    {{#each team.users}}
+    {{!-- Render this div --}}
+    <div class="col s12 m6">
+      <div class="card white">
+        <div class="card-content black-text">
+          <div><img src="https://via.placeholder.com/150" alt=""></div>
+          <div class="black-text"><a class="black-text" href="/profile/{{id}}">{{username}}</a></div>
+          <div>EMAIL: {{email}}</div>
+          <div class="btn-grad">{{role}}</div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
   </div>
-{{/each}}
+</div>
+            
+
+{{!-- TEST --}}
 
 
 {{!-- socket.io script --}}

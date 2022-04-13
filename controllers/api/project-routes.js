@@ -16,7 +16,6 @@ router.get("/", async (req, res) => {
         },
         {
           model: Team,
-          attributes: ["team_name"],
         },
       ],
     });
