@@ -21,11 +21,18 @@
             <li><button id="logout-btn" class="btn custom-button purple lighten-4">LOGOUT</button></li>
           </ul>
   </nav>
-{{!--  --}}
+{{!--  TEST   --}}
+<div>
+  <h2>User Role: <span id="my-role">{{user.role}}</span></h2>
+  <h1>Designers: <span id="designers_needed">{{project.designers_needed}}</span></h1>
+  <h1>Developers: <span id="developers_needed">{{project.developers_needed}}</span></h1>
+  <h1>Artist: <span id="artist_needed">{{project.artist_needed}}</span></h1>
+</div>
+{{!--  TEST   --}}
 
 <div class="row custom-row center-align">
 
-  <h2 class="custom-welcome"> Hey <span id="username">{{user.username}}</span>! This is project <span id="project-id">{{project.id}} </span>🔥</h2>
+  <h2 class="custom-welcome"> Hey <span id="username">{{user.username}}</span>! This is project <span id="project-id">{{project.id}}</span>🔥</h2>
   <h4><span>{{project.user.username}} </span>is the team leader! Would you like to join their team?
   </h4>
   {{!-- insert user profile picture here --}}
@@ -79,17 +86,39 @@
     </a>
   </div>
 
-<h1>TEST - TEAM MEMBERS</h1>
-<h1>{{project.team.team_name}}</h1>
+  {{!-- TEST --}}
 
-{{#each project.team.users}}
-  <div>
-    {{users.username}}
+<div class="center-align">
+  <h1>TEAM MEMBERS</h1>
+
+
+  <div class="row">
+    {{!-- For each team members --}}
+    {{#each team.users}}
+    {{!-- Render this div --}}
+    <div class="col s12 m6">
+      <div class="card white">
+        <div class="card-content black-text">
+          <div><img src="https://via.placeholder.com/150" alt=""></div>
+          <div class="black-text"><a class="black-text" href="/profile/{{id}}">{{username}}</a></div>
+          <div>EMAIL: {{email}}</div>
+          <div class="btn-grad">{{role}}</div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
   </div>
-{{/each}}
+</div>
+            
+
+{{!-- TEST --}}
 
 
 {{!-- socket.io script --}}
 <script src="/socket.io/socket.io.js"></script>
 {{!-- chat logic --}}
 <script src="/javascript/chat.js"></script>
+{{!-- join project logic --}}
+<script src="/javascript/joinproject.js"></script>
+{{!-- logout --}}
+<script src="/javascript/logout.js"></script>

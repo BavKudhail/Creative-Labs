@@ -26,20 +26,44 @@ const {
   getCurrentUser,
   userLeavesChat,
   getProjectUsers,
+  userJoinsPrivateChat,
 } = require("./utils/users");
-
 // initialise express
 const app = express();
 const PORT = process.env.PORT || 3001;
-// create our http server - pass into express app
+// creating http instance
 const server = http.createServer(app);
+// creating socket io instance
 const io = socketio(server);
 
 // =========== SOCKET.IO LOGIC FOR OUR CHAT APPLICATION ==================
 
-// When a user connects to the chat page run execute function
+// ===================== PRIVATE CHAT LOGIC ===============================
+
+// When a user connects to the chat run execute function
 io.on("connection", (socket) => {
-  console.log("A user has connected");
+  socket.on("joinPrivateChat", ({ username, user_id }) => {
+    // create user variable
+    const user = userJoinsPrivateChat(socket.id, username, user_id);
+
+    // join the room based on the users ID
+    socket.join(user.user_id);
+
+    // Run when a user has connected to the chat
+    console.log("A user has connected");
+
+    // Listen for private message
+    socket.on("privateMessage", (message) => {
+      //  find the current user based on their socket it
+      const user = userJoinsPrivateChat(socket.id, username, user_id);
+
+      console.log(message);
+      io.to(user.user_id).emit("message", message);
+    });
+  });
+
+  // ================= PROJECT CHAT LOGIC =================================
+
   const autoResponse = "Admin: ";
 
   // When the user joins the project chat...
@@ -97,7 +121,6 @@ io.on("connection", (socket) => {
     });
   });
 });
-
 // ========================================================================
 
 // Set up Handlebars.js engine with custom helpers

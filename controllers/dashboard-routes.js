@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Project, User, Team } = require("../models");
+const { Project, User, Team, UserTeam } = require("../models");
 const withAuth = require("../utils/auth");
 
 // /dashboard
@@ -80,8 +80,28 @@ router.get("/chat/:id", async (req, res) => {
     });
     // seriaize the data
     const project = projectData.get({ plain: true });
+
+    // get the team data associated with that project
+    const teamData = await Team.findOne({
+      where: {
+        project_id: project.id,
+      },
+      include: [User],
+    });
+
+    // serialize the data
+    const team = teamData.get({ plain: true });
+
+    console.log("===========================================================");
+    console.log(team.users[0]);
+
     // render the data to front-end
-    res.render("chat", { project, user, loggedIn: req.session.loggedIn });
+    res.render("chat", {
+      project,
+      user,
+      team,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (error) {
     res.status(500).json(error);
   }

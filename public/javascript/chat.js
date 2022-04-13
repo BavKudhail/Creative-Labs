@@ -71,36 +71,34 @@ function sendUsers(users) {
   `;
 }
 
-// =========== below is old logic to revisit ==================
+// =========== below is old logic to revisit ==================]
+
+// USE THIS LOGIC WHEN THE JOIN PROJECT IS LOGIC WORKING
 
 // join button
-const joinBtn = document.getElementById("join-btn");
+// const joinBtn = document.getElementById("join-btn");
 
-// logic when user clicks
-const joinTheTeam = async () => {
-  console.log("clicked button");
-  // get project ID
-  // get project ID
-  const project_id = parseInt(document.getElementById("project-id").innerText);
-  // const project_id = "14";
+// // logic when user clicks
+// const joinTheTeam = async () => {
+//   console.log("clicked button");
+//   // get project ID
+//   const project_id = parseInt(document.getElementById("project-id").innerText);
 
-  console.log(project_id);
+//   const response = await fetch("/api/team", {
+//     method: "POST",
+//     body: JSON.stringify({
+//       project_id,
+//     }),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   if (response.ok) {
+//     console.log("response ok!");
+//   } else {
+//     // else alert
+//     alert(response.statusText);
+//   }
+// };
 
-  const response = await fetch("/api/team", {
-    method: "POST",
-    body: JSON.stringify({
-      project_id,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  if (response.ok) {
-    console.log("response ok!");
-  } else {
-    // else alert
-    alert(response.statusText);
-  }
-};
-
-joinBtn.addEventListener("click", joinTheTeam);
+// joinBtn.addEventListener("click", joinTheTeam);

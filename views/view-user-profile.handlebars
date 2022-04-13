@@ -35,16 +35,22 @@
 
   <div class="col s12 m12 l2 custom-profile-box">
     <img class="circle custom-profile-picture" src="/images/profile.jpg" />
-
     <ul class="custom-profile-details">
       <li><a href="#!" class="custom-name">{{user.username}}</a></li>
+      {{! user id }}
+      <li><a href="#!" class="grey-text">
+          <span id="user-id">{{user.id}}</span></a></li>
       <li><a href="#!" class="grey-text">{{user.role}}</a></li>
       <li><div class="divider"></div></li>
       <li><a href=""><img src="/images/linkedin.png" /></a>
         <a href=""><img src="/images/email.png" /></a>
       </li>
     </ul>
-
+    {{! chat button }}
+    <a href="/profile/chat/{{user.id}}">
+      <button class="btn btn-grad">Send Message</button>
+    </a>
+    {{! chat button }}
   </div>
 
   <div class="col s12 m12 l10">
@@ -76,8 +82,29 @@
 
   </div>
 </div>
+{{!  }}
+<div>
+  <h2>Hey
+    <span id="current-user">{{currentUser.username}}</span>, send
+    {{user.username}}
+    a message!</h2>
+</div>
+{{! CHAT HTML TESTING }}
+<div>
+  <div class="messages">
+    <div class="message">
+      
+    </div>
+  </div>
+  <form id="chat-form" action="">
+    <input id="message" autocomplete="off" /><button class="btn">Send</button>
+  </form>
+</div>
+{{! CHAT HTML TESTING }}
 
-<script src="/javascript/joinproject.js"></script>
+{{! socket.io script }}
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascript/private-chat.js"></script>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 ></script>

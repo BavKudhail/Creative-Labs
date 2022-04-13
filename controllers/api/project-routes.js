@@ -16,7 +16,6 @@ router.get("/", async (req, res) => {
         },
         {
           model: Team,
-          attributes: ["team_name"],
         },
       ],
     });
@@ -71,7 +70,42 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Update a project - @NOTE - THIS IS NOT CURRENTLY BEING USED
+// Find the current team based on the project id
+// Loop through the array of users within the team.users array
+// If current_username = user.username
+// The user already belongs to tha team
+// Do not run the put route
+
+// const isUserInTeam = async () => {
+//   try {
+//     // finding the team based on project-id
+//     const findTeam = await Team.findOne({
+//       where: {
+//         project_id: req.body.project_id,
+//       },
+//     });
+//     // /finding the current user based on user-id
+//     const userData = await User.findOne({
+//       where: {
+//         username: req.session.username,
+//       },
+//     });
+//     // serialize data
+//     const team = findTeam.get({ plain: true });
+//     const user = userData.get({ plain: true });
+//     // find team users
+//     const teamMembers = team.users;
+//     // loop through the team members return true if username is in team or false if not
+//     for(let i = 0; i < teamMembers.length; i++){
+
+//     }
+//     console.log(team);
+//   } catch (error) {}
+// };
+
+// isUserInTeam();
+
+// Update a project
 router.put("/:id", async (req, res) => {
   try {
     const updateProject = await Project.update(
@@ -84,7 +118,7 @@ router.put("/:id", async (req, res) => {
       {
         //update project according to ID
         where: {
-          id: req.params.id,
+          id: req.body.id,
         },
       }
     );
