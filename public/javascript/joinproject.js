@@ -31,96 +31,109 @@ const joinTheProject = async (event) => {
   // get the current role of the user
   const myRole = document.getElementById("my-role").innerText;
 
-  // if I am a designer and I join the team, minus designer from the numbers
-  if (myRole === "Designer") {
-    //let designerInteger = parseInt(designers_needed);
-    if (designers_needed <= 0) {
-      window.alert("We already have enough designers!");
-      return;
-    } else {
-      try {
-        //reassign value to designers_needed in order to match up with info in PUT request/database
-        designers_needed = designers_needed - 1;
-        console.log(designers_needed);
+  //need this first if statement on dashboard page
+  if (
+    designers_needed === 0 &&
+    developers_needed === 0 &&
+    artist_needed === 0
+  ) {
+    window.alert("This team is full!");
+    return;
+  } else {
+    // if I am a designer and I join the team, minus designer from the numbers
+    if (myRole === "Designer") {
+      //let designerInteger = parseInt(designers_needed);
+      if (designers_needed <= 0) {
+        window.alert("We already have enough designers!");
+        return;
+      } else {
+        try {
+          //reassign value to designers_needed in order to match up with info in PUT request/database
+          designers_needed = designers_needed - 1;
+          console.log(designers_needed);
 
-        const response = await fetch("/api/project/:id", {
-          method: "PUT",
-          body: JSON.stringify({
-            id,
-            designers_needed,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+          const response = await fetch("/api/project/:id", {
+            method: "PUT",
+            body: JSON.stringify({
+              id,
+              designers_needed,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
 
-        if (response.ok) {
-          document.location.reload();
+          if (response.ok) {
+            document.location.reload();
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
       }
     }
-  }
-  // if I am a developer and I join the team, minus developer from the numbers
-  if (myRole === "Developer") {
-    if (developers_needed <= 0) {
-      window.alert("We already have enough developers!");
-      return;
-    } else {
-      try {
-        //reassign value to designers_needed in order to match up with info in PUT request/database
-        developers_needed = developers_needed - 1;
-        console.log(developers_needed);
 
-        const response = await fetch("/api/project/:id", {
-          method: "PUT",
-          body: JSON.stringify({
-            id,
-            developers_needed,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+    // if I am a developer and I join the team, minus developer from the numbers
+    if (myRole === "Developer") {
+      //let designerInteger = parseInt(designers_needed);
+      if (developers_needed <= 0) {
+        window.alert("We already have enough developers!");
+        return;
+      } else {
+        try {
+          //reassign value to designers_needed in order to match up with info in PUT request/database
+          developers_needed = developers_needed - 1;
+          console.log(developers_needed);
 
-        if (response.ok) {
-          document.location.reload();
+          const response = await fetch("/api/project/:id", {
+            method: "PUT",
+            body: JSON.stringify({
+              id,
+              developers_needed,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+
+          if (response.ok) {
+            document.location.reload();
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
       }
     }
-  }
 
-  // if I am an artist and I join the team, minus the artist from the numbers
-  if (myRole === "3D Artist") {
-    //let designerInteger = parseInt(designers_needed);
-    if (artist_needed <= 0) {
-      window.alert("We already have enough developers!");
-      return;
-    } else {
-      try {
-        //reassign value to designers_needed in order to match up with info in PUT request/database
-        artist_needed = artist_needed - 1;
-        console.log(artist_needed);
+    // }
+    // if I am an artist and I join the team, minus the artist from the numbers
+    if (myRole === "3D Artist") {
+      //let designerInteger = parseInt(designers_needed);
+      if (artist_needed <= 0) {
+        window.alert("We already have enough artists!");
+        return;
+      } else {
+        try {
+          //reassign value to designers_needed in order to match up with info in PUT request/database
+          artist_needed = artist_needed - 1;
+          console.log(artist_needed);
 
-        const response = await fetch("/api/project/:id", {
-          method: "PUT",
-          body: JSON.stringify({
-            id,
-            artist_needed,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+          const response = await fetch("/api/project/:id", {
+            method: "PUT",
+            body: JSON.stringify({
+              id,
+              artist_needed,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
 
-        if (response.ok) {
-          document.location.reload();
+          if (response.ok) {
+            document.location.reload();
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
       }
     }
   }
