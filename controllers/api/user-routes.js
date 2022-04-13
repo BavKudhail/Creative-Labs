@@ -58,8 +58,8 @@ router.post("/", async (req, res) => {
       password: req.body.password,
       role: req.body.role,
       linkedin: req.body.linkedin,
-      email: req.body.email
-      // picture_url: req.body.picture_url,
+      email: req.body.email,
+      picture_url: req.body.picture_url,
     });
     // save user session
     req.session.save(() => {
