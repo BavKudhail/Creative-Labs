@@ -25,6 +25,8 @@ socket.on("message", (message) => {
   sendMessage(message);
   //   scroll functionality
   messages.scrollTop = messages.scrollHeight;
+
+  document.getElementById("message").value = "";
 });
 
 chatForm.addEventListener("submit", (event) => {

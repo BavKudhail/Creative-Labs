@@ -1,6 +1,13 @@
 // @NOTE - Future Dev - connect this to out User MySQL Database
 const connectedUsers = [];
 
+// when the user joins the private chat
+function userJoinsPrivateChat(id, username, user_id) {
+  const user = { id, username, user_id };
+  //   push this to the user array
+  return user;
+}
+
 // when the user joins the chat, get their socket.id, username and their project ID
 function userJoinsChat(id, username, project_id) {
   const user = { id, username, project_id };
@@ -39,4 +46,5 @@ module.exports = {
   getCurrentUser,
   userLeavesChat,
   getProjectUsers,
+  userJoinsPrivateChat,
 };
