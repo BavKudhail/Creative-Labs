@@ -41,26 +41,30 @@ const io = socketio(server);
 
 // When a user connects to the chat run execute function
 io.on("connection", (socket) => {
-  // Run when a user has connected to the chat
-  console.log("A user has connected");
-  const autoResponse = "Admin: ";
+  socket.on("joinPrivateChat", ({ username, user_id }) => {
+    // When the user joins the private message
+    socket.emit(
+      "message",
+      "Hi there USERNAME, send me a message and let's collab!"
+    );
 
-  // When the user joins the private message
-  socket.emit(
-    "message",
-    "Hi there USERNAME, send me a message and let's collab!"
-  );
+    // Run when a user has connected to the chat
+    console.log("A user has connected");
 
-  socket.on("disconnect", () => {
-    io.emit("message", "USERNAME has left the chat");
-  });
+    socket.on("disconnect", () => {
+      io.emit("message", "USERNAME has left the chat");
+    });
 
-  // Listen for private message
-  socket.on("privateMessage", (message) => {
-    console.log(message);
+    // Listen for private message
+    socket.on("privateMessage", (message) => {
+      console.log(message);
+      io.emit("message", message);
+    });
   });
 
   // ================= PROJECT CHAT LOGIC =================================
+
+  const autoResponse = "Admin: ";
 
   // When the user joins the project chat...
   socket.on("joinProjectChat", ({ username, project_id }) => {
