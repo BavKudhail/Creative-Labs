@@ -44,7 +44,11 @@
         <a href=""><img src="/images/email.png" /></a>
       </li>
     </ul>
-
+    {{! chat button }}
+    <a href="/profile/chat/{{user.id}}">
+      <button class="btn btn-grad">Send Message</button>
+    </a>
+    {{! chat button }}
   </div>
 
   <div class="col s12 m12 l10">
@@ -76,6 +80,16 @@
 
   </div>
 </div>
+{{! CHAT HTML TESTING }}
+
+<div>
+  <ul id="messages"></ul>
+  <form id="form" action="">
+    <input id="input" autocomplete="off" /><button class="btn">Send</button>
+  </form>
+</div>
+
+{{! CHAT HTML TESTING }}
 
 <script src="/javascript/joinproject.js"></script>
 <script

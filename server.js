@@ -27,18 +27,19 @@ const {
   userLeavesChat,
   getProjectUsers,
 } = require("./utils/users");
-
 // initialise express
 const app = express();
 const PORT = process.env.PORT || 3001;
-// create our http server - pass into express app
+// creating http instance
 const server = http.createServer(app);
+// creating socket io instance
 const io = socketio(server);
 
 // =========== SOCKET.IO LOGIC FOR OUR CHAT APPLICATION ==================
 
 // When a user connects to the chat page run execute function
 io.on("connection", (socket) => {
+  // Run when a user has connected to the chat
   console.log("A user has connected");
   const autoResponse = "Admin: ";
 

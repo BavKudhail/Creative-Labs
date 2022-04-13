@@ -43,4 +43,23 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// Chat with user
+router.get("/chat/:id", async (req, res) => {
+  // fund the user by their ID
+  try {
+    const userData = await User.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [Project],
+    });
+    // serialize the data
+    const user = userData.get({ plain: true });
+    // render the data to the front-end
+    res.render("view-user-profile", { user, loggedIn: req.session.loggedIn });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 module.exports = router;
