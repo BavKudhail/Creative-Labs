@@ -37,6 +37,8 @@ const io = socketio(server);
 
 // =========== SOCKET.IO LOGIC FOR OUR CHAT APPLICATION ==================
 
+// ===================== PRIVATE CHAT LOGIC ===============================
+
 // When a user connects to the chat run execute function
 io.on("connection", (socket) => {
   // Run when a user has connected to the chat
@@ -44,10 +46,21 @@ io.on("connection", (socket) => {
   const autoResponse = "Admin: ";
 
   // When the user joins the private message
-  socket.on("joinPrivateChat", (message) => {
-    // "privateChat is the key identifier - this differentiates the privateChat from the joinProjectChat"
-    io.emit("joinPrivateChat", message);
+  socket.emit(
+    "message",
+    "Hi there USERNAME, send me a message and let's collab!"
+  );
+
+  socket.on("disconnect", () => {
+    io.emit("message", "USERNAME has left the chat");
   });
+
+  // Listen for private message
+  socket.on("privateMessage", (message) => {
+    console.log(message);
+  });
+
+  // ================= PROJECT CHAT LOGIC =================================
 
   // When the user joins the project chat...
   socket.on("joinProjectChat", ({ username, project_id }) => {

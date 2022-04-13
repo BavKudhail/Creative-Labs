@@ -9,35 +9,20 @@ const user_id = document.getElementById("user-id").innerText;
 const username = document.getElementById("current-user").innerText;
 // chat form
 const chatForm = document.getElementById("chat-form");
-// input field value
-const input = document.getElementById("input");
+// messages
+const messages = document.querySelector(".messages");
 
-console.log(user_id);
-console.log(username);
-
-// chat forn
-chatForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  //   if there is a value in the input - emit value when you press send
-  if (input.value) {
-    //   this private message is the key - different from the chat message
-    socket.emit("joinPrivateChat", input.value);
-    // after emit - clear the input field
-    input.value = "";
-  }
+// catch message on client side
+socket.on("message", (message) => {
+  console.log(message);
 });
 
-// create and append message to front-end
-socket.on("joinPrivateChat", function (message) {
-  console.log(message);
-  // message text
-  const messageText = $(`<div class="message">
-  <p class="meta"> ${username} &nbsp <span> time </span></p>
-						<p class="text">
-							${message}
-						</p>
-</div>`);
+chatForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-  // append message text to .messages parent div
-  $(".messages").append(messageText);
+  // input field value
+  const message = document.getElementById("message").value;
+
+  //   emitting a private message to the users profile chat-box
+  socket.emit("privateMessage", message);
 });
