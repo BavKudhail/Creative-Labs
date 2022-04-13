@@ -22,12 +22,19 @@
           </ul>
   </nav>
 {{!--  TEST   --}}
-<div>
+{{!-- <div>
   <h2>User Role: <span id="my-role">{{user.role}}</span></h2>
   <h1>Designers: <span id="designers_needed">{{project.designers_needed}}</span></h1>
   <h1>Developers: <span id="developers_needed">{{project.developers_needed}}</span></h1>
   <h1>Artist: <span id="artist_needed">{{project.artist_needed}}</span></h1>
-</div>
+</div> --}}
+
+<ul class="custom-chat-info">
+    <h3>User Role: <span id="my-role">{{user.role}}</span></h3>
+  <li>Designers: <span id="designers_needed">{{project.designers_needed}}</span></li>
+  <li>Developers: <span id="developers_needed">{{project.developers_needed}}</li>
+  <li>Artist: <span id="artist_needed">{{project.artist_needed}}</span></li>
+</ul>
 {{!--  TEST   --}}
 
 <div class="row custom-row center-align">
