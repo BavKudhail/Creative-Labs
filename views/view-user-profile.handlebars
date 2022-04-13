@@ -12,22 +12,25 @@
       {{#if loggedIn}}
         <li><button
             id="logout-btn"
-            class="btn custom-button"
+            class="custom-button"
           >LOGOUT</button></li>
       {{else}}
         <li>
-          <a href="/login" class="btn custom-button">LOGIN</a>
+          <a href="/login" class="custom-button">LOGIN</a>
         </li>
       {{/if}}
     </ul>
   </div>
+
   <ul class="sidenav" id="mobile-demo">
     <li><a href="/dashboard">Dashboard</a></li>
     <li><a href="/profile">Profile</a></li>
-    <li><button
-        id="logout-btn"
-        class="btn custom-button purple lighten-4"
-      >LOGOUT</button></li>
+    {{#if loggedIn}}
+        <li><button
+            id="logout-btn-nav"
+            class="custom-button custom-button-nav"
+          >LOGOUT</button></li>
+      {{/if}}
   </ul>
 </nav>
 
@@ -38,25 +41,24 @@
     <ul class="custom-profile-details">
       <li><a href="#!" class="custom-name">{{user.username}}</a></li>
       {{! user id }}
-      <li><a href="#!" class="grey-text">
+      <li><a href="#!" class="grey-text" style="display:none;">
           <span id="user-id">{{user.id}}</span></a></li>
       <li><a href="#!" class="grey-text">{{user.role}}</a></li>
       <li><div class="divider"></div></li>
-      <li><a href=""><img src="/images/linkedin.png" /></a>
-        <a href=""><img src="/images/email.png" /></a>
+      <li><a href={{user.linkedin}}><img src="/images/linkedin.png" /></a>
+        <a href="mailto:{{user.email}}"><img src="/images/email.png" /></a>
       </li>
     </ul>
-    {{! chat button }}
-    <a href="/profile/chat/{{user.id}}">
-      <button class="btn btn-grad">Send Message</button>
-    </a>
+
     {{! chat button }}
   </div>
 
   <div class="col s12 m12 l10">
 
-    <div class="custom-profile-projects">
-      <ul class="collapsible">
+ <div class="custom-profile-projects">
+      <h3>Projects created</h3>
+       {{#if user.projects.length}}
+      <ul class="collapsible">  
         {{#each user.projects}}
           <li>
             <div class="collapsible-header"><i
@@ -65,44 +67,54 @@
             <div class="collapsible-body"><span>{{description}}</span></div>
           </li>
         {{/each}}
-        {{! <li>
-                  <div class="collapsible-header"><i class="material-icons">whatshot</i>E-commerce project</div>
-                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
-                <li>
-                  <div class="collapsible-header"><i class="material-icons">whatshot</i>React app</div>
-                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
-                <li>
-                  <div class="collapsible-header"><i class="material-icons">whatshot</i>Backend Database</div>
-                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li> }}
       </ul>
+         {{else}}
+         <h3 class="custom-noproject">No projects</h3>
+        {{/if}}
+     
+        <h3>Teams joined</h3>
+        {{#if user.teams.length}}
+        <ul class="collapsible">
+          {{#each user.teams}}
+            <li>
+              <div class="collapsible-header"><i
+                  class="material-icons"
+                >whatshot</i>{{team_name}}</div>
+              <div class="collapsible-body"><span
+                >{{users.username}}</span></div>
+            </li>
+          {{/each}}
+          {{! TEST }}
+        </ul>
+          {{else}}
+         <h3 class="custom-noproject">No teams</h3>
+        {{/if}}
+     
     </div>
 
-  </div>
-</div>
-{{!  }}
-<div>
-  <h2>Hey
+  <div class="custom-profile-projects">
+  <h3>Hey
     <span id="current-user">{{currentUser.username}}</span>, send
     {{user.username}}
-    a message!</h2>
-</div>
-{{! CHAT HTML TESTING }}
-<div>
+    a message!</h3>
+  </div>
+
+<div class="custom-profile-projects">
   <div class="messages">
     <div class="message">
       
     </div>
   </div>
-  <form id="chat-form" action="">
+  <form id="chat-form" action="" class="custom-profile-projects">
     <input id="message" autocomplete="off" /><button class="btn">Send</button>
   </form>
 </div>
-{{! CHAT HTML TESTING }}
+
+  </div>
+</div>
 
 {{! socket.io script }}
+<script src="/javascript/logout.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/javascript/private-chat.js"></script>
 <script
