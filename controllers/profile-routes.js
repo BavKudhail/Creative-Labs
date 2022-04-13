@@ -26,6 +26,15 @@ router.get("/", async (req, res) => {
 // Get user profile by ID
 router.get("/:id", async (req, res) => {
   try {
+    // find the current logged in user
+    const currentUserData = await User.findOne({
+      where: {
+        username: req.session.username,
+      },
+    });
+    // serialize the data
+    const currentUser = currentUserData.get({ plain: true });
+
     // find a user by ID
     const userData = await User.findOne({
       where: {
@@ -37,7 +46,11 @@ router.get("/:id", async (req, res) => {
     const user = userData.get({ plain: true });
 
     // render the data to the front-end
-    res.render("view-user-profile", { user, loggedIn: req.session.loggedIn });
+    res.render("view-user-profile", {
+      user,
+      currentUser,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (error) {
     res.status(500).json(error);
   }

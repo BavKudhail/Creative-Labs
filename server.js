@@ -44,9 +44,9 @@ io.on("connection", (socket) => {
   const autoResponse = "Admin: ";
 
   // When the user joins the private message
-  socket.on("privateChat", (message) => {
+  socket.on("joinPrivateChat", (message) => {
     // "privateChat is the key identifier - this differentiates the privateChat from the joinProjectChat"
-    io.emit("privateChat", message);
+    io.emit("joinPrivateChat", message);
   });
 
   // When the user joins the project chat...
