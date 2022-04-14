@@ -6,9 +6,8 @@
 //   $("select").formSelect();
 // });
 
-// this works on chat but not properly here yet
-// ON HERE IT ONLY WORKS ON FIRST PROJECT AFTER IT'S BEEN REFRESHED!!
-// When this is linked to project-item.handlebars it stops the projects from rendering
+// this works on chat but not properly here
+// When this is linked to project-item.handlebars it stops the projects from rendering so only one project displayed-won't loop
 
 const checkTeam = () => {
   // no of designers needed
@@ -21,19 +20,21 @@ const checkTeam = () => {
 
   const joinButton = document.getElementById("join-team-btn");
 
+  const href = document.getElementById("disable-this");
+
   const project = document.getElementById("project-card");
 
   console.log("restriction function connected");
   //need to put a for loop or something here to loop through projects
   // but projects not in an array, they're looped over in handlebars?!
   // there is a projects array in project-routes
-  // fetch request in order to loop?
+  // fetch request in order to loop? -> doesn't work
   //get all projects, save to variable, then loop over
-  // const projects = await fetch(get all projects?)
+
   if (designers_needed <= 0 && developers_needed <= 0 && artist_needed <= 0) {
-    //window.alert("This team is full!");
-    //button greyed out but href still working-need to disable this too
     joinButton.setAttribute("disabled", true);
+    //joinButton.innerText("This team is full!");
+    //href.setAttribute("style", "pointer-events: none");
   }
 };
 

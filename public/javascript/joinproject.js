@@ -31,8 +31,16 @@ const joinTheProject = async (event) => {
   // get the current role of the user
   const myRole = document.getElementById("my-role").innerText;
 
-  //need this first if statement on dashboard page
+  //update database if project has all positions filled
   if (designers_needed <= 0 && developers_needed <= 0 && artist_needed <= 0) {
+    const project_full = true;
+    const teamFull = await fetch("/api/project/:id", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id, project_full }),
+    });
     window.alert("This team is full!");
     return;
   } else {
