@@ -14,7 +14,6 @@ h2 {
   font-size: 40px;
   line-height: 61px;
   color: #ffffff;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 h1 {
   margin-top: 10%;
@@ -261,9 +260,6 @@ h4 {
   margin-top: 50px;
   text-align: center;
 }
-.custom-welcome {
-  text-align: center;
-}
 .custom-noproject{
 font-size: 15px;
 text-align: left;
@@ -274,6 +270,145 @@ text-align: left;
 .custom-numbers li{
   color:#8245d6;
 }
+.custom-chat-icon{
+  background-color: rgb(76, 172, 104);
+}
+
+.message {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 20px;
+  background-color:rgb(71, 145, 255);
+} 
+.custom-type-msg{
+  margin:20px;
+  border-width:1px;
+  border-color:tomato;
+}
+.chat-image {
+  max-width: 3000px;
+  position: absolute;
+  z-index: -1;  
+} 
+
+.custom-current-user {
+ color:#3d1858;
+ text-align: center;
+ text-align:center;
+ margin-bottom:10px;
+ margin-top:20px;
+ font-size:20px;
+}
+
+
+.custom-send-btn{
+  font-size: 15px;
+  line-height: 36px;
+  color: black;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0;
+  background: transparent;
+  border-radius: 50%;
+  text-align: right;
+}
+
+.custom-send-btn:focus{
+  background-color: transparent;
+}
+.custom-type-msg{
+  margin-left:20px;
+  margin-right:20px;
+  border-color:blue;
+  border-width: 20px;
+}
+.modal{
+  padding:30px;
+  width:40%;
+  height:400px;
+}
+
+.form-style-5{
+  position:absolute;
+	padding: 10px 20px;
+	padding: 20px;
+	border-radius: 8px;
+}
+
+
+.form-style-5 input[type="text"] {
+	background: rgba(255,255,255,.1);
+	border: none;
+	border-radius: 4px;
+	font-size: 15px;
+	margin: 0;
+	outline: 0;
+	padding: 10px;
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	background-color: #e8eeef;
+	color:#8a97a0;
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-left:20px;
+  width:220px;
+}
+
+.form-style-5 input[type="text"]:focus{
+	background: #d2d9dd;
+  margin: 0px;
+}
+
+
+/* chat page */
+.custom-chat-intro{
+  margin-top:30px;
+  background: linear-gradient(180deg, #8245d6 0%, #6b90f3 100%); 
+  width:60%; 
+  padding:20px;
+  border-radius: 15px;
+}
+
+.custom-chat-intro h4{
+  margin-top: 30px;
+}
+
+.custom-join-btn{
+  margin-top:30px;
+  width:fit-content;
+  width:250px;
+  background:rgb(117, 39, 148);
+}
+
+.custom-member{
+  font-size:10px;
+}
+.custom-member-name{
+  color:rgb(149, 107, 189);
+}
+.custom-card-content{
+  height:fit-content;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 1200px) {
   h1,
   h2 {
@@ -311,6 +446,9 @@ text-align: left;
   .custom-inputs-2 {
     width: 80%;
   }
+  .modal{
+    width:70%;
+  }
 }
 
 .btn-grad {
@@ -339,40 +477,65 @@ text-align: left;
 }
 
 .send-btn {
-  background-color: #faaca8;
-  background-image: linear-gradient(19deg, #faaca8 0%, #ddd6f3 100%);
+  background:green;
   color: #3c2165;
+  width:50px;
+  display: inline;
+}
+
+
+
+
+
+
+.main{
+	width:490px;
+	display:inline-block;
+	font-size:15px;
+	vertical-align:top;
 }
 
 .custom-bg {
-  background-color: #8e51e8;
   background-image: linear-gradient(0deg, #8e51e8 0%, #6430bf 100%);
-  border-radius: 30px;
-  margin: 5rem;
   background: rgba(52, 0, 81, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
-  border: 1px solid rgba(104, 7, 121, 0.371);
 }
 
-.message {
-  background: #8e51e8;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding-left: 10px;
-  padding-right: 10px;
-  margin: 20px;
+.chat-header{
+	height:110px;
+	padding:30px 20px 30px 40px;
 }
 
-.chat-image {
-  max-width: 3000px;
-  position: absolute;
-  z-index: -1;
+.chat-header div{
+	margin-left:10px;
+	margin-right:145px;
+}
+.chat-header h2{
+	font-size:16px;
+  margin:0;
+	margin-bottom:5px;
+  line-height: 15px;
+}
+.chat-header h3{
+  padding: 0px;
+  padding-bottom: 0px;
+  margin:0;
+  margin-bottom:20px;
+	font-size:14px;
+	font-weight:normal;
+	color:#7e818a;
 }
 
 
+.messages{
+  margin-top:50px;
+  margin-left:20px;
+}
+
+.form-container form{
+  margin-left:40px;
+  margin-right:40px;
+}
