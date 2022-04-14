@@ -36,7 +36,7 @@
         {{!-- when the user clicks button they are tken to the chat --}}
         {{!-- commented out for testing- need to render a page via js --}}
         {{#if project_full}}
-        <button id="join-team-btn" class="btn" disabled> PROJECT FULL! <span>{{team.name}}</span> <i class="material-icons right">chat</i></button>
+        <button id="join-team-btn" class="btn" disabled> TEAM FULL! <span>{{team.name}}</span> <i class="material-icons right">chat</i></button>
         {{else}}
         <a id="disable-this" href="dashboard/chat/{{id}}">
           <button id="join-team-btn" class="btn">JOIN THE PROJECT <span>{{team.name}}</span> <i class="material-icons right">chat</i></button>
