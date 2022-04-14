@@ -1,10 +1,17 @@
 const router = require("express").Router();
-const { Project,  User } = require("../models");
+const { Project, User } = require("../models");
 const withAuth = require("../utils/auth.js");
 
 // home routes ( / )
 router.get("/", (req, res) => {
   res.render("homepage");
+});
+
+// ======== TEST IMAGE UPLOAD LOGIC =============
+
+// Update profile picture
+router.get("/upload", (req, res) => {
+  res.render("image-upload");
 });
 
 // Login route
@@ -36,6 +43,10 @@ router.get("/create-project", async (req, res) => {
   } catch (error) {
     // how to code this?
   }
+});
+
+router.get("/upload", async (req, res) => {
+  res.render("image-upload");
 });
 
 module.exports = router;

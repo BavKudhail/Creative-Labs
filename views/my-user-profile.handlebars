@@ -10,10 +10,7 @@
       <li><a href="/dashboard">Dashboard</a></li>
       <li><a href="/profile">Profile</a></li>
       {{#if loggedIn}}
-        <li><button
-            id="logout-btn"
-            class="custom-button"
-          >LOGOUT</button></li>
+        <li><button id="logout-btn" class="custom-button">LOGOUT</button></li>
       {{else}}
         <li>
           <a href="/login" class="custom-button">LOGIN</a>
@@ -26,28 +23,32 @@
     <li><a href="/dashboard">Dashboard</a></li>
     <li><a href="/profile">Profile</a></li>
     {{#if loggedIn}}
-        <li><button
-            id="logout-btn-nav"
-            class="custom-button custom-button-nav"
-          >LOGOUT</button></li>
-      {{/if}}
+      <li><button
+          id="logout-btn-nav"
+          class="custom-button custom-button-nav"
+        >LOGOUT</button></li>
+    {{/if}}
   </ul>
 </nav>
 
 <div class="row custom-row">
 
   <div class="col s12 m12 l2 custom-profile-box">
-       <div class="upload-btn-wrapper">
-      {{!-- <button id="upload-photo"><i class="material-icons">add</i></button>
+    <div class="upload-btn-wrapper">
+      {{! <button id="upload-photo"><i class="material-icons">add</i></button>
       <input
         id="upload"
         type="file"
         onChange="handleImageUpload()"
         class="custom-upload"
-      /> --}}
-      <img class="circle custom-profile-picture" id="display-image" src="./images/profile.jpg" />
-    </div> 
- {{!-- <img class="circle custom-profile-picture" src="./images/profile.jpg" /> --}}
+      /> }}
+      <img
+        class="circle custom-profile-picture"
+        id="display-image"
+        src="{{user.picture_url}}"
+      />
+    </div>
+    {{! <img class="circle custom-profile-picture" src="./images/profile.jpg" /> }}
 
     <ul class="custom-profile-details">
       <li><a href="#!" class="custom-name">{{user.username}}</a></li>
@@ -57,7 +58,7 @@
         <a href="mailto:{{user.email}}"><img src="./images/email.png" /></a>
       </li>
     </ul>
-      
+
   </div>
 
   <div class="col s12 m12 l10">
@@ -72,23 +73,23 @@
 
     <div class="custom-profile-projects">
       <h3>Projects I have created</h3>
-       {{#if user.projects.length}}
-      <ul class="collapsible">  
-        {{#each user.projects}}
-          <li>
-            <div class="collapsible-header"><i
-                class="material-icons"
-              >whatshot</i>{{title}}</div>
-            <div class="collapsible-body"><span>{{description}}</span></div>
-          </li>
-        {{/each}}
-      </ul>
-         {{else}}
-         <h3 class="custom-noproject">You have no projects</h3>
-        {{/if}}
-     
-        <h3>Teams I have joined</h3>
-        {{#if user.teams.length}}
+      {{#if user.projects.length}}
+        <ul class="collapsible">
+          {{#each user.projects}}
+            <li>
+              <div class="collapsible-header"><i
+                  class="material-icons"
+                >whatshot</i>{{title}}</div>
+              <div class="collapsible-body"><span>{{description}}</span></div>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <h3 class="custom-noproject">You have no projects</h3>
+      {{/if}}
+
+      <h3>Teams I have joined</h3>
+      {{#if user.teams.length}}
         <ul class="collapsible">
           {{#each user.teams}}
             <li>
@@ -101,11 +102,10 @@
           {{/each}}
           {{! TEST }}
         </ul>
-          {{else}}
-         <h3 class="custom-noproject">You have no teams</h3>
-        {{/if}}
-     
-     
+      {{else}}
+        <h3 class="custom-noproject">You have no teams</h3>
+      {{/if}}
+
     </div>
 
   </div>

@@ -121,4 +121,77 @@ router.post("/logout", async (req, res) => {
   }
 });
 
+// ========== IMAGE UPLOAD LOGIC TEST ==========================
+
+// aws
+const aws = require("aws-sdk");
+// multer
+const multer = require("multer");
+// multer-s3
+const multerS3 = require("multer-s3");
+// uuid for generating unique file names
+const uuid = require("uuid").v4;
+// path module for manipulating file paths
+const path = require("path");
+// get a reference to our database
+require("dotenv").config();
+
+// get AWS credentials
+const s3 = new aws.S3({
+  accessKeyId: process.env.AWS_ID,
+  secretAccessKey: process.env.AWS_SECRET,
+  region: process.env.AWS_BUCKET_REGION,
+});
+
+// upload
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    acl: "public-read",
+    bucket: process.env.AWS_BUCKET_NAME,
+    key: function (req, file, cb) {
+      console.log(file);
+      cb(null, file.originalname);
+    },
+  }),
+});
+
+// upload a new image
+router.post("/upload/:id", upload.single("image"), (req, res) => {
+  try {
+    // send uploaded file data to the front-end
+    res.send({
+      message: "Uploaded",
+      urls: req.file,
+    });
+
+    // console.log(req.file data)
+    console.log(req.file);
+
+    // set image url variable
+    const imageUrl = req.file.location;
+
+    // THE IMAGE HAS NOW BEEN STORED ONTO S3 - NEXT UPDATE THE USERS IMAGE
+
+    // Update the current users profile image
+    //   find user where username = req.body.username
+    const updateProfileImage = User.update(
+      {
+        picture_url: imageUrl,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+  } catch (error) {}
+
+  // now, set the users profile pic url as the image location
+});
+
+// save a reference to the collection that we are going to be storing our images into so it can be re-used - not sure what this means ?
+
+// ========== IMAGE UPLOAD LOGIC TEST ==========================
+
 module.exports = router;
