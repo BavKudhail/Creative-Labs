@@ -157,9 +157,9 @@ const upload = multer({
 });
 
 // upload a new image
-router.post("/upload/:id", upload.single("image"), (req, res) => {
+router.post("/upload", upload.single("image"), (req, res) => {
   try {
-    // send uploaded file data to the front-end
+    // store the file data onto
     res.send({
       message: "Uploaded",
       urls: req.file,
@@ -173,19 +173,20 @@ router.post("/upload/:id", upload.single("image"), (req, res) => {
 
     // THE IMAGE HAS NOW BEEN STORED ONTO S3 - NEXT UPDATE THE USERS IMAGE
 
-    // Update the current users profile image
-    //   find user where username = req.body.username
+    //   find user where username = req.session.username
     const updateProfileImage = User.update(
       {
         picture_url: imageUrl,
       },
       {
         where: {
-          id: req.params.id,
+          username: "designertest",
         },
       }
     );
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).send(error);
+  }
 
   // now, set the users profile pic url as the image location
 });

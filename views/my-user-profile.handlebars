@@ -58,8 +58,15 @@
         <a href="mailto:{{user.email}}"><img src="./images/email.png" /></a>
       </li>
       <div>
-        {{! update profile image }}
+        {{! when the user clicks this button open up a form}}
         <button id="update-profile-button" class="btn-grad btn">Update Image</button>
+        {{! form for image uploade }}
+        <div>
+          <form id="image-update-form">
+            <input id="image-value" type="file" name="image" />
+            <button id="image-submit-btn" class="btn">SUBMIT</button>
+          </form>
+        </div>
       </div>
     </ul>
 

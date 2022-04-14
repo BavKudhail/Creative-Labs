@@ -1,11 +1,32 @@
-console.log("profile logic connected");
+const updateImageBtn = document.getElementById("image-submit-btn");
+const updateImageForm = document.getElementById("image-update-form");
+const image = document.getElementById("image-value");
 
-const updatePictureBtn = document.getElementById("update-profile-button");
+const updateProfileImage = async (event) => {
+  // prevent page from refreshing
+  event.preventDefault();
+  // this will hold the file once it has been chosen
+  const formData = new FormData();
 
-console.log(updatePictureBtn);
+  // defining a name attribute - do we need tis?
+  formData.append("image", image.files[0]);
+  console.log(image.files);
 
-const updatePicture = () => {
-  console.log("execute picture function");
+  console.log("clicked submit button");
+
+  if (formData) {
+    const response = await fetch("/api/user/upload", {
+      method: "POST",
+      body: formData,
+    });
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert(response.statusText);
+    }
+  }
 };
 
-updatePictureBtn.addEventListener("click", updatePicture);
+updateImageForm.addEventListener("submit", updateProfileImage);
+
+// is there anyway to refresh when it comes together
