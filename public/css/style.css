@@ -83,16 +83,16 @@ button {
   background: linear-gradient(97.19deg, #b973ea 15%, #672fbd 82.07%);
   border-radius: 10px;
   border-color: transparent;
-  margin-top:8px;
+  margin-top: 8px;
   margin-right: 20px;
   padding-bottom: 4px;
 }
-.custom-button-nav{
+.custom-button-nav {
   background: transparent;
-  color:violet;
-  margin-left:10px;
+  color: violet;
+  margin-left: 10px;
 }
-.custom-button-nav:focus{
+.custom-button-nav:focus {
   background: transparent;
 }
 .custom-inputs {
@@ -144,8 +144,8 @@ input {
 .custom-card-div {
   margin-top: 3%;
 }
-.card-content{
-  height:130px;
+.card-content {
+  height: 130px;
 }
 .custom-card-image {
   border-top-left-radius: 15px;
@@ -260,15 +260,9 @@ h4 {
   margin-top: 50px;
   text-align: center;
 }
-.custom-noproject{
-font-size: 15px;
-text-align: left;
-} 
-.custom-chat-info{
-  color:white;
-}
-.custom-numbers li{
-  color:#8245d6;
+
+.custom-numbers li {
+  color: #8245d6;
 }
 .custom-chat-icon{
   background-color: rgb(76, 172, 104);
@@ -476,17 +470,26 @@ text-align: left;
   text-decoration: none;
 }
 
+.project-card-text {
+  color: #5815a4;
+  font-weight: bold;
+}
+
+.expand {
+  transition: all 0.3s ease-in-out;
+}
+
+.expand:hover {
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+}
+
 .send-btn {
   background:green;
   color: #3c2165;
   width:50px;
   display: inline;
 }
-
-
-
-
-
 
 .main{
 	width:490px;
@@ -529,13 +532,3 @@ text-align: left;
 	color:#7e818a;
 }
 
-
-.messages{
-  margin-top:50px;
-  margin-left:20px;
-}
-
-.form-container form{
-  margin-left:40px;
-  margin-right:40px;
-}

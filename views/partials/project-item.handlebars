@@ -1,5 +1,5 @@
 <div class="col s12 m6 l4 custom-card-div">
-  <div class="card custom-card-box">
+  <div class="card custom-card-box expand">
     <div
       class="card-image waves-effect waves-block waves-light custom-card-image"
     >
@@ -13,11 +13,12 @@
       {{! link to user profile }}
       <p>
         {{!-- when you click this link you get sent to that users profile --}}
-          <a href="/profile/{{user_id}}" class="custom-link-profile">Posted by &nbsp
-          {{user.username}}
+          <a href="/profile/{{user_id}}" class="custom-link-profile">Posted by
+          <span class="project-card-text" >{{user.username}} </span>on {{format_date date_created}}
           </a>
         </p>
         
+
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><i
