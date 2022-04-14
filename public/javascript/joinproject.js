@@ -2,7 +2,7 @@
 //also slight update to project-item.handlebars AND chat.handlebars
 //also changed project model to add project_full
 
-//checkTeam continually refreshes page so loeave out for now
+//checkTeam continually refreshes page so leave out for now
 
 // const checkTeam = async () => {
 //   const id = document.getElementById("project-id").innerText;
@@ -180,8 +180,12 @@ const joinTheProject = async (event) => {
       alert(response.statusText);
     }
   }
+  // }
 };
 
-//checkTeam();
+function disableButton() {
+  // Select the element with id "theButton" and disable it
+  document.getElementById("join-btn").disabled = true;
+}
 
 joinBtn.addEventListener("click", joinTheProject);
