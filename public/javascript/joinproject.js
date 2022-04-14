@@ -1,5 +1,6 @@
 //I've updated the route for fetch on project-routes
 //also slight update to project-item.handlebars
+//also changed project model to add project_full
 
 const joinBtn = document.getElementById("join-btn");
 

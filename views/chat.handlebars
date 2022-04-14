@@ -41,7 +41,11 @@
   </div>
   <div class="flex">
     <div>
+      {{#if project_full}}
+      <button class="btn center-align" id="join-btn" value="JOIN THIS TEAM!">TEAM FULL!</button>
+      {{else}}
     <button class="btn center-align" id="join-btn" value="JOIN THIS TEAM!">JOIN THIS TEAM!</button>
+    {{/if}}
   </div>
   <div>
     <img src="/images/polygon.png" alt="">
