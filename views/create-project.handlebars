@@ -10,10 +10,7 @@
       <li><a href="/dashboard">Dashboard</a></li>
       <li><a href="/profile">Profile</a></li>
       {{#if loggedIn}}
-        <li><button
-            id="logout-btn"
-            class="custom-button"
-          >LOGOUT</button></li>
+        <li><button id="logout-btn" class="custom-button">LOGOUT</button></li>
       {{else}}
         <li>
           <a href="/login" class="custom-button">LOGIN</a>
@@ -26,11 +23,11 @@
     <li><a href="/dashboard">Dashboard</a></li>
     <li><a href="/profile">Profile</a></li>
     {{#if loggedIn}}
-        <li><button
-            id="logout-btn-nav"
-            class="custom-button custom-button-nav"
-          >LOGOUT</button></li>
-      {{/if}}
+      <li><button
+          id="logout-btn-nav"
+          class="custom-button custom-button-nav"
+        >LOGOUT</button></li>
+    {{/if}}
   </ul>
 </nav>
 
@@ -68,16 +65,23 @@
     </div>
   </div>
 
+  {{! picture logic }}
+  {{!-- <h4>Upload your project picture</h4>
+  <input id="image-value" type="file" name="image" /> --}}
+
   <div class="row container custom-inputs-button">
     <button class="btn">Create Project</button>
   </div>
 
 </form>
 
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      <script src="/javascript/logout.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+></script>
+<script src="/javascript/logout.js"></script>
 <script src="/javascript/newproject.js"></script>
 <script>
   $(document).ready(function(){ $('.sidenav').sidenav(); });

@@ -10,15 +10,24 @@ router.get("/", async (req, res) => {
       where: {
         username: req.session.username,
       },
-      include: [Project, Team],
+      include: [
+        Project,
+        {
+          model: Team,
+          include: [User],
+        },
+      ],
     });
-    // get all teams of the currently logged in user
 
     // serialize the data
     const user = userData.get({ plain: true });
+    console.log(JSON.stringify(user));
+
     // render the data to the front-end
+    // res.json(user);
     res.render("my-user-profile", { user, loggedIn: req.session.loggedIn });
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 });

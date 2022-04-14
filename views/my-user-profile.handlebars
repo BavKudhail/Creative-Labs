@@ -107,8 +107,15 @@
               <div class="collapsible-header"><i
                   class="material-icons"
                 >whatshot</i>{{team_name}}</div>
-              <div class="collapsible-body"><span
-                >{{users.username}}</span></div>
+              <div class="collapsible-body">
+                {{! Team Members }}
+                <h4 class="black-text">Team Members</h4>
+                {{#each users}}
+                  <ul>
+                    <li><span>{{username}}</span></li>
+                  </ul>
+                {{/each}}
+              </div>
             </li>
           {{/each}}
           {{! TEST }}
