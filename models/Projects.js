@@ -54,6 +54,10 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    project_full: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     sequelize,
