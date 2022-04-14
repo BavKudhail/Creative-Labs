@@ -12,22 +12,25 @@
       {{#if loggedIn}}
         <li><button
             id="logout-btn"
-            class="btn custom-button"
+            class="custom-button"
           >LOGOUT</button></li>
       {{else}}
         <li>
-          <a href="/login" class="btn custom-button">LOGIN</a>
+          <a href="/login" class="custom-button">LOGIN</a>
         </li>
       {{/if}}
     </ul>
   </div>
+
   <ul class="sidenav" id="mobile-demo">
     <li><a href="/dashboard">Dashboard</a></li>
     <li><a href="/profile">Profile</a></li>
-    <li><button
-        id="logout-btn"
-        class="btn custom-button purple lighten-4"
-      >LOGOUT</button></li>
+    {{#if loggedIn}}
+        <li><button
+            id="logout-btn-nav"
+            class="custom-button custom-button-nav"
+          >LOGOUT</button></li>
+      {{/if}}
   </ul>
 </nav>
 
@@ -71,6 +74,10 @@
 
 </form>
 
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="/javascript/logout.js"></script>
 <script src="/javascript/newproject.js"></script>
 <script>
   $(document).ready(function(){ $('.sidenav').sidenav(); });

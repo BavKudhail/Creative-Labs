@@ -10,12 +10,6 @@
       <span class="card-title activator grey-text text-darken-4">{{title}}<i
           class="material-icons right"".join-team-btn"
         >more_vert</i></span>
-      {{! code this! }}
-      <ul>
-        <li>{{designers_needed}} designers required</li>
-        <li>{{developers_needed}} programmers required</li>
-        <li>{{artist_needed}} artists required</li>
-      </ul>
       {{! link to user profile }}
       <p>
         {{!-- when you click this link you get sent to that users profile --}}
@@ -26,13 +20,13 @@
         
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Description<i
+      <span class="card-title grey-text text-darken-4"><i
           class="material-icons right"
         >close</i></span>
       {{! project description }}
       <p>{{description}}</p>
       {{!-- added members required and current role for testing --}}
-      <ul>
+      <ul class="custom-numbers">
         <li><span id="designers_needed">{{designers_needed}}</span> designers required</li>
         <li><span id="developers_needed">{{developers_needed}}</span> programmers required</li>
         <li><span id="artist_needed">{{artist_needed}}</span> artists required</li>

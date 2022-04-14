@@ -1,117 +1,206 @@
-{{!-- Navbar --}}
 <nav>
-        <div class="nav-wrapper">
-          <a href="" class="brand-logo">CREATOR<span class="custom-brand-logo">LABS</span></a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/profile">Profile</a></li>
-            {{#if loggedIn}}
-            <li><button id="logout-btn" class="btn custom-button">LOGOUT</button></li>
-            {{else}}
-            <li>
-              <a href="/login" class="btn custom-button">LOGIN</a>
-            </li>
-            {{/if}}
-          </ul>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo">CREATOR<span
+        class="custom-brand-logo"
+      >LABS</span></a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
+        class="material-icons"
+      >menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/profile">Profile</a></li>
+      {{#if loggedIn}}
+        <li><button
+            id="logout-btn"
+            class="custom-button"
+          >LOGOUT</button></li>
+      {{else}}
+        <li>
+          <a href="/login" class="custom-button">LOGIN</a>
+        </li>
+      {{/if}}
+    </ul>
+  </div>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/profile">Profile</a></li>
+    {{#if loggedIn}}
+        <li><button
+            id="logout-btn-nav"
+            class="custom-button custom-button-nav"
+          >LOGOUT</button></li>
+      {{/if}}
+  </ul>
+</nav>
+
+{{!-- join the team --}}
+ <div class="row center-align custom-chat-intro">
+
+  <h4>Hey <span id="my-role">{{user.role}}</span> <span id="username">{{user.username}}</span>!</h4>
+  <h4>Welcome to project  <span id="project-id">{{project.id}}</span>: {{project.title}} project 🔥</h4>
+  <h4>{{project.user.username}} is searching for 
+    <span id="designers_needed">{{project.designers_needed}}</span> designers,
+    <span id="developers_needed">{{project.developers_needed}}</span> developers and
+    <span id="artist_needed">{{project.artist_needed}}</span> artists</h4>
+  <h4> Would you like to join their team? </h4>
+  
+  <div>
+    <button class="btn center-align custom-join-btn" id="join-btn">JOIN TEAM!</button>
+  </div>
+
+</div>
+
+{{!-- members of the team --}}
+
+  <div class="row container center-align">
+
+
+   <div class="col s4 m3 l2">
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/profile.jpg" >
         </div>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><button id="logout-btn" class="btn custom-button purple lighten-4">LOGOUT</button></li>
-          </ul>
-  </nav>
-{{!--  TEST   --}}
-<div>
-  <h2>User Role: <span id="my-role">{{user.role}}</span></h2>
-  <h1>Designers: <span id="designers_needed">{{project.designers_needed}}</span></h1>
-  <h1>Developers: <span id="developers_needed">{{project.developers_needed}}</span></h1>
-  <h1>Artist: <span id="artist_needed">{{project.artist_needed}}</span></h1>
-</div>
-{{!--  TEST   --}}
-
-<div class="row custom-row center-align">
-
-  <h2 class="custom-welcome"> Hey <span id="username">{{user.username}}</span>! This is project <span id="project-id">{{project.id}}</span>🔥</h2>
-  <h4><span>{{project.user.username}} </span>is the team leader! Would you like to join their team?
-  </h4>
-  {{!-- insert user profile picture here --}}
-  <div>
-
-  </div>
-  <div class="flex">
-    <div>
-    <button class="btn center-align" id="join-btn">JOIN THIS TEAM!</button>
-  </div>
-  <div>
-    <img src="/images/polygon.png" alt="">
-  </div>
-</div>
-  </div>
-<body>
-  <div>
-    <img class="chat-image" src="/images/Marni 4.png" alt="">
-  </div>
-  <div>
-    <img class="chat-image" src="/images/Badrun 4.png" alt="">
-  </div>
-  <div class="chat-container custom-bg">
-    <div class="container">
-    {{! main section }}
-    <main>
-      <div>
-        <h3>Say Hi!</h3>
-        <h3 id="team-name">Building {{project.title}}</h3>
-        <h3>Live Users: </h3>
-        <div>
-          <ul id="user-list" class="white-text">
-        </ul>
+        <div class="card-content black-text custom-card-content">
+          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
+          <p>3D artists</p>
+          <p class="custom-member">Member of the team</p>
         </div>
       </div>
+    </div>
+
+
+   <div class="col s4 m3 l2">
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/profile.jpg" >
+        </div>
+        <div class="card-content black-text custom-card-content">
+          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
+          <p>3D artists</p>
+          <p class="custom-member">Member of the team</p>
+        </div>
+      </div>
+    </div>
+
+
+   <div class="col s4 m3 l2">
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/profile.jpg" >
+        </div>
+        <div class="card-content black-text custom-card-content">
+          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
+          <p>3D artists</p>
+          <p class="custom-member">Member of the team</p>
+        </div>
+      </div>
+    </div>
+
+
+   <div class="col s4 m3 l2">
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/profile.jpg" >
+        </div>
+        <div class="card-content black-text custom-card-content">
+          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
+          <p>3D artists</p>
+          <p class="custom-member">Member of the team</p>
+        </div>
+      </div>
+    </div>
+
+
+   <div class="col s4 m3 l2">
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/profile.jpg" >
+        </div>
+        <div class="card-content black-text custom-card-content">
+          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
+          <p>3D artists</p>
+          <p class="custom-member">Member of the team</p>
+        </div>
+      </div>
+    </div>
+
+
+   <div class="col s4 m3 l2">
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/profile.jpg" >
+        </div>
+        <div class="card-content black-text custom-card-content">
+          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
+          <p>3D artists</p>
+          <p class="custom-member">Member of the team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+{{!-- chat --}}
+
+<div class="row">
+  <div>
+    <img class="chat-image" src="/images/Marni 4.png" alt="">
+  </div> 
+  <div>
+    <img class="chat-image" src="/images/Badrun 4.png" alt="">
+  </div> 
+   <div class="custom-bg container row">
+
+
+
+    <div> 
+    {{! main section }}
+      <main>
+        <header class="chat-header">
+        <div>
+            <h2 id="team-name">{{project.title}}</h2>
+            <h3>Group chat</h3>
+            <h2>Online Users 
+            <ul id="user-list" class="green-text">
+            </ul>
+            </h2>
+       </div>
+        </header>
+
       <div class="messages white-text"></div>
-    </main>
+    </main> 
+
     {{! form container }}
     <div class="form-container">
       <form id="chat-form">
-        <input id="message" type="text" placeholder="Enter your message" />
-        <button class="btn send-btn">Send</button>
+        <input id="message" type="text" placeholder="Enter your message"/>
+        <button class="btn send-btn"><i class="material-icons">send</i></button>
       </form>
     </div>
+
+    
   </div>
-  </div>
+  </div>  
+
+
+
+
+
   {{!-- leave chat button - take user back to dashboard --}}
-  <div class="center-align">
+ <div class="center-align">
     <a href="/dashboard">
       <button class="btn" id="leave-btn">Leave Chat</button>
     </a>
-  </div>
+  </div> 
 
-  {{!-- TEST --}}
+  
 
-<div class="center-align">
-  <h1>TEAM MEMBERS</h1>
+ </div>            
 
 
-  <div class="row">
-    {{!-- For each team members --}}
-    {{#each team.users}}
-    {{!-- Render this div --}}
-    <div class="col s12 m6">
-      <div class="card white">
-        <div class="card-content black-text">
-          <div><img src="https://via.placeholder.com/150" alt=""></div>
-          <div class="black-text"><a class="black-text" href="/profile/{{id}}">{{username}}</a></div>
-          <div>EMAIL: {{email}}</div>
-          <div class="btn-grad">{{role}}</div>
-        </div>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-</div>
-            
-
-{{!-- TEST --}}
 
 
 {{!-- socket.io script --}}
@@ -122,3 +211,16 @@
 <script src="/javascript/joinproject.js"></script>
 {{!-- logout --}}
 <script src="/javascript/logout.js"></script>
+
+
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+></script>
+<script>
+  $(document).ready(function(){ $('.sidenav').sidenav(); });
+
+</script>
