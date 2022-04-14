@@ -1,12 +1,5 @@
-// // When you click on join the project
-
-// When the user clicks join this team
-
-// Check to see if the current user is a member of this team
-
-// If the user is a member this team, then send, you are already a member
-
-// Else run the function
+//I've updated the route for fetch on project-routes
+//also slight update to project-item.handlebars
 
 const joinBtn = document.getElementById("join-btn");
 
