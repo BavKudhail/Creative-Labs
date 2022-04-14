@@ -1,3 +1,5 @@
+// @NOTE - IN ORDER FOR IMAGE TO DISPLAY, MUST WAIT FEW SECS AND REFRESH PAGE
+
 const updateImageBtn = document.getElementById("image-submit-btn");
 const updateImageForm = document.getElementById("image-update-form");
 const image = document.getElementById("image-value");
@@ -14,6 +16,7 @@ const updateProfileImage = async (event) => {
 
   console.log("clicked submit button");
 
+  // send a post request to update the profile picture
   if (formData) {
     const response = await fetch("/api/user/upload", {
       method: "POST",

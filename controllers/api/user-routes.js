@@ -180,7 +180,7 @@ router.post("/upload", upload.single("image"), (req, res) => {
       },
       {
         where: {
-          username: "designertest",
+          username: req.session.username,
         },
       }
     );
@@ -190,9 +190,5 @@ router.post("/upload", upload.single("image"), (req, res) => {
 
   // now, set the users profile pic url as the image location
 });
-
-// save a reference to the collection that we are going to be storing our images into so it can be re-used - not sure what this means ?
-
-// ========== IMAGE UPLOAD LOGIC TEST ==========================
 
 module.exports = router;
