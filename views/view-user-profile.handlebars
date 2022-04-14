@@ -92,7 +92,8 @@
      
     </div>
 
-  <div class="custom-profile-projects">
+{{!-- <div class="custom-profile-projects">
+    
   <h3>Hey
     <span id="current-user">{{currentUser.username}}</span>, send
     {{user.username}}
@@ -108,7 +109,81 @@
   <form id="chat-form" action="" class="custom-profile-projects">
     <input id="message" autocomplete="off" /><button class="btn">Send</button>
   </form>
+</div>  --}}
+
+
+
+
+
+
+
+
+  
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+      <div>
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat"> 
+                <i class=" material-icons black-text">close</i>
+              </a>
+
+        <div class="custom-current-user">
+              <span id="current-user"> Hello {{currentUser.username}}</span>! <br> 
+               Start a conversation now with 
+                {{user.username}}  <i class="material-icons">chat</i>
+        </div>
+
+      <div class="black-text"> 
+          <div class="messages">
+             <div class="message">
+            
+                  {{user.username}}:
+                   <br> <br>
+                   Hi {{currentUser.username}}, for any enquiries please leave me a message! I'll reply soon 😄
+              
+            </div>
+
+           <div class="message">
+      
+          </div>
+          </div>
+
+
+
+
+
+
+      <div class="form-style-5">
+          <form id="chat-form">
+             
+                  <input id="message" type="text" name="field1" placeholder="Type your message">
+                  <button class="custom-send-btn"></button>
+
+
+
+          </form>
+  </div>
+
+    </div>
+{{!-- 
+    <div class="modal-footer col s12">
+      <a class="btn-floating btn-large red" href="#!">
+    <i class=" material-icons  custom-chat-icon" href="#modal1">send</i>
+      </a>
+    </div> --}}
+
+
+
+    </div>
+  </div>
+        
+
+
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red">
+    <i class="large material-icons modal-trigger custom-chat-icon" href="#modal1">chat</i>
+  </a>
 </div>
+
 
   </div>
 </div>
@@ -127,4 +202,10 @@
   $(document).ready(function(){ $('.sidenav').sidenav(); });
   $(document).ready(function(){ $('select').formSelect(); });
   $(document).ready(function(){ $('.collapsible').collapsible(); });
+    $(document).ready(function(){
+    $('.fixed-action-btn').floatingActionButton();
+  });
+    $(document).ready(function(){
+    $('.modal').modal();
+  });
 </script>
