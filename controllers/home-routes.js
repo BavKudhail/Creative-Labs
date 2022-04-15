@@ -34,7 +34,7 @@ router.get("/create-project", async (req, res) => {
   try {
     res.render("create-project", { loggedIn: req.session.loggedIn });
   } catch (error) {
-    // how to code this?
+    res.status(500).json(error);
   }
 });
 

@@ -5,7 +5,7 @@ const withAuth = require("../utils/auth.js");
 // /profile
 
 // GET CURRENT LOGGED IN USER PROFILE
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
     // find the current logged in user
     const userData = await User.findOne({
@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
 });
 
 // GET USER PROFILE BY ID
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     // find the current logged in user
     const currentUserData = await User.findOne({
@@ -68,7 +68,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // CHAT WITH A SPECIFIC USER BASED ON THEIR ID
-router.get("/chat/:id", async (req, res) => {
+router.get("/chat/:id", withAuth, async (req, res) => {
   // find the user by their ID
   try {
     const userData = await User.findOne({
