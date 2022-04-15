@@ -10,10 +10,7 @@
       <li><a href="/dashboard">Dashboard</a></li>
       <li><a href="/profile">Profile</a></li>
       {{#if loggedIn}}
-        <li><button
-            id="logout-btn"
-            class="custom-button"
-          >LOGOUT</button></li>
+        <li><button id="logout-btn" class="custom-button">LOGOUT</button></li>
       {{else}}
         <li>
           <a href="/login" class="custom-button">LOGIN</a>
@@ -26,11 +23,11 @@
     <li><a href="/dashboard">Dashboard</a></li>
     <li><a href="/profile">Profile</a></li>
     {{#if loggedIn}}
-        <li><button
-            id="logout-btn-nav"
-            class="custom-button custom-button-nav"
-          >LOGOUT</button></li>
-      {{/if}}
+      <li><button
+          id="logout-btn-nav"
+          class="custom-button custom-button-nav"
+        >LOGOUT</button></li>
+    {{/if}}
   </ul>
 </nav>
 
@@ -55,25 +52,25 @@
 
   <div class="col s12 m12 l10">
 
- <div class="custom-profile-projects">
+    <div class="custom-profile-projects">
       <h3>Projects created</h3>
-       {{#if user.projects.length}}
-      <ul class="collapsible">  
-        {{#each user.projects}}
-          <li>
-            <div class="collapsible-header"><i
-                class="material-icons"
-              >whatshot</i>{{title}}</div>
-            <div class="collapsible-body"><span>{{description}}</span></div>
-          </li>
-        {{/each}}
-      </ul>
-         {{else}}
-         <h3 class="custom-noproject">No projects</h3>
-        {{/if}}
-     
-        <h3>Teams joined</h3>
-        {{#if user.teams.length}}
+      {{#if user.projects.length}}
+        <ul class="collapsible">
+          {{#each user.projects}}
+            <li>
+              <div class="collapsible-header"><i
+                  class="material-icons"
+                >whatshot</i>{{title}}</div>
+              <div class="collapsible-body"><span>{{description}}</span></div>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <h3 class="custom-noproject">No projects</h3>
+      {{/if}}
+
+      <h3>Teams joined</h3>
+      {{#if user.teams.length}}
         <ul class="collapsible">
           {{#each user.teams}}
             <li>
@@ -86,13 +83,13 @@
           {{/each}}
           {{! TEST }}
         </ul>
-          {{else}}
-         <h3 class="custom-noproject">No teams</h3>
-        {{/if}}
-     
+      {{else}}
+        <h3 class="custom-noproject">No teams</h3>
+      {{/if}}
+
     </div>
 
-{{!-- <div class="custom-profile-projects">
+    {{!-- <div class="custom-profile-projects">
     
   <h3>Hey
     <span id="current-user">{{currentUser.username}}</span>, send
@@ -111,79 +108,73 @@
   </form>
 </div>  --}}
 
-
-
-
-
-
-
-
-  
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
       <div>
-              <a href="#!" class="modal-close waves-effect waves-green btn-flat"> 
-                <i class=" material-icons black-text">close</i>
-              </a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+          <i class="material-icons black-text">close</i>
+        </a>
 
         <div class="custom-current-user">
-              <span id="current-user"> Hello {{currentUser.username}}</span>! <br> 
-               Start a conversation now with 
-                {{user.username}}  <i class="material-icons">chat</i>
+          Hello
+          <span id="current-user">{{currentUser.username}}</span>!
+          <br />
+          Start a conversation now with
+          {{user.username}}
+          <i class="material-icons">chat</i>
         </div>
 
-      <div class="black-text"> 
+        <div class="black-text">
           <div class="messages">
-             <div class="message">
-            
-                  {{user.username}}:
-                   <br> <br>
-                   Hi {{currentUser.username}}, for any enquiries please leave me a message! I'll reply soon 😄
-              
+            <div class="message">
+
+              {{user.username}}:
+              <br />
+              <br />
+              Hi
+              {{currentUser.username}}, for any enquiries please leave me a
+              message! I'll reply soon 😄
+
             </div>
 
-           <div class="message">
-      
+            <div class="message">
+
+            </div>
           </div>
+
+          <div class="form-style-5">
+            <form id="chat-form">
+
+              <input
+                id="message"
+                type="text"
+                name="field1"
+                placeholder="Type your message"
+              />
+              <button class="custom-send-btn"></button>
+
+            </form>
           </div>
 
-
-
-
-
-
-      <div class="form-style-5">
-          <form id="chat-form">
-             
-                  <input id="message" type="text" name="field1" placeholder="Type your message">
-                  <button class="custom-send-btn"></button>
-
-
-
-          </form>
-  </div>
-
-    </div>
-{{!-- 
+        </div>
+        {{! 
     <div class="modal-footer col s12">
       <a class="btn-floating btn-large red" href="#!">
     <i class=" material-icons  custom-chat-icon" href="#modal1">send</i>
       </a>
-    </div> --}}
+    </div> }}
 
-
-
+      </div>
     </div>
-  </div>
-        
 
-
-<div class="fixed-action-btn">
-  <a class="btn-floating btn-large red">
-    <i class="large material-icons modal-trigger custom-chat-icon" href="#modal1">chat</i>
-  </a>
-</div>
-
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red">
+        <i
+          class="large material-icons modal-trigger custom-chat-icon"
+          href="#modal1"
+        >chat</i>
+      </a>
+    </div>
 
   </div>
 </div>
@@ -202,10 +193,6 @@
   $(document).ready(function(){ $('.sidenav').sidenav(); });
   $(document).ready(function(){ $('select').formSelect(); });
   $(document).ready(function(){ $('.collapsible').collapsible(); });
-    $(document).ready(function(){
-    $('.fixed-action-btn').floatingActionButton();
-  });
-    $(document).ready(function(){
-    $('.modal').modal();
-  });
+  $(document).ready(function(){ $('.fixed-action-btn').floatingActionButton();
+  }); $(document).ready(function(){ $('.modal').modal(); });
 </script>

@@ -27,10 +27,10 @@ User.init(
       allowNull: false,
       unique: true,
     },
-    // user email 
+    // user email
     email: {
       type: DataTypes.STRING,
-      allowNull:true,
+      allowNull: true,
     },
     // user password
     password: {
@@ -41,9 +41,9 @@ User.init(
       },
     },
     //user linkedin profile
-    linkedin:{
+    linkedin: {
       type: DataTypes.STRING,
-      allowNull:true,
+      allowNull: true,
     },
     // user role
     role: {
@@ -55,7 +55,8 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
       // the default value is null
-      defaultValue: null,
+      defaultValue:
+        "https://creative-labs-aws.s3.eu-west-2.amazonaws.com/profile-char.JPG",
     },
   },
   {

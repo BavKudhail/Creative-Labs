@@ -10,10 +10,7 @@
       <li><a href="/dashboard">Dashboard</a></li>
       <li><a href="/profile">Profile</a></li>
       {{#if loggedIn}}
-        <li><button
-            id="logout-btn"
-            class="custom-button"
-          >LOGOUT</button></li>
+        <li><button id="logout-btn" class="custom-button">LOGOUT</button></li>
       {{else}}
         <li>
           <a href="/login" class="custom-button">LOGIN</a>
@@ -26,192 +23,129 @@
     <li><a href="/dashboard">Dashboard</a></li>
     <li><a href="/profile">Profile</a></li>
     {{#if loggedIn}}
-        <li><button
-            id="logout-btn-nav"
-            class="custom-button custom-button-nav"
-          >LOGOUT</button></li>
-      {{/if}}
+      <li><button
+          id="logout-btn-nav"
+          class="custom-button custom-button-nav"
+        >LOGOUT</button></li>
+    {{/if}}
   </ul>
 </nav>
 
-{{!-- join the team --}}
- <div class="row center-align custom-chat-intro">
+{{! join the team }}
+<div class="row center-align custom-chat-intro">
 
-  <h4>Hey <span id="my-role">{{user.role}}</span> <span id="username">{{user.username}}</span>!</h4>
-  <h4>Welcome to project  <span id="project-id">{{project.id}}</span>: {{project.title}} project 🔥</h4>
-  <h4>{{project.user.username}} is searching for 
-    <span id="designers_needed">{{project.designers_needed}}</span> designers,
-    <span id="developers_needed">{{project.developers_needed}}</span> developers and
-    <span id="artist_needed">{{project.artist_needed}}</span> artists</h4>
+  <h4>Hey
+    <span id="my-role">{{user.role}}</span>
+    <span id="username">{{user.username}}</span>!</h4>
+  <h4>Welcome to project
+    <span id="project-id">{{project.id}}</span>:
+    {{project.title}}
+    project 🔥</h4>
+  <h4>{{project.user.username}}
+    is searching for
+    <span id="designers_needed">{{project.designers_needed}}</span>
+    designers,
+    <span id="developers_needed">{{project.developers_needed}}</span>
+    developers and
+    <span id="artist_needed">{{project.artist_needed}}</span>
+    artists</h4>
   <h4> Would you like to join their team? </h4>
-  
+
   <div>
-    <button class="btn center-align custom-join-btn" id="join-btn">JOIN TEAM!</button>
+     {{#if project.project_full}}
+      <button class="btn center-align" id="join-btn" value="JOIN THIS TEAM!" disabled>TEAM FULL!</button>
+      {{else}}
+    <button class="btn center-align" id="join-btn" value="JOIN THIS TEAM!" onclick="disableButton()">JOIN THIS TEAM!</button>
+    {{/if}}
   </div>
 
 </div>
 
-{{!-- members of the team --}}
+{{! members of the team }}
 
-  <div class="row container center-align">
-
-
-   <div class="col s4 m3 l2">
+<div class="row container center-align">
+  {{! card }}
+  {{#each team.users}}
+    <div class="col s4 m3 l2">
       <div class="card">
         <div class="card-image">
-          <img src="/images/profile.jpg" >
+          <img src="{{picture_url}}" />
         </div>
         <div class="card-content black-text custom-card-content">
-          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
-          <p>3D artists</p>
+          <p>
+            <a
+              href="/profile/{{id}}"
+              class="custom-member-name"
+            >{{username}}</a></p>
+          <p>{{role}}</p>
+          <p>{{email}}</p>
           <p class="custom-member">Member of the team</p>
         </div>
       </div>
     </div>
+  {{/each}}
+</div>
 
+{{! team  }}
 
-   <div class="col s4 m3 l2">
-      <div class="card">
-        <div class="card-image">
-          <img src="/images/profile.jpg" >
-        </div>
-        <div class="card-content black-text custom-card-content">
-          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
-          <p>3D artists</p>
-          <p class="custom-member">Member of the team</p>
-        </div>
-      </div>
-    </div>
-
-
-   <div class="col s4 m3 l2">
-      <div class="card">
-        <div class="card-image">
-          <img src="/images/profile.jpg" >
-        </div>
-        <div class="card-content black-text custom-card-content">
-          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
-          <p>3D artists</p>
-          <p class="custom-member">Member of the team</p>
-        </div>
-      </div>
-    </div>
-
-
-   <div class="col s4 m3 l2">
-      <div class="card">
-        <div class="card-image">
-          <img src="/images/profile.jpg" >
-        </div>
-        <div class="card-content black-text custom-card-content">
-          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
-          <p>3D artists</p>
-          <p class="custom-member">Member of the team</p>
-        </div>
-      </div>
-    </div>
-
-
-   <div class="col s4 m3 l2">
-      <div class="card">
-        <div class="card-image">
-          <img src="/images/profile.jpg" >
-        </div>
-        <div class="card-content black-text custom-card-content">
-          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
-          <p>3D artists</p>
-          <p class="custom-member">Member of the team</p>
-        </div>
-      </div>
-    </div>
-
-
-   <div class="col s4 m3 l2">
-      <div class="card">
-        <div class="card-image">
-          <img src="/images/profile.jpg" >
-        </div>
-        <div class="card-content black-text custom-card-content">
-          <p> <a href="" class="custom-member-name">Nadine Mohsen</a></p>
-          <p>3D artists</p>
-          <p class="custom-member">Member of the team</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-{{!-- chat --}}
+{{! chat }}
 
 <div class="row">
   <div>
-    <img class="chat-image" src="/images/Marni 4.png" alt="">
-  </div> 
+    <img class="chat-image" src="/images/Marni 4.png" alt="" />
+  </div>
   <div>
-    <img class="chat-image" src="/images/Badrun 4.png" alt="">
-  </div> 
-   <div class="custom-bg container row">
+    <img class="chat-image" src="/images/Badrun 4.png" alt="" />
+  </div>
+  <div class="custom-bg container row">
 
-
-
-    <div> 
-    {{! main section }}
+    <div>
+      {{! main section }}
       <main>
         <header class="chat-header">
-        <div>
+          <div>
             <h2 id="team-name">{{project.title}}</h2>
             <h3>Group chat</h3>
-            <h2>Online Users 
-            <ul id="user-list" class="green-text">
-            </ul>
+            <h2>Online Users
+              <ul id="user-list" class="green-text">
+              </ul>
             </h2>
-       </div>
+          </div>
         </header>
 
-      <div class="messages white-text"></div>
-    </main> 
+        <div class="messages white-text"></div>
+      </main>
 
-    {{! form container }}
-    <div class="form-container">
-      <form id="chat-form">
-        <input id="message" type="text" placeholder="Enter your message"/>
-        <button class="btn send-btn"><i class="material-icons">send</i></button>
-      </form>
+      {{! form container }}
+      <div class="form-container">
+        <form id="chat-form">
+          <input id="message" type="text" placeholder="Enter your message" />
+          <button class="btn send-btn"><i
+              class="material-icons"
+            >send</i></button>
+        </form>
+      </div>
+
     </div>
-
-    
   </div>
-  </div>  
 
-
-
-
-
-  {{!-- leave chat button - take user back to dashboard --}}
- <div class="center-align">
+  {{! leave chat button - take user back to dashboard }}
+  <div class="center-align">
     <a href="/dashboard">
       <button class="btn" id="leave-btn">Leave Chat</button>
     </a>
-  </div> 
+  </div>
 
-  
+</div>
 
- </div>            
-
-
-
-{{!-- socket.io script --}}
+{{! socket.io script }}
 <script src="/socket.io/socket.io.js"></script>
-{{!-- chat logic --}}
+{{! chat logic }}
 <script src="/javascript/chat.js"></script>
-{{!-- join project logic --}}
+{{! join project logic }}
 <script src="/javascript/joinproject.js"></script>
-{{!-- logout --}}
+{{! logout }}
 <script src="/javascript/logout.js"></script>
-
-
 
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
