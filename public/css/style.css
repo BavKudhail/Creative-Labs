@@ -102,31 +102,7 @@ button {
   border-radius: 10px;
   padding: 20px;
 }
-.custom-upload + label {
-  font-size: 1.25em;
-  font-weight: 700;
-  color: white;
-  background-color: black;
-  display: inline-block;
-}
-.upload-btn-wrapper {
-  position: relative;
-  /* overflow: hidden; */
-  display: inline-block;
-}
 
-.upload-btn-wrapper button {
-  background: transparent;
-  position: fixed;
-  /* top:600px; */
-}
-.upload-btn-wrapper input[type="file"] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-}
 .custom-signup-div {
   color: white;
   text-align: center;
@@ -154,6 +130,8 @@ input {
 .custom-card-box {
   border-radius: 15px;
 }
+
+/* start profile page */
 .custom-row {
   margin: 30px;
 }
@@ -178,10 +156,34 @@ input {
 .custom-name {
   font-size: 20px;
 }
+.custom-update-photo{
+  width: fit-content;
+  height: 40px;
+  line-height:12px;
+  font-size:13px;
+  margin-bottom: 0px;
+  background: linear-gradient(97.19deg, #b973ea -9.32%, #672fbd 82.07%);
+  border-width: 0;
+  border-radius: 15px;
+}
 .custom-profile-details li {
   padding-bottom: 7px;
   padding-top: 7px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 h3 {
   color: white;
   font-size: 25px;
@@ -224,11 +226,15 @@ h3 {
   border-radius: 10px;
   border-width: 0;
   color: white;
+  padding:5px;
+  padding-top:10px;
 }
 .collapsible-body {
   background-color: white;
   border-radius: 10px;
   border-width: 0;
+  padding:20px;
+  padding-left:30px;
 }
 
 .custom-label {
@@ -426,9 +432,6 @@ h4 {
   .custom-inputs {
     width: 70%;
   }
-  .upload-btn-wrapper button {
-    font-size: 15px;
-  }
   .custom-profile-box {
     height: fit-content;
     padding-bottom: 10px;
@@ -536,4 +539,55 @@ h4 {
   font-size: 14px;
   font-weight: normal;
   color: #7e818a;
+}
+
+
+
+
+
+
+
+
+.custom-img-btn{
+  margin-left:50%;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 16px;
+  color: #ffffff;
+  width: 270px;
+  height: 40px;
+  margin-top:20px;
+  margin-bottom: 0px;
+  background: linear-gradient(97.19deg, #b973ea -9.32%, #672fbd 82.07%);
+  border-width: 0;
+  border-radius: 10px;
+}
+
+.custom-modal-content{
+  height:200px;
+}
+
+
+
+
+.custom-edit{
+  width:fit-content;
+  background-color: transparent;
+  padding: 0;
+  text-align: center;
+  height: fit-content;
+  background:transparent;
+  margin:0;
+  }
+  
+.custom-delete-btn{
+/* Created with https://www.css-gradient.com */
+background: #F1685A;
+background: -webkit-linear-gradient(left, #F1685A, #F43900);
+background: -moz-linear-gradient(left, #F1685A, #F43900);
+background: linear-gradient(to right, #F1685A, #F43900);
+}
+
+.custom-height{
+  height:fit-content;
 }
