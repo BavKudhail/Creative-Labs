@@ -226,8 +226,8 @@ h3 {
   border-radius: 10px;
   border-width: 0;
   color: white;
-  padding:5px;
-  padding-top:10px;
+  padding-bottom:13px;
+  /* padding-top:10px; */
 }
 .collapsible-body {
   background-color: white;
@@ -290,8 +290,8 @@ h4 {
 }
 
 .circle-team-picture {
-  width: 20px;
-  height: 20px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
 }
 
@@ -380,7 +380,6 @@ h4 {
   border: none;
   border-radius: 4px;
   font-size: 15px;
-  margin: 0;
   outline: 0;
   padding: 10px;
   box-sizing: border-box;
@@ -391,13 +390,9 @@ h4 {
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-left: 20px;
-  width: 220px;
+  width: 300px;
 }
 
-.form-style-5 input[type="text"]:focus {
-  background: #d2d9dd;
-  margin: 0px;
-}
 
 /* chat page */
 .custom-chat-intro {
@@ -420,15 +415,29 @@ h4 {
 }
 
 .custom-member {
-  font-size: 10px;
+  font-size: 13px;
 }
 .custom-member-name {
   color: rgb(149, 107, 189);
+  font-size:20px;
 }
 .custom-card-content {
   height: fit-content;
 }
-
+.custom-img-btn{
+  margin-left:50%;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 16px;
+  color: #ffffff;
+  width: 270px;
+  height: 40px;
+  margin-top:20px;
+  margin-bottom: 0px;
+  background: linear-gradient(97.19deg, #b973ea -9.32%, #672fbd 82.07%);
+  border-width: 0;
+  border-radius: 10px;
+}
 @media screen and (max-width: 1200px) {
   h1,
   h2 {
@@ -464,7 +473,24 @@ h4 {
     width: 80%;
   }
   .modal {
-    width: 70%;
+    width: 80%;
+  }
+  .custom-modal-content{
+    width:fit-content;
+  }
+  .custom-img-btn{
+    margin-left:0;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 16px;
+    color: #ffffff;
+    width: 270px;
+    height: 40px;
+    margin-top:20px;
+    margin-bottom: 0px;
+    background: linear-gradient(97.19deg, #b973ea -9.32%, #672fbd 82.07%);
+    border-width: 0;
+    border-radius: 10px;
   }
 }
 
@@ -562,40 +588,25 @@ h4 {
 
 
 
-.custom-img-btn{
-  margin-left:50%;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 16px;
-  color: #ffffff;
-  width: 270px;
-  height: 40px;
-  margin-top:20px;
-  margin-bottom: 0px;
-  background: linear-gradient(97.19deg, #b973ea -9.32%, #672fbd 82.07%);
-  border-width: 0;
-  border-radius: 10px;
-}
+
 
 .custom-modal-content{
   height:200px;
 }
 
-
-
-
 .custom-edit{
-  width:fit-content;
-  background-color: transparent;
   padding: 0;
   text-align: center;
   height: fit-content;
-  background:transparent;
   margin:0;
+  width:fit-content;
+  padding:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  font-size: 15px;
   }
   
 .custom-delete-btn{
-/* Created with https://www.css-gradient.com */
 background: #F1685A;
 background: -webkit-linear-gradient(left, #F1685A, #F43900);
 background: -moz-linear-gradient(left, #F1685A, #F43900);
@@ -605,3 +616,22 @@ background: linear-gradient(to right, #F1685A, #F43900);
 .custom-height{
   height:fit-content;
 }
+
+
+.custom-team{
+  margin-top: 0px;
+  font-size:20px;
+}
+  
+.custom-other-members{
+  padding-top:10px;
+  padding-left:15px;
+  }
+
+  .custom-member-image{
+    height:250px;
+  }
+
+  .custom-proj-picture{
+    height:330px;
+  }
