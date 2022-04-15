@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
 });
 
 // GET CHAT BASED ON PROJECT ID
-router.get("/chat/:id", async (req, res) => {
+router.get("/chat/:id", withAuth, async (req, res) => {
   try {
     // find the current logged in user
     const userData = await User.findOne({

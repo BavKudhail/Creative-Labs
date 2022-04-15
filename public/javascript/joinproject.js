@@ -63,9 +63,9 @@ const joinTheProject = async (event) => {
             },
           });
 
-          if (response.ok) {
-            document.location.reload();
-          }
+          // if (response.ok) {
+          //   // document.location.reload();
+          // }
         } catch (error) {
           console.log(error);
         }
@@ -95,15 +95,14 @@ const joinTheProject = async (event) => {
             },
           });
 
-          if (response.ok) {
-            document.location.reload();
-          }
+          // if (response.ok) {
+          //   // document.location.reload();
+          // }
         } catch (error) {
           console.log(error);
         }
       }
     }
-
     // }
     // if I am an artist and I join the team, minus the artist from the numbers
     if (myRole === "3D Artist") {
@@ -128,9 +127,9 @@ const joinTheProject = async (event) => {
             },
           });
 
-          if (response.ok) {
-            document.location.reload();
-          }
+          // if (response.ok) {
+          //   // document.location.reload();
+          // }
         } catch (error) {
           console.log(error);
         }
@@ -152,8 +151,11 @@ const joinTheProject = async (event) => {
         "Content-Type": "application/json",
       },
     });
+    console.log("reload the page");
+    // document.location.reload();
     if (response.ok) {
       console.log("response ok!");
+      document.location.reload();
     } else {
       // else alert
       alert(response.statusText);
