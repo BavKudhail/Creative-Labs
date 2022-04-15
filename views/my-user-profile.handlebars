@@ -95,6 +95,7 @@
               <div>
                 {{! update image form }}
                 <form class="image-update-form">
+                  {{! this input form is hidden - we used it to get the project id }}
                   <input
                     name="projectId"
                     class="projectId display-hidden"
@@ -105,7 +106,8 @@
                   <button class="update-project-image-btn btn">Update Image</button>
                 </form>
                 {{! delete a project button }}
-                <button class="delete-project-btn btn">Delete Project</button>
+                <button value="{{id}}" class="delete-project-btn btn">Delete
+                  Project</button>
               </div>
               <div class="collapsible-body"><span>{{description}}</span></div>
             </li>

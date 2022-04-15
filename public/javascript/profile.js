@@ -76,4 +76,28 @@ const updateProjectImage = async (event) => {
 
 updateProjectImageForm.on("submit", updateProjectImage);
 
-// get project id
+// is there anyway to refresh when it comes together
+
+// ================ DELETE PROJECT ========================
+
+const deleteProjectBtn = $(".delete-project-btn");
+
+const deleteProject = async (event) => {
+  event.preventDefault();
+  console.log("execute delete project function");
+  // specifiy the id of the project we would like to delete
+  const project_id = event.target.value;
+
+  // response
+  const response = await fetch(`/api/project/${project_id}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    document.location.reload();
+  } else {
+    alert(response.statusText);
+  }
+};
+
+deleteProjectBtn.on("click", deleteProject);
