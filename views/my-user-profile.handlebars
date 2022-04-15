@@ -90,7 +90,23 @@
             <li>
               <div class="collapsible-header"><i
                   class="material-icons"
-                >whatshot</i>{{title}}</div>
+                >whatshot</i>{{title}}
+              </div>
+              <div>
+                {{! update image form }}
+                <form class="image-update-form">
+                  <input
+                    name="projectId"
+                    class="projectId display-hidden"
+                    type="number"
+                    value="{{id}}"
+                  />
+                  <input class="project-image" type="file" name="image" />
+                  <button class="update-project-image-btn btn">Update Image</button>
+                </form>
+                {{! delete a project button }}
+                <button class="delete-project-btn btn">Delete Project</button>
+              </div>
               <div class="collapsible-body"><span>{{description}}</span></div>
             </li>
           {{/each}}

@@ -53,6 +53,8 @@ Project.init(
     project_picture: {
       type: DataTypes.STRING,
       allowNull: true,
+      defaultValue:
+        "https://creative-labs-aws.s3.eu-west-2.amazonaws.com/example.png",
     },
   },
   {
