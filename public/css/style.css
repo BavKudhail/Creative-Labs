@@ -283,6 +283,16 @@ h4 {
   color: white;
 }
 
+.circle-team-picture {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.team-members-container {
+  display: flex;
+}
+
 .message {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(7px);
