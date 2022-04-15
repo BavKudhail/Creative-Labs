@@ -42,6 +42,13 @@ router.get("/:id", withAuth, async (req, res) => {
       where: {
         username: req.session.username,
       },
+      include: [
+        Project,
+        {
+          model: Team,
+          include: [User],
+        },
+      ],
     });
     // serialize the data
     const currentUser = currentUserData.get({ plain: true });
@@ -51,7 +58,13 @@ router.get("/:id", withAuth, async (req, res) => {
       where: {
         id: req.params.id,
       },
-      include: [Project],
+      include: [
+        Project,
+        {
+          model: Team,
+          include: [User],
+        },
+      ],
     });
     // serialize the data
     const user = userData.get({ plain: true });

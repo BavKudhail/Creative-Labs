@@ -34,7 +34,7 @@
 <div class="row custom-row">
 
   <div class="col s12 m12 l2 custom-profile-box">
-    <img class="circle custom-profile-picture" src="/images/profile.jpg" />
+    <img class="circle custom-profile-picture" src="{{user.picture_url}}" />
     <ul class="custom-profile-details">
       <li><a href="#!" class="custom-name">{{user.username}}</a></li>
       {{! user id }}
@@ -74,17 +74,35 @@
         <ul class="collapsible">
           {{#each user.teams}}
             <li>
-              <div class="collapsible-header"><i
-                  class="material-icons"
-                >whatshot</i>{{team_name}}</div>
-              <div class="collapsible-body"><span
-                >{{users.username}}</span></div>
+              <div class="collapsible-header">
+                <i class="material-icons">arrow_drop_down</i>{{team_name}}</div>
+              <div class="collapsible-body">
+                {{! Team Members }}
+                <p class="black-text custom-team">Team Members</p>
+                {{#each users}}
+                  <div class="team-members-container">
+                    <img
+                      class="circle-team-picture"
+                      src="{{picture_url}}"
+                      alt=""
+                    />
+                    <div class="custom-other-members">
+                      <span>{{username}}</span>
+                      &nbsp
+                      <br />
+                      <span class="grey-text darken-1">{{role}}</span>
+                      &nbsp
+                    </div>
+
+                  </div>
+                {{/each}}
+              </div>
             </li>
           {{/each}}
           {{! TEST }}
         </ul>
       {{else}}
-        <h3 class="custom-noproject">No teams</h3>
+        <h3 class="custom-noproject">You have no teams</h3>
       {{/if}}
 
     </div>
