@@ -3,7 +3,7 @@ const { User, Project, Team } = require("../../models");
 
 // api/user/
 
-// Get all users (This request is for debugging purposes)
+// GET ALL USERS - this request is for insomnia purposes
 router.get("/", async (req, res) => {
   try {
     // get all users include project and team info associated with the user
@@ -31,7 +31,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-/// Get all users with teams (This request is for debugging purposes)
+// GET ALL USERS AND INCLUDE TEAM - NOTE - this request is for insomnia purposes
 router.get("/team", async (req, res) => {
   try {
     // get all users
@@ -48,7 +48,7 @@ router.get("/team", async (req, res) => {
   }
 });
 
-// Sign up
+// SIGN UP
 router.post("/", async (req, res) => {
   try {
     //   create new user
@@ -73,7 +73,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Login
+// LOGIN
 router.post("/login", async (req, res) => {
   try {
     //   find user where username = req.body.username
@@ -108,7 +108,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// logout
+// LOGOUT
 router.post("/logout", async (req, res) => {
   // if user is logged in, delete session
   if (req.session.loggedIn) {

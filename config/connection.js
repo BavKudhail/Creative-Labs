@@ -9,11 +9,8 @@ if (process.env.JAWSDB_URL) {
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
-    //"creatives_db",
     process.env.DB_USER,
-    //"root",
     process.env.DB_PW,
-    //"",
     {
       host: "localhost",
       dialect: "mysql",

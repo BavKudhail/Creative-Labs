@@ -3,7 +3,7 @@ const { Project, User, Team, UserTeam } = require("../../models");
 
 // api/project
 
-// Get all projects
+// GET ALL PROJECTS
 router.get("/", async (req, res) => {
   try {
     // get all projects
@@ -32,9 +32,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// @NOTE - RHYS, is there a way to do the below code more effectively?
-
-// Create a project
+// CREATE PROJECT - @NOTE - is there a way to execute the below code more effeciently?
 router.post("/", async (req, res) => {
   try {
     console.log("post request sent");
@@ -72,42 +70,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Find the current team based on the project id
-// Loop through the array of users within the team.users array
-// If current_username = user.username
-// The user already belongs to tha team
-// Do not run the put route
-
-// const isUserInTeam = async () => {
-//   try {
-//     // finding the team based on project-id
-//     const findTeam = await Team.findOne({
-//       where: {
-//         project_id: req.body.project_id,
-//       },
-//     });
-//     // /finding the current user based on user-id
-//     const userData = await User.findOne({
-//       where: {
-//         username: req.session.username,
-//       },
-//     });
-//     // serialize data
-//     const team = findTeam.get({ plain: true });
-//     const user = userData.get({ plain: true });
-//     // find team users
-//     const teamMembers = team.users;
-//     // loop through the team members return true if username is in team or false if not
-//     for(let i = 0; i < teamMembers.length; i++){
-
-//     }
-//     console.log(team);
-//   } catch (error) {}
-// };
-
-// isUserInTeam();
-
-// Update a project
+// UPDATE PROJECT - @NOTE - this route is for debugging purposes and has not been implemented in the front-end as of yet
 router.put("/:id", async (req, res) => {
   try {
     const updateProject = await Project.update(
@@ -130,7 +93,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// Delete a project  - @NOTE - THIS IS NOT CURRENTLY BEING USED
+// DELETE PROJECTS
 router.delete("/:id", async (req, res) => {
   try {
     await Project.destroy({
@@ -144,7 +107,8 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-// ========== PROJECT UPLOAD LOGIC TEST ==========================
+// ========== PROJECT UPLOAD LOGIC ==========================
+// @NOTE - future, use UUID in order to generate unique image names to avoid duplication and replacement
 
 // aws
 const aws = require("aws-sdk");
@@ -152,8 +116,6 @@ const aws = require("aws-sdk");
 const multer = require("multer");
 // multer-s3
 const multerS3 = require("multer-s3");
-// uuid for generating unique file names
-const uuid = require("uuid").v4;
 // path module for manipulating file paths
 const path = require("path");
 // get a reference to our database
@@ -166,7 +128,7 @@ const s3 = new aws.S3({
   region: process.env.AWS_BUCKET_REGION,
 });
 
-// upload
+// upload image using multer
 const upload = multer({
   storage: multerS3({
     s3: s3,
@@ -179,7 +141,7 @@ const upload = multer({
   }),
 });
 
-// upload a new image
+// UPLOAD PROJECT IMAGE BASED ON PROJECT ID
 router.post("/upload/:id", upload.single("image"), (req, res) => {
   try {
     // store the file data onto
@@ -188,20 +150,16 @@ router.post("/upload/:id", upload.single("image"), (req, res) => {
       urls: req.file,
     });
 
-    // console.log(req.file data)
-    console.log(req.file);
-
     // set image url variable
     const imageUrl = req.file.location;
 
-    // THE IMAGE HAS NOW BEEN STORED ONTO S3 - NEXT UPDATE THE USERS IMAGE
+    // THE IMAGE HAS NOW BEEN STORED ONTO S3 - NEXT UPDATE THE PROJECT IMAGE
 
-    //   find user where username = req.session.username
+    //   find the project based on the project ID
     const updateProjectImage = Project.update(
       {
         project_picture: imageUrl,
       },
-      // how to state which project we want to be updated?
       {
         where: {
           id: req.params.id,
@@ -211,8 +169,6 @@ router.post("/upload/:id", upload.single("image"), (req, res) => {
   } catch (error) {
     res.status(500).send(error);
   }
-
-  // now, set the users profile pic url as the image location
 });
 
 module.exports = router;

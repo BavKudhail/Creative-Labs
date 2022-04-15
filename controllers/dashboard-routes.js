@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 
 // /dashboard
 
-// Get All Projects
+// GET ALL OROJECTS
 router.get("/", async (req, res) => {
   try {
     // get all projects
@@ -25,7 +25,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get Single Project
+// GET A SINGLE PROJECT BASED ON PROJECT ID
 router.get("/:id", async (req, res) => {
   try {
     // get a single project
@@ -59,6 +59,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// OPEN PROJECT CHAT PAGE BASED ON PROJECT ID
 router.get("/chat/:id", async (req, res) => {
   try {
     // find the current logged in user

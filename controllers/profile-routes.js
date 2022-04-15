@@ -3,6 +3,8 @@ const { Project, User, Team } = require("../models");
 const withAuth = require("../utils/auth.js");
 
 // /profile
+
+// GET CURRENT LOGGED IN USER PROFILE
 router.get("/", async (req, res) => {
   try {
     // find the current logged in user
@@ -32,7 +34,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get user profile by ID
+// GET USER PROFILE BY ID
 router.get("/:id", async (req, res) => {
   try {
     // find the current logged in user
@@ -65,9 +67,9 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Chat with user
+// CHAT WITH A SPECIFIC USER BASED ON THEIR ID
 router.get("/chat/:id", async (req, res) => {
-  // fund the user by their ID
+  // find the user by their ID
   try {
     const userData = await User.findOne({
       where: {
