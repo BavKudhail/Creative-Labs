@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 
 // /dashboard
 
-// Get All Projects
+// GET ALL PROJECTS
 router.get("/", async (req, res) => {
   try {
     // get all projects
@@ -25,41 +25,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get Single Project
-router.get("/:id", async (req, res) => {
-  try {
-    // get a single project
-    const projectData = await Project.findOne({
-      where: {
-        id: req.params.id,
-      },
-      include: [User],
-    });
-    // serialize the data
-    const project = projectData.get({ plain: true });
-    // Find the current user
-    const currentUserData = await User.findOne({
-      where: {
-        username: req.session.username,
-      },
-    });
-    // serialize the data
-    const currentUser = currentUserData.get({ plain: true });
-    //
-    // render data to front end
-    res.render("view-project", {
-      project,
-      loggedIn: req.session.loggedIn,
-      username: req.session.username,
-      currentUser,
-    });
-    // catch errors
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-
-router.get("/chat/:id", async (req, res) => {
+// GET CHAT BASED ON PROJECT ID
+router.get("/chat/:id", withAuth, async (req, res) => {
   try {
     // find the current logged in user
     const userData = await User.findOne({

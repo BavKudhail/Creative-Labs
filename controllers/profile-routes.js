@@ -3,7 +3,9 @@ const { Project, User, Team } = require("../models");
 const withAuth = require("../utils/auth.js");
 
 // /profile
-router.get("/", async (req, res) => {
+
+// GET CURRENT LOGGED IN USER PROFILE
+router.get("/", withAuth, async (req, res) => {
   try {
     // find the current logged in user
     const userData = await User.findOne({
@@ -32,8 +34,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get user profile by ID
-router.get("/:id", async (req, res) => {
+// GET USER PROFILE BY ID
+router.get("/:id", withAuth, async (req, res) => {
   try {
     // find the current logged in user
     const currentUserData = await User.findOne({
@@ -65,9 +67,9 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Chat with user
-router.get("/chat/:id", async (req, res) => {
-  // fund the user by their ID
+// CHAT WITH A SPECIFIC USER BASED ON THEIR ID
+router.get("/chat/:id", withAuth, async (req, res) => {
+  // find the user by their ID
   try {
     const userData = await User.findOne({
       where: {

@@ -33,3 +33,73 @@ const updateProfileImage = async (event) => {
 updateImageForm.addEventListener("submit", updateProfileImage);
 
 // is there anyway to refresh when it comes together
+
+// ================ UPDATE PROJECT IMAGE ========================
+
+// Dom variables
+const updateProjectImageBtn = $(".update-project-image-btn");
+const updateProjectImageForm = $(".image-update-form");
+
+const updateProjectImage = async (event) => {
+  event.preventDefault();
+
+  const image = $(".project-image");
+  // we need the specific image not the entire array
+  const projectId = event.target.projectId.value;
+
+  // the below is the input value
+  const projectImage = event.target.image;
+
+  console.log("clicked update project image");
+
+  // this will hold the file once it has been chosen
+  const formData = new FormData();
+
+  // defining a name attribute - do we need tis?
+  formData.append("image", projectImage.files[0]);
+
+  console.log(projectImage.files);
+
+  // send a post request to update the profile picture
+  if (formData) {
+    const response = await fetch(`/api/project/upload/${projectId}`, {
+      method: "POST",
+      body: formData,
+    });
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
+
+// comment
+
+updateProjectImageForm.on("submit", updateProjectImage);
+
+// is there anyway to refresh when it comes together
+
+// ================ DELETE PROJECT ========================
+
+const deleteProjectBtn = $(".delete-project-btn");
+
+const deleteProject = async (event) => {
+  event.preventDefault();
+  console.log("execute delete project function");
+  // specifiy the id of the project we would like to delete
+  const project_id = event.target.value;
+
+  // response
+  const response = await fetch(`/api/project/${project_id}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    document.location.reload();
+  } else {
+    alert(response.statusText);
+  }
+};
+
+deleteProjectBtn.on("click", deleteProject);

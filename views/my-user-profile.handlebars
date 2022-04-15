@@ -152,9 +152,19 @@
                 {{! Team Members }}
                 <h4 class="black-text">Team Members</h4>
                 {{#each users}}
-                  <ul>
-                    <li><span>{{username}}</span></li>
-                  </ul>
+                  <div class="team-members-container">
+                    <span>{{username}}</span>
+                    &nbsp
+                    <span>{{role}}</span>
+                    &nbsp
+                    <div>
+                      <img
+                        class="circle-team-picture"
+                        src="{{picture_url}}"
+                        alt=""
+                      />
+                    </div>
+                  </div>
                 {{/each}}
               </div>
             </li>

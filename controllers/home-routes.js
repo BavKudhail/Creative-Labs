@@ -7,14 +7,7 @@ router.get("/", (req, res) => {
   res.render("homepage");
 });
 
-// ======== TEST IMAGE UPLOAD LOGIC =============
-
-// Update profile picture
-router.get("/upload", (req, res) => {
-  res.render("image-upload");
-});
-
-// Login route
+// LOGIN
 router.get("/login", (req, res) => {
   // if user is logged in, redirect to dashboard
   if (req.session.loggedIn) {
@@ -25,7 +18,7 @@ router.get("/login", (req, res) => {
   }
 });
 
-// Signup Route
+// SIGN UP
 router.get("/signup", (req, res) => {
   // if user is logged in
   if (req.session.loggedIn) {
@@ -36,17 +29,13 @@ router.get("/signup", (req, res) => {
   }
 });
 
-// Create a new Project
-router.get("/create-project", async (req, res) => {
+// CREATE A NEW PROJECT
+router.get("/create-project", withAuth, async (req, res) => {
   try {
     res.render("create-project", { loggedIn: req.session.loggedIn });
   } catch (error) {
-    // how to code this?
+    res.status(500).json(error);
   }
-});
-
-router.get("/upload", async (req, res) => {
-  res.render("image-upload");
 });
 
 module.exports = router;

@@ -3,7 +3,7 @@ const { Project, User, Team, UserTeam } = require("../../models");
 
 // api/project
 
-// Get all projects
+// GET ALL PROJECTS
 router.get("/", async (req, res) => {
   try {
     // get all projects
@@ -32,7 +32,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Create a project
+// CREATE PROJECT - @NOTE - is there a way to execute the below code more effeciently?
 router.post("/", async (req, res) => {
   try {
     console.log("post request sent");
@@ -70,42 +70,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Find the current team based on the project id
-// Loop through the array of users within the team.users array
-// If current_username = user.username
-// The user already belongs to tha team
-// Do not run the put route
-
-// const isUserInTeam = async () => {
-//   try {
-//     // finding the team based on project-id
-//     const findTeam = await Team.findOne({
-//       where: {
-//         project_id: req.body.project_id,
-//       },
-//     });
-//     // /finding the current user based on user-id
-//     const userData = await User.findOne({
-//       where: {
-//         username: req.session.username,
-//       },
-//     });
-//     // serialize data
-//     const team = findTeam.get({ plain: true });
-//     const user = userData.get({ plain: true });
-//     // find team users
-//     const teamMembers = team.users;
-//     // loop through the team members return true if username is in team or false if not
-//     for(let i = 0; i < teamMembers.length; i++){
-
-//     }
-//     console.log(team);
-//   } catch (error) {}
-// };
-
-// isUserInTeam();
-
-// Update a project
+// UPDATE PROJECT - @NOTE - this route is for debugging purposes and has not been implemented in the front-end as of yet
 router.put("/:id", async (req, res) => {
   try {
     const updateProject = await Project.update(
@@ -129,7 +94,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// Delete a project  - @NOTE - THIS IS NOT CURRENTLY BEING USED
+// DELETE PROJECTS
 router.delete("/:id", async (req, res) => {
   try {
     await Project.destroy({
@@ -140,6 +105,70 @@ router.delete("/:id", async (req, res) => {
     res.status(200).end();
   } catch (error) {
     res.status(500).json(error);
+  }
+});
+
+// ========== PROJECT UPLOAD LOGIC ==========================
+// @NOTE - future, use UUID in order to generate unique image names to avoid duplication and replacement
+
+// aws
+const aws = require("aws-sdk");
+// multer
+const multer = require("multer");
+// multer-s3
+const multerS3 = require("multer-s3");
+// path module for manipulating file paths
+const path = require("path");
+// get a reference to our database
+require("dotenv").config();
+
+// get AWS credentials
+const s3 = new aws.S3({
+  accessKeyId: process.env.AWS_ID,
+  secretAccessKey: process.env.AWS_SECRET,
+  region: process.env.AWS_BUCKET_REGION,
+});
+
+// upload image using multer
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    acl: "public-read",
+    bucket: process.env.AWS_BUCKET_NAME,
+    key: function (req, file, cb) {
+      console.log(file);
+      cb(null, file.originalname);
+    },
+  }),
+});
+
+// UPLOAD PROJECT IMAGE BASED ON PROJECT ID
+router.post("/upload/:id", upload.single("image"), (req, res) => {
+  try {
+    // store the file data onto
+    res.send({
+      message: "Uploaded",
+      urls: req.file,
+    });
+
+    // set image url variable
+    const imageUrl = req.file.location;
+
+    // THE IMAGE HAS NOW BEEN STORED ONTO S3 - NEXT UPDATE THE PROJECT IMAGE
+
+    //   find the project based on the project ID
+    const updateProjectImage = Project.update(
+      {
+        project_picture: imageUrl,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+  } catch (error) {
+    res.status(500).send(error);
   }
 });
 

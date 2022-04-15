@@ -128,7 +128,6 @@ const joinTheProject = async (event) => {
         }
       }
     }
-
     // if I am an artist and I join the team, minus the artist from the numbers
     if (myRole === "3D Artist") {
       if (artist_needed <= 0) {
@@ -147,7 +146,6 @@ const joinTheProject = async (event) => {
               "Content-Type": "application/json",
             },
           });
-
           if (response.ok) {
             document.location.reload();
             return;
@@ -173,8 +171,11 @@ const joinTheProject = async (event) => {
         "Content-Type": "application/json",
       },
     });
+    console.log("reload the page");
+    // document.location.reload();
     if (response.ok) {
       console.log("response ok!");
+      document.location.reload();
     } else {
       // else alert
       alert(response.statusText);
