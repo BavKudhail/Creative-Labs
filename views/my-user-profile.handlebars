@@ -35,39 +35,48 @@
 
   <div class="col s12 m12 l2 custom-profile-box">
     <div class="upload-btn-wrapper">
-      {{! <button id="upload-photo"><i class="material-icons">add</i></button>
-      <input
-        id="upload"
-        type="file"
-        onChange="handleImageUpload()"
-        class="custom-upload"
-      /> }}
       <img
         class="circle custom-profile-picture"
         id="display-image"
         src="{{user.picture_url}}"
       />
     </div>
-    {{! <img class="circle custom-profile-picture" src="./images/profile.jpg" /> }}
 
     <ul class="custom-profile-details">
       <li><a href="#!" class="custom-name">{{user.username}}</a></li>
       <li><a href="#!" class="grey-text">{{user.role}}</a></li>
+      <li>        
+        <button data-target="modal2" class="btn modal-trigger custom-update-photo">Update Photo</button>
+      </li>
       <li><div class="divider"></div></li>
+
       <li><a href={{user.linkedin}}><img src="./images/linkedin.png" /></a>
         <a href="mailto:{{user.email}}"><img src="./images/email.png" /></a>
       </li>
-      <div>
-        {{! when the user clicks this button open up a form}}
-        <button id="update-profile-button" class="btn-grad btn">Update Image</button>
-        {{! form for image uploade }}
-        <div>
-          <form id="image-update-form">
-            <input id="image-value" type="file" name="image" />
-            <button id="image-submit-btn" class="btn">SUBMIT</button>
-          </form>
-        </div>
+
+       <!-- Modal Structure -->
+        <div id="modal2" class="modal custom-modal-content">
+        <div class="modal-content">
+  
+    
+  <form action="#" id="image-update-form">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" id="image-value" name="image">
       </div>
+    <div class="file-path-wrapper">
+        <input class="file-path validate black-text" type="text">
+      </div>
+
+      <button id="image-submit-btn" class="btn custom-img-btn">Confirm Picture</button>
+
+    </div>
+  </form>
+
+        </div>
+    
+       </div>       
     </ul>
 
   </div>
@@ -88,10 +97,42 @@
         <ul class="collapsible">
           {{#each user.projects}}
             <li>
-              <div class="collapsible-header"><i
-                  class="material-icons"
-                >whatshot</i>{{title}}</div>
-              <div class="collapsible-body"><span>{{description}}</span></div>
+              <div class="collapsible-header">
+                
+
+ <button data-target="modal3" class="btn modal-trigger custom-edit"><i class="material-icons" >edit</i></button>
+
+        <!-- Modal Structure -->
+  <div id="modal3" class="modal custom-height" >
+        <div class="modal-content">
+  
+    
+  <form action="#" >
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" name="image">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate black-text" type="text">
+      </div>
+      <button  class="btn custom-img-btn">Confirm Picture</button>
+    </div>
+    </form>
+    <form action="#" >
+    <div class="file-field input-field">
+      <button  class="btn custom-img-btn custom-delete-btn ">Delete Project</button>
+    </div>
+  </form>
+        </div>
+  </div>
+                <i class="material-icons" >arrow_drop_down</i>
+                {{title}}                      
+                </div>
+
+              <div class="collapsible-body">
+                    <span>{{description}}</span>
+                </div>
             </li>
           {{/each}}
         </ul>
@@ -143,5 +184,8 @@
   $(document).ready(function(){ $('.sidenav').sidenav(); });
   $(document).ready(function(){ $('select').formSelect(); });
   $(document).ready(function(){ $('.collapsible').collapsible(); });
+    $(document).ready(function(){
+    $('.modal').modal();
+  });
 
 </script>
