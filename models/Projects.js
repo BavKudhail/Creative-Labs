@@ -56,6 +56,10 @@ Project.init(
       defaultValue:
         "https://creative-labs-aws.s3.eu-west-2.amazonaws.com/example.png",
     },
+    project_full: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     sequelize,

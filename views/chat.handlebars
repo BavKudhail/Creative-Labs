@@ -52,7 +52,11 @@
   <h4> Would you like to join their team? </h4>
 
   <div>
-    <button class="btn center-align custom-join-btn" id="join-btn">JOIN TEAM!</button>
+     {{#if project.project_full}}
+      <button class="btn center-align" id="join-btn" value="JOIN THIS TEAM!" disabled>TEAM FULL!</button>
+      {{else}}
+    <button class="btn center-align" id="join-btn" value="JOIN THIS TEAM!" onclick="disableButton()">JOIN THIS TEAM!</button>
+    {{/if}}
   </div>
 
 </div>
