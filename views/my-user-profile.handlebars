@@ -98,61 +98,51 @@
           {{#each user.projects}}
             <li>
               <div class="collapsible-header">
-                
-
- <button data-target="modal3" class="btn modal-trigger custom-edit"><i class="material-icons" >edit</i></button>
-
-        <!-- Modal Structure -->
-  <div id="modal3" class="modal custom-height" >
-        <div class="modal-content">
-  
-    
-  <form action="#" >
-    <div class="file-field input-field">
-      <div class="btn">
-        <span>File</span>
-        <input type="file" name="image">
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate black-text" type="text">
-      </div>
-      <button  class="btn custom-img-btn">Confirm Picture</button>
-    </div>
-    </form>
-    <form action="#" >
-    <div class="file-field input-field">
-      <button  class="btn custom-img-btn custom-delete-btn ">Delete Project</button>
-    </div>
-  </form>
-        </div>
-  </div>
-                <i class="material-icons" >arrow_drop_down</i>
-                {{title}}                      
+          <i class="material-icons" >arrow_drop_down</i> {{title}}                       
                 </div>
 
               <div class="collapsible-body">
-                    <span>{{description}}</span>
-                </div>
-
-
-       <div>
+                <span>{{description}}</span>
+                <div class="custom-flex">
+               
                 {{! update image form }}
-                <form class="image-update-form">
+                <div>
+                 <form class="image-update-form">
                   {{! this input form is hidden - we used it to get the project id }}
+                                   
+
                   <input
                     name="projectId"
                     class="projectId display-hidden"
-                    type="number"
+               
                     value="{{id}}"
                   />
                   <input class="project-image" type="file" name="image" />
-                  <button class="update-project-image-btn btn">Update Image</button>
-                </form>
+                   <button class="update-project-image-btn btn">Update Image</button>
+                </form> 
+
+                </div>
+             
+
                 {{! delete a project button }}
-                <button value="{{id}}" class="delete-project-btn btn">Delete
+                <div>
+                  <button value="{{id}}" class="delete-project-btn btn custom-delete-btn">Delete
                   Project</button>
-              </div>
-                
+                </div>
+              
+         
+                </div>
+                </div>
+
+
+        
+
+
+
+
+
+
+
             </li>
           {{/each}}
         </ul>
@@ -160,30 +150,33 @@
         <h3 class="custom-noproject">You have no projects</h3>
       {{/if}}
 
+
+
       <h3>Teams I have joined</h3>
       {{#if user.teams.length}}
         <ul class="collapsible">
           {{#each user.teams}}
             <li>
-              <div class="collapsible-header"><i
-                  class="material-icons"
-                >whatshot</i>{{team_name}}</div>
+              <div class="collapsible-header">
+                <i class="material-icons" >arrow_drop_down</i>{{team_name}}</div>
               <div class="collapsible-body">
                 {{! Team Members }}
-                <h4 class="black-text">Team Members</h4>
+                <p class="black-text custom-team">Team Members</p>
                 {{#each users}}
                   <div class="team-members-container">
-                    <span>{{username}}</span>
-                    &nbsp
-                    <span>{{role}}</span>
-                    &nbsp
-                    <div>
-                      <img
+                     <img
                         class="circle-team-picture"
                         src="{{picture_url}}"
                         alt=""
                       />
-                    </div>
+                      <div class="custom-other-members">
+                     <span>{{username}}</span>
+                    &nbsp <br>
+                    <span class="grey-text darken-1">{{role}}</span>
+                    &nbsp
+                      </div>
+                 
+              
                   </div>
                 {{/each}}
               </div>

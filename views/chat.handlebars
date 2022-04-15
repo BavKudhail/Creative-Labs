@@ -41,14 +41,14 @@
     <span id="project-id">{{project.id}}</span>:
     {{project.title}}
     project 🔥</h4>
-  <h4>{{project.user.username}}
-    is searching for
+  <h3 class="purple-text text-lighten-4">{{project.user.username}}
+    is searching for <br>
     <span id="designers_needed">{{project.designers_needed}}</span>
     designers,
     <span id="developers_needed">{{project.developers_needed}}</span>
     developers and
     <span id="artist_needed">{{project.artist_needed}}</span>
-    artists</h4>
+    artists</h3>
   <h4> Would you like to join their team? </h4>
 
   <div>
@@ -66,20 +66,21 @@
 <div class="row container center-align">
   {{! card }}
   {{#each team.users}}
-    <div class="col s4 m3 l2">
+    <div class="col s6 m4 l3">
       <div class="card">
-        <div class="card-image">
-          <img src="{{picture_url}}" />
+        <div class="card-image ">
+          <img src="{{picture_url}}" class="custom-member-image"/>
         </div>
-        <div class="card-content black-text custom-card-content">
+        <div class="card-content grey-text text-darken-2 custom-card-content">
           <p>
             <a
               href="/profile/{{id}}"
               class="custom-member-name"
-            >{{username}}</a></p>
-          <p>{{role}}</p>
-          <p>{{email}}</p>
-          <p class="custom-member">Member of the team</p>
+            >{{username}}</a> 
+            <p class="custom-member">{{role}}</p>
+
+        
+        <a href="mailto:{{email}}" class="blue-text">Contact via email</a>
         </div>
       </div>
     </div>
