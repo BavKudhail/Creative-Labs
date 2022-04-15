@@ -30,7 +30,7 @@ router.get("/signup", (req, res) => {
 });
 
 // CREATE A NEW PROJECT
-router.get("/create-project", async (req, res) => {
+router.get("/create-project", withAuth, async (req, res) => {
   try {
     res.render("create-project", { loggedIn: req.session.loggedIn });
   } catch (error) {
