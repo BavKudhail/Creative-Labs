@@ -79,6 +79,7 @@ router.put("/:id", async (req, res) => {
         designers_needed: req.body.designers_needed,
         developers_needed: req.body.developers_needed,
         artist_needed: req.body.artist_needed,
+        project_full: req.body.project_full,
       },
       {
         //update project according to ID
