@@ -74,6 +74,8 @@ const updateProjectImage = async (event) => {
   }
 };
 
+// comment
+
 updateProjectImageForm.on("submit", updateProjectImage);
 
 // is there anyway to refresh when it comes together
