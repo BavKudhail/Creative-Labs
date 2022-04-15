@@ -148,6 +148,7 @@ input {
   top: 40px;
   height: 120px;
   width: 120px;
+  object-fit: cover;
 }
 .custom-profile-details {
   position: relative;
@@ -630,8 +631,21 @@ background: linear-gradient(to right, #F1685A, #F43900);
 
   .custom-member-image{
     height:250px;
+    object-fit: cover;
   }
 
   .custom-proj-picture{
     height:330px;
+    object-fit: cover;
   }
+
+.custom-flex{
+  display:flex;
+
+}
+
+
+.project-image{
+  visibility: none;
+}
+

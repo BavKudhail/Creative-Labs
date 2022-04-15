@@ -98,46 +98,50 @@
           {{#each user.projects}}
             <li>
               <div class="collapsible-header">
-                
-
-
-        <!-- Modal Structure -->
-  <div id="modal3" class="modal custom-height" >
-        <div class="modal-content">
-            <form action="#" class="image-update-form">
-       <div class="file-field input-field">
-           <div class="btn">
-           <span>File</span>
-          <input name="projectId"  class="projectId display-hidden" type="number" value="{{id}}">
-          <input class="project-image" type="file" name="image" />
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate black-text" type="text">
-      </div>
-      <button  class="update-project-image-btn btn custom-img-btn">Confirm Picture</button>
-      </div>
-            </form>
-
-
-
-           <form action="#" class="image-update-form">
-       <div class="file-field input-field">
-         <br>
-      <button  value="{{id}}" class="delete-project-btn btn custom-img-btn custom-delete-btn ">Delete Project</button>
-      </div>
-            </form>
-
-        </div>
-  </div>
           <i class="material-icons" >arrow_drop_down</i> {{title}}                       
                 </div>
 
               <div class="collapsible-body">
                 <span>{{description}}</span>
-                <div class="right-align">
-                     <button data-target="modal3" class="modal-trigger custom-edit">Edit Post</button>
+                <div class="custom-flex">
+               
+                {{! update image form }}
+                <div>
+                 <form class="image-update-form">
+                  {{! this input form is hidden - we used it to get the project id }}
+                                   
+
+                  <input
+                    name="projectId"
+                    class="projectId display-hidden"
+               
+                    value="{{id}}"
+                  />
+                  <input class="project-image" type="file" name="image" />
+                   <button class="update-project-image-btn btn">Update Image</button>
+                </form> 
+
+                </div>
+             
+
+                {{! delete a project button }}
+                <div>
+                  <button value="{{id}}" class="delete-project-btn btn custom-delete-btn">Delete
+                  Project</button>
+                </div>
+              
+         
                 </div>
                 </div>
+
+
+        
+
+
+
+
+
+
 
             </li>
           {{/each}}
