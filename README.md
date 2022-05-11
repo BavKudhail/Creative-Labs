@@ -49,4 +49,4 @@ Socket.io
 
 Users must create an account in order to interact with the app. Once logged in they can create projects of their own and ask for other creatives to join them, or look to join the projects of other creatives. Once a project has been joined a user is able to chat with other members of the team.
 
-The deployed application is available here: https://peaceful-crag-60795.herokuapp.com
+The deployed application is available here: https://creativelabs-app.herokuapp.com/
