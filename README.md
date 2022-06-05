@@ -9,11 +9,11 @@ They could then state what skill-set they required and how many individuals need
 In order to fuel our ambition, we had to overcome a variety of obstacles which led us to become familiar with existing and new technologies.
 
 ## Contributors
-
-Bav Kudhail, Nadine Mohsen, Emily Mckibben
+* Bav Kudhail
+* Nadine Mohsen
+* Emily Mckibben
 
 ## Concept
-
 Do you have a brilliant idea?
 Are you a developer in need of some 3D models? A designer that can't code? A 3D artist that needs some help with design?
 Creator Labs is a space for all creatives to come together to share their skills in order to build new and exciting projects.
@@ -21,7 +21,6 @@ Creator Labs is a space for all creatives to come together to share their skills
 ![screenshot of landing page](/public/images/Landing.JPG)
 
 ## User Story
-
 ```md
 AS A creative with an excellent idea,
 I WANT to find others creators with skills to complement my own
@@ -33,11 +32,13 @@ SO THAT I can build awesome things
 ```
 
 ### Key Features
-
-Users must create an account in order to interact with the app. Once logged in they can create projects of their own and ask for other creatives to join them, or look to join the projects of other creatives. Once a project has been joined a user is able to chat with other members of the team.
+* Create their own projects
+* Join others projects to form a team
+* Group chat messaging
+* Private chat messaging
+* Personal profile page
 
 ## Table of Contents
-
 - [Technologies Used](#technologies-used)
 - [Screenshots](#screenshots)
 - [Installation](#installation)
