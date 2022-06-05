@@ -31,12 +31,14 @@ I WANT to find projects that I can join and network with other creators
 SO THAT I can build awesome things
 ```
 
+
 ### Key Features
-* Create their own projects
-* Join others projects to form a team
-* Group chat messaging
-* Private chat messaging
-* Personal profile page
+* Users can create their own projects
+* Users can join others projects to form a team
+* Users have group chat messaging
+* Users have private chat messaging
+* Users have a personal profile page
+
 
 ## Table of Contents
 - [Technologies Used](#technologies-used)
