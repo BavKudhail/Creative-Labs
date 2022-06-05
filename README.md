@@ -3,8 +3,8 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://creativelabs-app.herokuapp.com/)
 
 ## Description
+Creative Labs is a platform for developers, designers and artists to network and collaborate within the new creator economy. We are living in a very exciting time when it comes to technology, as creative people we often have a lot of ideas for projects we would like to execute, however, can lack certain skillsets in order to bring our ideas into fruition. Our goal was to create an app where a creative, whether that be designer, developer, or artist could post an idea of a project that they would like to build.
 
-Creative Labs is a platform for developers, designers and artists to network and collaborate within the new creator economy. The motivation for building this application was that we are living in a very exciting time when it comes to technology, as creative people we often have a lot of ideas for projects we would like to execute, however, can lack certain skillsets in order to bring our ideas into fruition. Our goal was to create an app where a creative, whether that be designer, developer, or artist could post an idea of a project that they would like to build.
 They could then state what skill-set they required and how many individuals needed. In addition to this functionality, we wanted to integrate features of a social network. Such as a private 1-1 chat for the creatives. As well as chat rooms for each project idea.
 In order to fuel our ambition, we had to overcome a variety of obstacles which led us to become familiar with existing and new technologies.
 
