@@ -84,6 +84,12 @@ SO THAT I can build awesome things
 
 ![screenshot of project chat](/public/images/Profile.gif)
 
+## Figma Design
+Each screen was designed on figma making the development process easier.
+![image](https://user-images.githubusercontent.com/93915846/172047648-1efccc8b-2ff0-4778-90b4-0ce398ccf7e2.png)
+
+
+
 ## Installation
 
 Clone the repository to your local machine.
